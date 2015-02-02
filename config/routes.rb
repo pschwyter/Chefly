@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'recipes/index'
+
+  get 'recipes/show'
+
   get 'users/new'
 
   get 'users/create'
