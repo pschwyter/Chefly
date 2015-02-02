@@ -1,4 +1,54 @@
 Rails.application.routes.draw do
+  get 'comments/index'
+
+  get 'comments/show'
+
+  get 'comments/create'
+
+  get 'comments/edit'
+
+  get 'comments/update'
+
+  get 'comments/destroy'
+
+  get 'comments/new'
+
+  get 'ratings/new'
+
+  get 'ratings/create'
+
+  get 'ratings/edit'
+
+  get 'ratings/update'
+
+  get 'ratings/destroy'
+
+  get 'ratings/index'
+
+  get 'ratings/show'
+
+  get 'ingredients/show'
+
+  get 'ingredients/index'
+
+  get 'recipes/index'
+
+  get 'recipes/show'
+
+  get 'users/new'
+
+  get 'users/create'
+
+  get 'users/destroy'
+
+  get 'users/index'
+
+  get 'users/show'
+
+  get 'users/update'
+
+  get 'users/edit'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
