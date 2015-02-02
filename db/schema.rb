@@ -13,7 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20150202195331) do
 
-
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -31,7 +30,6 @@ ActiveRecord::Schema.define(version: 20150202195331) do
     t.datetime "updated_at"
     t.integer  "user_id"
     t.integer  "recipe_id"
-
   end
 
   create_table "ingredients_users", id: false, force: true do |t|

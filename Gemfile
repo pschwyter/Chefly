@@ -1,13 +1,8 @@
 source 'https://rubygems.org'
 
 gem "pg"
-
-gem 'pry-rails', :group => :development
-gem 'awesome_print'
-group :development do
-  gem "better_errors"
-  gem "binding_of_caller"
-end
+gem "bourbon"
+gem "neat"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.7'
@@ -46,3 +41,9 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+group :development do
+  gem "better_errors"
+  gem "binding_of_caller"
+  gem "pry-rails"
+  gem "awesome_print"
+end
