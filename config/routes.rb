@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: { sessions: "users/sessions" }
+  devise_for :users, controllers: { sessions: "users/sessions", omniauth_callbacks: "users/omniauth_callbacks" }
+  # devise_for :users, controllers: { :omniauth_callbacks => "users/omniauth_callbacks" }
   get 'comments/index'
 
   get 'comments/show'
@@ -54,7 +55,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'recipes#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
