@@ -30,7 +30,6 @@ ActiveRecord::Schema.define(version: 20150203000445) do
     t.datetime "updated_at"
     t.integer  "user_id"
     t.integer  "recipe_id"
-
   end
 
   create_table "ingredients_users", id: false, force: true do |t|
