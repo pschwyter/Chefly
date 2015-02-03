@@ -1,2 +1,14 @@
-<h1>Recipes#index</h1>
-<p>Find me in app/views/recipes/index.html.erb</p>
+<h1>Add some Ingredients</h1>
+<h3>maybe some cucumber or chick peas, healthy shit</h3>
+
+<%= form_tag recipes_path, method: 'get' do %>
+	<%= text_field_tag :ingredient, params[:ingredient] %>
+	<%= submit_tag "Find Recipes", :name => nil %>
+<% end %>
+
+<h1>Here's your recipes bro</h1>
+<% @recipes.each do |recipe| %>
+	<div>
+		<%= recipe.name %>
+	</div>
+<% end %>

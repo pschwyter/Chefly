@@ -5,13 +5,10 @@ gem 'devise'
 gem 'omniauth-facebook'
 
 gem "pg"
+gem "bourbon"
+gem "neat"
 
-gem 'pry-rails', :group => :development
-gem 'awesome_print'
-group :development do
-  gem "better_errors"
-  gem "binding_of_caller"
-end
+gem 'react-rails', '~> 1.0.0.pre', github: 'reactjs/react-rails'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.7'
@@ -29,7 +26,7 @@ gem 'coffee-rails', '~> 4.0.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
+# gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
@@ -50,3 +47,9 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+group :development do
+  gem "better_errors"
+  gem "binding_of_caller"
+  gem "pry-rails"
+  gem "awesome_print"
+end
