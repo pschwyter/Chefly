@@ -1,5 +1,9 @@
 source 'https://rubygems.org'
 
+gem 'devise'
+# Facebook authentication
+gem 'omniauth-facebook'
+
 gem "pg"
 gem "bourbon"
 gem "neat"
