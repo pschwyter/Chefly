@@ -1,48 +1,46 @@
-$(document).on('ready page:load' function() {
+$(document).on('ready page:load', function() {
 
-	apiKey = "b05c45fc8ed1a6c807983eaf1d30e6b0";
+	var apiKey = "b05c45fc8ed1a6c807983eaf1d30e6b0";
 
-	function findRecipes() {
+    $('.test-button').on('click', function() {
 
-		var ingredients = "";
-		var url = "http://food2fork.com/api/search?"
-			+ "key=" + apiKey
+        var API_SEARCH_ENDPOINT = "/search.jsonp";
+		var ingredients = encodeURI("chicken");
+		var url = "http://food2fork.com/api/search.jsonp?key=" 
+            + apiKey
 			+ "&q=" + ingredients; 
 
 		$.ajax({
-			type: "GET",
-			dataType: 'json',
-			cache: false,
+            type: 'GET',
 			url: url,
-			success: recipesCallback
+            dataType: "jsonp",
+			success: findRecipesCallback
 		});
-	}
+	});
 
-	function findRecipesCallback (data) {
-		alert('success');
+	function findRecipesCallback(data) {
 		console.log(data);
 	}
 
-	function recipeDetails() {
+	// function recipeDetails() {
 
-		var recipeId = $(this).data("recipe_id");
-		var url = "http://food2fork.com/api/search?"
-			+ "key=" + apiKey
-			+ "&rId=" + recipeId; 
+	// 	var recipeId = $(this).data("recipe_id");
+	// 	var url = "http://food2fork.com/api/search?"
+	// 		+ "key=" + apiKey
+	// 		+ "&rId=" + recipeId; 
 
-		$.ajax({
-			type: "GET",
-			dataType: 'json',
-			cache: false,
-			url: url,
-			success: recipeDetailsCallback
-		});
-	}
+	// 	$.ajax({
+	// 		type: "GET",
+	// 		dataType: 'json',
+	// 		url: url,
+	// 		success: recipeDetailsCallback
+	// 	});
+	// }
 
-	function recipeDetailsCallback(data) {
-		alert('success');
-		console.log(data);
-	}
+	// function recipeDetailsCallback(data) {
+	// 	alert('success');
+	// 	console.log(data);
+	// }
 });
 
 
