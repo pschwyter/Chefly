@@ -14,11 +14,13 @@ $(document).on('ready page:load' function() {
 			dataType: 'json',
 			cache: false,
 			url: url,
-			success: function (data) {
-				alert('success');
-				console.log(data);
-			}
+			success: recipesCallback
 		});
+	}
+
+	function findRecipesCallback (data) {
+		alert('success');
+		console.log(data);
 	}
 
 	function recipeDetails() {
@@ -33,10 +35,23 @@ $(document).on('ready page:load' function() {
 			dataType: 'json',
 			cache: false,
 			url: url,
-			success: function (data) {
-				alert('success');
-				console.log(data);
-			}
+			success: recipeDetailsCallback
 		});
 	}
+
+	function recipeDetailsCallback(data) {
+		alert('success');
+		console.log(data);
+	}
 });
+
+
+
+
+
+
+
+
+
+
+
