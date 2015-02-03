@@ -1,55 +1,18 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { sessions: "users/sessions", omniauth_callbacks: "users/omniauth_callbacks" }
   # devise_for :users, controllers: { :omniauth_callbacks => "users/omniauth_callbacks" }
-  get 'comments/index'
+  resources :comments
 
-  get 'comments/show'
+  resources :ratings
 
-  get 'comments/create'
+  resources :ingredients
 
-  get 'comments/edit'
+  resources :recipes
+  get '/recipes/ingredient_search', to: 'recipes#ingredient_search', as: 'ingredient_search'
 
-  get 'comments/update'
+  get '/patients/:id', to: 'patients#show', as: 'patient'
 
-  get 'comments/destroy'
-
-  get 'comments/new'
-
-  get 'ratings/new'
-
-  get 'ratings/create'
-
-  get 'ratings/edit'
-
-  get 'ratings/update'
-
-  get 'ratings/destroy'
-
-  get 'ratings/index'
-
-  get 'ratings/show'
-
-  get 'ingredients/show'
-
-  get 'ingredients/index'
-
-  get 'recipes/index'
-
-  get 'recipes/show'
-
-  get 'users/new'
-
-  get 'users/create'
-
-  get 'users/destroy'
-
-  get 'users/index'
-
-  get 'users/show'
-
-  get 'users/update'
-
-  get 'users/edit'
+  resources :users
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
