@@ -1,20 +1,57 @@
-$(document).on('ready' function() {
-	
-	function getRecipeJson() {
-        var apiKey = "dvxn3Sx834s9J8nO8CJSFZfPZ5KUmWFE";
-        var titleKeyword = "lasagna";
-        var url = "http://api.bigoven.com/recipes?pg=1&rpp=25&title_kw="
-                  + titleKeyword 
-                  + "&api_key="+apiKey;
-        $.ajax({
-            type: "GET",
-            dataType: 'json',
-            cache: false,
-            url: url,
-            success: function (data) {
-                alert('success');
-                console.log(data);
-            }
-        });
-    }
+$(document).on('ready page:load' function() {
+
+	apiKey = "b05c45fc8ed1a6c807983eaf1d30e6b0";
+
+	function findRecipes() {
+
+		var ingredients = "";
+		var url = "http://food2fork.com/api/search?"
+			+ "key=" + apiKey
+			+ "&q=" + ingredients; 
+
+		$.ajax({
+			type: "GET",
+			dataType: 'json',
+			cache: false,
+			url: url,
+			success: recipesCallback
+		});
+	}
+
+	function findRecipesCallback (data) {
+		alert('success');
+		console.log(data);
+	}
+
+	function recipeDetails() {
+
+		var recipeId = $(this).data("recipe_id");
+		var url = "http://food2fork.com/api/search?"
+			+ "key=" + apiKey
+			+ "&rId=" + recipeId; 
+
+		$.ajax({
+			type: "GET",
+			dataType: 'json',
+			cache: false,
+			url: url,
+			success: recipeDetailsCallback
+		});
+	}
+
+	function recipeDetailsCallback(data) {
+		alert('success');
+		console.log(data);
+	}
 });
+
+
+
+
+
+
+
+
+
+
+
