@@ -24,7 +24,9 @@ $(document).on('ready page:load', function() {
         var recipeCount = data.count;
         var recipes = data.recipes;
 
-        $('.test-button').append('<div>' + data.recipes + '</div>')
+        for (var i = 0; i <= recipeCount; i++) {
+            $('.test-button').append('<div>' + recipes[i].title + '</div>');
+        }
 	}
 
 	// function recipeDetails() {
