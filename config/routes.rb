@@ -1,9 +1,61 @@
 Rails.application.routes.draw do
+  devise_for :users, controllers: { sessions: "users/sessions", omniauth_callbacks: "users/omniauth_callbacks" }
+  # devise_for :users, controllers: { :omniauth_callbacks => "users/omniauth_callbacks" }
+  get 'comments/index'
+
+  get 'comments/show'
+
+  get 'comments/create'
+
+  get 'comments/edit'
+
+  get 'comments/update'
+
+  get 'comments/destroy'
+
+  get 'comments/new'
+
+  get 'ratings/new'
+
+  get 'ratings/create'
+
+  get 'ratings/edit'
+
+  get 'ratings/update'
+
+  get 'ratings/destroy'
+
+  get 'ratings/index'
+
+  get 'ratings/show'
+
+  get 'ingredients/show'
+
+  get 'ingredients/index'
+
+  get 'recipes/index'
+
+  get 'recipes/show'
+
+  get 'users/new'
+
+  get 'users/create'
+
+  get 'users/destroy'
+
+  get 'users/index'
+
+  get 'users/show'
+
+  get 'users/update'
+
+  get 'users/edit'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'recipes#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
