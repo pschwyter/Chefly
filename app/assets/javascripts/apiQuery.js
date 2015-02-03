@@ -20,6 +20,11 @@ $(document).on('ready page:load', function() {
 
 	function findRecipesCallback(data) {
 		console.log(data);
+
+        var recipeCount = data.count;
+        var recipes = data.recipes;
+
+        $('.test-button').append('<div>' + data.recipes + '</div>')
 	}
 
 	// function recipeDetails() {
@@ -42,6 +47,8 @@ $(document).on('ready page:load', function() {
 	// 	console.log(data);
 	// }
 });
+
+
 
 
 
