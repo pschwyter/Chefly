@@ -3,10 +3,9 @@ class Recipe < ActiveRecord::Base
 	has_many :comments
 	has_many :ratings
 
-
-	def ingredient_search(ingredient)
+	def self.ingredient_search(ingredient)
 		if ingredient
-			Recipe.all.where(ingredient)
+			Ingredient.where(name: ingredient).first.recipes
 		else
 			Recipe.all
 		end
