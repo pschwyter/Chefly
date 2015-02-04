@@ -1,17 +1,12 @@
 <h1>Add some Ingredients</h1>
-<h3>Chefly says: maybe some cucumber or chick peas, I don't know</h3>
+<h3>maybe some cucumber or chick peas, healthy shit</h3>
 
-<input type="text" name="fname", id="ingredient">
-<input type="submit" value="Add Ingredient" id="add-ingredient">
-
-
-
-<div id="ingredient-box"></div>
-
-<%= form_tag recipes_path, method: 'get', id: 'recipe-search' do %>
-	<%= submit_tag "Find Recipes", :name => nil, id: "submit" %>
+<%= form_tag recipes_path, method: 'get' do %>
+	<%= text_field_tag :ingredient, params[:ingredient] %>
+	<%= submit_tag "Find Recipes", :name => nil %>
 <% end %>
 
 <h1>Here's your recipes bro</h1>
 
 <div id="search-results"></div>
+

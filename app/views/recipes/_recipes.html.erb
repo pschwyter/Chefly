@@ -1,8 +1,8 @@
 <h1>TEST RECIPE LIST</h1>
-<% if @api_recipes %>
+<% if @recipes %>
 	<% @api_recipes.each do |recipe| %>
 		<div>
-			<%= link_to recipe['title'], recipe_path(recipe['recipe_id']) %>
+			<%= link_to recipe.title, recipe_path(recipe.id) %>
 		</div>
 	<% end %>
 <% end %>
