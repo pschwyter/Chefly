@@ -14,4 +14,14 @@
 
 <h1>Here's your recipes bro</h1>
 
+
 <div id="search-results"></div>
+
+<% @recipes.each do |recipe| %>
+	<div>
+		<%= recipe.name %>
+	</div>
+<% end %>
+
+<div class="test-button">TEST BUTTON</div>
+
