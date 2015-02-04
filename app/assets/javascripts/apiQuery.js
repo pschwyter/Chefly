@@ -1,4 +1,4 @@
-$(document).on('ready page:load' function() {
+$(document).on('ready page:load', function() {
 
 	apiKey = "b05c45fc8ed1a6c807983eaf1d30e6b0";
 
