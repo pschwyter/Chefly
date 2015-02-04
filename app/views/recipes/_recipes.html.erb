@@ -1,10 +1,8 @@
-<h1>WONDERFUL</h1>
-<% if @recipes.count > 1 %>
-	<% @recipes.each do |recipe| %>
+<h1>TEST RECIPE LIST</h1>
+<% if @api_recipes %>
+	<% @api_recipes.each do |recipe| %>
 		<div>
-			<%= recipe.name %>
+			<%= link_to recipe['title'], recipe_path(recipe['recipe_id']) %>
 		</div>
 	<% end %>
-<% else %>
-	<%= @recipes.first.name %>
 <% end %>
