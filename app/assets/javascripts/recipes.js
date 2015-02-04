@@ -4,22 +4,29 @@
 
 $(document).ready(function(){
 
-
-
 	$("#add-ingredient").on('click', function(){
-		var ingredients = {$('#ingredient-box div').each(function(index,div){ return $(div).data('ingredient'));})};
+		var ingredient = $('#ingredient').val();
 		$('#ingredient-box').append('<div data-ingredient='+ ingredient +'>' + ingredient + '</div>');
 	});
 
 	$('#recipe-search').submit(function(e) {
 		e.preventDefault();  
-    var valuesToSubmit = {ingredient: $('#ingredient-box div').data('ingredient')};
+		var ingredients = $('#ingredient-box div').map(function(index, div){return $(div).data('ingredient')});
+
+		var ingredients_array = [];
+		ingredients.each(function(index,value){ingredients_array.push(value)});
+		ingredients_string = ingredients_array.join(',');
+    // var valuesToSubmit = {ingredients: string_ingredients};
+    var valuesToSubmit = {ingredients: ingredients_string};
+    console.log(valuesToSubmit);
     $.ajax({
         type: "GET",
         url: $(this).attr('action'), //sumbits it to the given url of the form
         data: valuesToSubmit,
         dataType: "SCRIPT" // you want a difference between normal and ajax-calls, and json is standard
-    })
+    }).fail(function(){
+    	console.log('fail');
+    });
 	});
 
 });
