@@ -7,6 +7,7 @@ gem 'omniauth-facebook'
 gem "pg"
 gem "bourbon"
 gem "neat"
+gem "httparty"
 
 gem 'react-rails', '~> 1.0.0.pre', github: 'reactjs/react-rails'
 
