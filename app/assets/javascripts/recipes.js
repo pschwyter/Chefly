@@ -11,7 +11,7 @@ $(document).ready(function(){
 
 	$('#recipe-search').submit(function(e) {
 		e.preventDefault();  
-		var ingredients = $('#ingredient-box div').map(function(index, div){return $(div).data('ingredient')});
+		var ingredients = $('#ingredient-box div').map(function(index, div){return $(div).text()});
 
 		var ingredients_array = [];
 		ingredients.each(function(index,value){ingredients_array.push(value)});
