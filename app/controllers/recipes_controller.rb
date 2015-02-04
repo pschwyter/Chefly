@@ -7,10 +7,10 @@ class RecipesController < ApplicationController
 	  	format.html
 	  	format.js
 	  end
-	  binding.pry
 	end
 
   def show
+  	@recipe = FoodToFork.find(params[:id])
   end
 
 end
