@@ -22,11 +22,17 @@ class FoodToFork
   def self.find_by_ingredients(ingredients)
     encoded_ingredients = URI.encode(ingredients)
 
-    JSON.parse(get("/api/search?key=" + @apiKey + "&q=" + encoded_ingredients))['recipes']
+    response = JSON.parse(get("/api/search?key=" + @apiKey + "&q=" + encoded_ingredients))
+
+    response["recipes"].map do |r|
+      FoodToFork.new(r)
+    end
+
   end
 
 	def self.find(recipe_id)
-		# JSON.parse(get("/api/get?key=" + @apiKey.to_s + "&rId=" + recipe_id))["recipe"]
-    FoodToFork.find_by(recipe_id: recipe_id)
+		JSON.parse(get("/api/get?key=" + @apiKey.to_s + "&rId=" + recipe_id))["recipe"]
 	end
 end
+
+
