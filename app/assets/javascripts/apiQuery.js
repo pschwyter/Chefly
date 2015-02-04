@@ -24,29 +24,34 @@ $(document).on('ready page:load', function() {
         var recipeCount = data.count;
         var recipes = data.recipes;
 
-        $('.test-button').append('<div>' + data.recipes + '</div>')
+        for (var i = 0; i < recipeCount; i++) {
+            $('.test-append').append('<div data-id=' + recipes[i].recipe_id + ' class="recipes" >' + recipes[i].title + '</div>');
+        }
 	}
 
-	// function recipeDetails() {
 
-	// 	var recipeId = $(this).data("recipe_id");
-	// 	var url = "http://food2fork.com/api/search?"
-	// 		+ "key=" + apiKey
-	// 		+ "&rId=" + recipeId; 
+	$('.test-append').on('click', ".recipes", function() {
 
-	// 	$.ajax({
-	// 		type: "GET",
-	// 		dataType: 'json',
-	// 		url: url,
-	// 		success: recipeDetailsCallback
-	// 	});
-	// }
+		var recipeId = $(this).data("id");
+		var url = "http://food2fork.com/api/get.jsonp?key=" 
+            + apiKey
+			+ "&rId=" + recipeId; 
 
-	// function recipeDetailsCallback(data) {
-	// 	alert('success');
-	// 	console.log(data);
-	// }
+		$.ajax({
+			type: "GET",
+			url: url,
+            dataType: 'jsonp',
+			success: recipeDetailsCallback
+		});
+	});
+
+	function recipeDetailsCallback(data) {
+		console.log(data);
+        console.log(data.recipe.image_url);
+        $('.test-append').html("<img src=" + data.recipe.image_url + " />" );
+	}
 });
+
 
 
 
