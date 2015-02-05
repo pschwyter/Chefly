@@ -15,6 +15,10 @@ class RecipesController < ApplicationController
 
   def show
   	@recipe = FoodToFork.find(params[:id])
+  	Recipe.find_or_create_by(f2f_id: params[:id]) do |r|
+  		r.title = @recipe["title"]
+  		r.source = @recipe["source_url"]
+  	end
   end
 
 end
