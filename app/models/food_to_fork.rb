@@ -27,11 +27,22 @@ class FoodToFork
     response["recipes"].map do |r|
       FoodToFork.new(r)
     end
-
   end
 
 	def self.find(recipe_id)
-		JSON.parse(get("/api/get?key=" + @apiKey.to_s + "&rId=" + recipe_id))["recipe"]
+		recipe = Recipe.find_or_create_by(recipe_id: recipe_id) do |r|
+			response = JSON.parse(get("/api/get?key=" + @apiKey.to_s + "&rId=" + recipe_id))["recipe"]
+	    r.title = response['title']
+	    r.recipe_id = response['recipe_id']
+	    r.image_url = response['image_url']
+	    r.update_attributes(ftof_ingredients: response['ingredients'])
+			r.social_rank = response['social_rank']
+			r.source_url = response['source_url']
+			r.publisher_url = response['publisher_url']
+			r.publisher = response['publisher']
+			r.f2f_url = response['f2f_url']
+	    r.save
+		end
 	end
 end
 
