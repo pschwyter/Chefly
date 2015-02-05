@@ -9,7 +9,7 @@ class Yummly
 	def initialize(options)
 		@id = options["id"]
 		@name = options["recipeName"]
-		@image = options["smallImageUrls"]
+		@image = options["smallImageUrls"][0]
 	end
 
 	def self.all(options = {})
@@ -31,7 +31,8 @@ class Yummly
   end
 
 	def self.find(recipe_id)
-		get("/v1/api/recipe/#{recipe_id}?_app_id=#{@app_id}&_app_key=#{@api_key}&q=")
+		response = get("/v1/api/recipe/#{recipe_id}?_app_id=#{@app_id}&_app_key=#{@api_key}&q=")
+		binding.pry
 	end
 end
 
