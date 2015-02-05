@@ -2,7 +2,7 @@
 <% if @recipes %>
 	<% @recipes.each do |recipe| %>
 		<div>
-			<%= link_to recipe.title, recipe_path(recipe.id) %>
+			<%= link_to recipe.name, recipe_path(recipe.id) %>
 		</div>
 	<% end %>
 <% end %>
