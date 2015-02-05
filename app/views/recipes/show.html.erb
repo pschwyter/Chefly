@@ -1,8 +1,8 @@
 <h1>Recipes#show</h1>
 <p>Find me in app/views/recipes/show.html.erb</p>
 
-<%= @recipe['name'] %>
-<% @recipe['ingredientLines'].each do |ingredient| %>
+<%= @recipe['title'] %>
+<% @recipe['ingredients'].each do |ingredient| %>
 	<div>
 		<%= ingredient %>
 	</div>
