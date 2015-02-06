@@ -7,13 +7,18 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<% if current_user %>
-		<%= link_to "Sign out", destroy_user_session_path, :method => 'delete' %>
-	<% else %>
-		<%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
-	<% end %>
-
-<%= yield %>
-
+	<div class="content-wrapper">
+		<header>
+			<h1>Chefly</h1>
+		</header>
+		<% if current_user %>
+			<%= link_to "Sign out", destroy_user_session_path, :method => 'delete' %>
+		<% else %>
+			<%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
+		<% end %>
+		<div>
+			<%= yield %>
+		</div>
+	</div>
 </body>
 </html>
