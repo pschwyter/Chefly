@@ -9,7 +9,7 @@ class Yummly
 	def initialize(options)
 		@id = options["id"]
 		@name = options["recipeName"]
-		@image = options["smallImageUrls"][0]
+		@image = options["smallImageUrls"][0].sub(/([=])\w+/,'=s600')
 	end
 
 	def self.all(options = {})
@@ -31,9 +31,8 @@ class Yummly
   end
 
 	def self.find(recipe_id)
-		response = get("/v1/api/recipe/#{recipe_id}?_app_id=#{@app_id}&_app_key=#{@api_key}&q=")
+		response = get("/v1/api/recipe/#{recipe_id}?_app_id=#{@app_id}&_app_key=#{@api_key}&q=#{recipe_id}").parsed_response
 		binding.pry
+		response
 	end
 end
-
-
