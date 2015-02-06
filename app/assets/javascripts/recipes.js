@@ -6,7 +6,11 @@ $(document).ready(function(){
 
 	$("#add-ingredient").on('click', function(){
 		var ingredient = $('#ingredient').val();
-		$('#ingredient-box').append('<div data-ingredient='+ ingredient +'>' + ingredient + '</div>');
+		$('#ingredient-box').append('<div><button type="button" class="ingredient-in-box" data-ingredient='+ ingredient +'>' + ingredient + '</button></div>');
+
+		$('button.ingredient-in-box').on('click', function(){
+			$(this).remove();
+		});
 	});
 
 	$('#recipe-search').submit(function(e) {
