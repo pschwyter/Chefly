@@ -37,11 +37,24 @@ $(document).ready(function(){
 	});
 
 	var child = 2;
-	var childPrev = 1;
 	$('nav').on('click', function() {
-		$("#search-results .recipe-thumb:nth-child(" + childPrev + ")").hide();
+		var numRecipes = $("#search-results").children().length;
+		if (child > numRecipes) { child = 1; }
+
+		$("#search-results").children().hide();
 		$("#search-results .recipe-thumb:nth-child(" + child + ")").show();
 		child ++;
-		childPrev ++;
 	});
 });
+
+
+
+
+
+
+
+
+
+
+
+
