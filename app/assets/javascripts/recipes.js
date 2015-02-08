@@ -4,14 +4,23 @@
 
 $(document).ready(function(){
 
-	$("#add-ingredient").on('click', function(){
+	var callback = function(){
 		var ingredient = $('#ingredient').val();
+		$('#ingredient').val('');
 		$('#ingredient-box').append('<div><button type="button" class="ingredient-in-box" data-ingredient='+ ingredient +'>' + ingredient + '</button></div>');
 
 		$('button.ingredient-in-box').on('click', function(){
 			$(this).remove();
 		});
+	}
+
+	$('#ingredient').keypress(function(event){
+		if (event.which == 13) {
+			callback();
+		}       
 	});
+
+	$("#add-ingredient").on('click', callback);
 
 	// Prepare ingredient query string
 	$('#recipe-search').submit(function(e) {

@@ -95,16 +95,21 @@ nav h2 a {
 	vertical-align: top;
 }
 
-// Recipe Cards
-
-#search-results {
+#ingredient-search {
 	text-align: center;
 }
 
+// Recipe Cards
+
+#ingredient-box {
+	text-align: center;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
 .recipe-thumb {
-	background-color: $light-secondary-red;
 	width: 600px;
-	height: 550px;
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
@@ -119,7 +124,7 @@ nav h2 a {
 	font-family: 'Arvo', '700';
 	line-height: 3rem;
 	color: $dark-blue;
-	margin-top: 0px;
+	margin: 0px 5px 0px 5px;
 	text-align: left;
 }
 
@@ -127,12 +132,22 @@ nav h2 a {
 	display: inline-block;
 	width: 75%;
 	float: left;
+	background-color: $light-secondary-red;
 }
 
 .aside {
+	height: 100%;
 	display: inline-block;
 	width: 25%;
 	float: right;
+	background-color: $dark-blue;
+	color: $light-secondary-red;
+}
+
+.info-container {
+	overflow: auto;
+	background-color: $light-secondary-red;
+	position: relative;
 }
 
 
