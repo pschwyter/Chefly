@@ -1,0 +1,161 @@
+//Colours
+
+$primary-red: #793B3B;
+$light-red: #FFDCDC;
+$dark-red: #793B3B;
+
+$primary-blue: #E1E4F5;
+$light-blue: #FFDCDC;
+$dark-blue: #414662;
+
+$secondary-red: #E9B0A0;
+$light-secondary-red: #F5E8E4;
+$dark-secondary-red: #AE8276;
+
+// Button and Field Sizes
+
+$small-button: 15px;
+$medium-button: 25px;
+$large-button: 40px;
+
+//BG
+
+.bg {
+	background-image: url('board.jpg');
+	width: 100%;
+	height: 100vh;
+	position: absolute;
+	z-index: -1;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+// Buttons
+
+.button {
+	background-color: $dark-blue;
+	color: $light-blue;
+	border: none;
+	outline: 0;
+}
+
+// Navbar
+
+nav {
+	background-color: $primary-red;
+	position: fixed;
+	width: 100%;
+	height: 60px;
+}
+
+nav h2 {
+	color: $light-secondary-red;
+	margin: 5px;
+	margin-left: 15px;
+	display: inline-block;
+}
+
+nav h2 a {
+	text-decoration: none;
+	color: $light-secondary-red;
+}
+
+#logo {
+	display: inline-block;
+}
+
+#sign-in {
+	float: right;
+	display: inline-block;
+}
+
+// Search
+
+#ingredient-search {
+	padding-top: 100px;
+	text-align: center;
+}
+
+#ingredient {
+	height: $large-button;
+	width: 30%;
+	text-align: center;
+	opacity: 0.9;
+	background-color: $light-secondary-red;
+	border: 1px solid grey;
+	padding: 0px;
+	vertical-align: top;
+	outline: 0;
+}
+
+#add-ingredient {
+	height: $large-button;
+	width: $large-button;
+	font-size: 1.5rem;
+	vertical-align: top;
+}
+
+// Recipe Cards
+
+#search-results {
+	text-align: center;
+}
+
+.recipe-thumb {
+	background-color: $light-secondary-red;
+	width: 600px;
+	height: 550px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.thumb-image {
+	display: block;
+	width: 600px;
+}
+
+.thumb-name {
+	font-family: 'Arvo', '700';
+	line-height: 3rem;
+	color: $dark-blue;
+	margin-top: 0px;
+	text-align: left;
+}
+
+.title {
+	display: inline-block;
+	width: 75%;
+	float: left;
+}
+
+.aside {
+	display: inline-block;
+	width: 25%;
+	float: right;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
