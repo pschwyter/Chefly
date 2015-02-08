@@ -4,12 +4,18 @@ class Yummly
 	@app_id = '548c220e'
 	@api_key = "b542c6f2342b145ce8f524981bc75653"
 
-	attr_accessor :id, :name, :image
+	attr_accessor :id, :name, :image, :time, :ingredientsNum
 
 	def initialize(options)
 		@id = options["id"]
 		@name = options["recipeName"]
 		@image = options["smallImageUrls"][0].sub(/([=])\w+/,'=s600')
+		if options["totalTimeInSeconds"] != nil
+			@time = ((options["totalTimeInSeconds"] / 60 * 5) / 5).to_i
+		else
+			@time = "NA"
+		end
+		@ingredientsNum = options["ingredients"].count
 	end
 
 	def self.all(options = {})

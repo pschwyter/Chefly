@@ -1,8 +1,14 @@
 <% if @recipes %>
-	<% @recipes.each do |recipe| %>
-		<div class="recipe-thumb">
-			<%= image_tag recipe.image %>
-			<%= link_to recipe.name, recipe_path(recipe.id) %>
-		</div>
-	<% end %>
+<% @recipes.each do |recipe| %>
+<div class="recipe-thumb">
+	<%= image_tag recipe.image, class:"thumb-image" %>
+	<div class="title">
+		<h1 class="thumb-name"><%= recipe.name %></h1>
+	</div>
+	<div class="aside">
+		<h5>Cook Time: <strong><%= recipe.time %></strong></h5>
+		<h5>Number of ingredients: <strong><%= recipe.ingredientsNum %></strong></h5>
+	</div>
+</div>
+<% end %>
 <% end %>

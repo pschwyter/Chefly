@@ -69,7 +69,7 @@ nav h2 a {
 	display: inline-block;
 }
 
-// Index
+// Search
 
 #ingredient-search {
 	padding-top: 100px;
@@ -95,10 +95,45 @@ nav h2 a {
 	vertical-align: top;
 }
 
-#ingredient-box {
+// Recipe Cards
+
+#search-results {
+	text-align: center;
 }
 
+.recipe-thumb {
+	background-color: $light-secondary-red;
+	width: 600px;
+	height: 550px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
 
+.thumb-image {
+	display: block;
+	width: 600px;
+}
+
+.thumb-name {
+	font-family: 'Arvo', '700';
+	line-height: 3rem;
+	color: $dark-blue;
+	margin-top: 0px;
+	text-align: left;
+}
+
+.title {
+	display: inline-block;
+	width: 75%;
+	float: left;
+}
+
+.aside {
+	display: inline-block;
+	width: 25%;
+	float: right;
+}
 
 
 
