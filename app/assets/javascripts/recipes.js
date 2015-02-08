@@ -7,7 +7,7 @@ $(document).ready(function(){
 	var callback = function(){
 		var ingredient = $('#ingredient').val();
 		$('#ingredient').val('');
-		$('#ingredient-box').append('<div><button type="button" class="ingredient-in-box" data-ingredient='+ ingredient +'>' + ingredient + '</button></div>');
+		$('#ingredient-box').append('<div class="tag-box"><button type="button" class="ingredient-in-box tag" data-ingredient='+ ingredient +'>' + ingredient + ' - x </button></div>');
 
 		$('button.ingredient-in-box').on('click', function(){
 			$(this).remove();

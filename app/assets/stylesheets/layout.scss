@@ -39,6 +39,21 @@ $large-button: 40px;
 	outline: 0;
 }
 
+.tag {
+	background-color: $dark-blue;
+	display: inline-block;
+	color: $light-blue;
+	border: none;
+	outline: 0;
+	margin: 10px;
+	padding: 5px 15px 5px 15px;
+	border-radius: 4px;
+}
+
+.tag-box {
+	display: inline-block;
+}
+
 // Navbar
 
 nav {
@@ -99,6 +114,10 @@ nav h2 a {
 	text-align: center;
 }
 
+// .ingredient-in-box {
+// 	background-color: $dark-blue;
+// }
+
 // Recipe Cards
 
 #ingredient-box {
@@ -142,6 +161,7 @@ nav h2 a {
 	float: right;
 	background-color: $dark-blue;
 	color: $light-secondary-red;
+	text-align: center;
 }
 
 .info-container {
