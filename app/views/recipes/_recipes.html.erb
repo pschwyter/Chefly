@@ -1,7 +1,6 @@
-<h1>TEST RECIPE LIST</h1>
 <% if @recipes %>
 	<% @recipes.each do |recipe| %>
-		<div>
+		<div class="recipe-thumb">
 			<%= image_tag recipe.image %>
 			<%= link_to recipe.name, recipe_path(recipe.id) %>
 		</div>

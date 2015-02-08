@@ -1,3 +1,5 @@
+//Colours
+
 $primary-red: #793B3B;
 $light-red: #FFDCDC;
 $dark-red: #793B3B;
@@ -9,6 +11,12 @@ $dark-blue: #414662;
 $secondary-red: #E9B0A0;
 $light-secondary-red: #F5E8E4;
 $dark-secondary-red: #AE8276;
+
+// Button and Field Sizes
+
+$small-button: 15px;
+$medium-button: 25px;
+$large-button: 40px;
 
 //BG
 
@@ -28,9 +36,8 @@ $dark-secondary-red: #AE8276;
 	background-color: $dark-blue;
 	color: $light-blue;
 	border: none;
+	outline: 0;
 }
-
-
 
 // Navbar
 
@@ -69,8 +76,23 @@ nav h2 a {
 	text-align: center;
 }
 
-#add-ingredient {
+#ingredient {
+	height: $large-button;
+	width: 30%;
+	text-align: center;
+	opacity: 0.9;
+	background-color: $light-secondary-red;
+	border: 1px solid grey;
+	padding: 0px;
+	vertical-align: top;
+	outline: 0;
+}
 
+#add-ingredient {
+	height: $large-button;
+	width: $large-button;
+	font-size: 1.5rem;
+	vertical-align: top;
 }
 
 #ingredient-box {

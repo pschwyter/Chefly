@@ -13,24 +13,35 @@ $(document).ready(function(){
 		});
 	});
 
+	// Prepare ingredient query string
 	$('#recipe-search').submit(function(e) {
+
 		e.preventDefault();  
 		var ingredients = $('#ingredient-box div').map(function(index, div){return $(div).text()});
-
 		var ingredients_array = [];
+
 		ingredients.each(function(index,value){ingredients_array.push(value)});
 		ingredients_string = ingredients_array.join(',');
-    // var valuesToSubmit = {ingredients: string_ingredients};
-    var valuesToSubmit = {ingredients: ingredients_string};
-    console.log(valuesToSubmit);
-    $.ajax({
-        type: "GET",
-        url: $(this).attr('action'), //sumbits it to the given url of the form
-        data: valuesToSubmit,
-        dataType: "SCRIPT" // you want a difference between normal and ajax-calls, and json is standard
-    }).fail(function(){
-    	console.log('fail');
-    });
+	    // var valuesToSubmit = {ingredients: string_ingredients};
+	    var valuesToSubmit = {ingredients: ingredients_string};
+	    console.log(valuesToSubmit);
+
+	    $.ajax({
+	    	type: "GET",
+	        url: $(this).attr('action'), //sumbits it to the given url of the form
+	        data: valuesToSubmit,
+	        dataType: "SCRIPT" // you want a difference between normal and ajax-calls, and json is standard
+	    }).fail(function(){
+	    	console.log('fail');
+	    });
 	});
 
+	var child = 2;
+	var childPrev = 1;
+	$('nav').on('click', function() {
+		$("#search-results .recipe-thumb:nth-child(" + childPrev + ")").hide();
+		$("#search-results .recipe-thumb:nth-child(" + child + ")").show();
+		child ++;
+		childPrev ++;
+	});
 });
