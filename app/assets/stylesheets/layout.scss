@@ -3,6 +3,7 @@
 $primary-red: #CE7B7B;
 $light-red: #FFDCDC;
 $dark-red: #793B3B;
+$ultra-dark-red: #542727;
 
 $primary-blue: #7B84B4;
 $light-blue: #FFDCDC;
@@ -167,14 +168,14 @@ nav h2 a {
 .recipe-thumb.hover {
 	.inner {
 		transition: .3s; 
-		transform: rotateY(20deg);
+		transform: rotateY(10deg);
 	}
 }
 
 .recipe-thumb.hover2 {
 	.inner {
 		transition: .3s; 
-		transform: rotateY(-20deg);
+		transform: rotateY(-10deg);
 	}
 }
 
@@ -218,6 +219,7 @@ nav h2 a {
 	color: $light-secondary-red;
 	text-align: center;
 	border-radius: 0 0 4px 0;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
 }
 
 .aside h5 {
@@ -252,6 +254,11 @@ nav h2 a {
 	border-radius: 4px;
 }
 
+.swipe:hover {
+	background-color: $ultra-dark-red;
+	@include transition(all 0.2s);
+}
+
 #left-swipe {
 	left: 0;
 }
@@ -264,25 +271,41 @@ nav h2 a {
 	position: absolute;
 	width: 0;
 	height: 0;
-	margin-top: 2.5vh;
-	left: 2.5vh;
-	border-top: 5vh solid transparent;
-	border-bottom: 5vh solid transparent; 
-	border-right: 8vh solid $light-red; 
+	margin-top: 4.5vh;
+	left: 4.5vh;
+	border-top: 3vh solid transparent;
+	border-bottom: 3vh solid transparent; 
+	border-right: 5vh solid $light-red; 
 }
 
 #right-arrow {
 	position: absolute;
 	width: 0;
 	height: 0;
-	margin-top: 2.5vh;
-	right: 2.5vh;
-	border-top: 5vh solid transparent;
-	border-bottom: 5vh solid transparent; 
-	border-left: 8vh solid $light-red; 
+	margin-top: 4.5vh;
+	right: 4.5vh;
+	border-top: 3vh solid transparent;
+	border-bottom: 3vh solid transparent; 
+	border-left: 5vh solid $light-red; 
 }
 
+#right-img {
+	position: absolute;
+	height: 7vh;
+	width: 7vh;
+	border-radius: 50%;
+	border: 2px solid $light-red;
+	background-size: cover;
+}
 
+#left-img {
+	position: absolute;
+	height: 7vh;
+	width: 7vh;
+	border-radius: 50%;
+	border: 2px solid $light-red;
+	background-size: cover;
+}
 
 
 
