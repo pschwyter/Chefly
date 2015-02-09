@@ -33,7 +33,6 @@ class YummlySearch
 		response["matches"].map do |r|
 			YummlySearch.new(r)
 		end
-
 	end
 
 	def self.find(recipe_id)
