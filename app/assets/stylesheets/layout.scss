@@ -1,10 +1,10 @@
 //Colours
 
-$primary-red: #793B3B;
+$primary-red: #CE7B7B;
 $light-red: #FFDCDC;
 $dark-red: #793B3B;
 
-$primary-blue: #E1E4F5;
+$primary-blue: #7B84B4;
 $light-blue: #FFDCDC;
 $dark-blue: #414662;
 $ultra-dark-blue: #2e3247;
@@ -39,12 +39,17 @@ $large-button: 40px;
 	border: none;
 	outline: 0;
 	border-radius: 4px;
-	@include transition(all 0.4s);
+	@include transition(all 0.2s);
+	border: solid 1px $ultra-dark-blue;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+	-webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 1px rgba(0, 0, 0, 0.2);
+	-moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 1px rgba(0, 0, 0, 0.2);
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 
 .button:hover {
 	background-color: $ultra-dark-blue;
-	@include transition(all 0.4s);
+	@include transition(all 0.2s);
 }
 
 .tag {
@@ -66,7 +71,7 @@ $large-button: 40px;
 // Navbar
 
 nav {
-	background-color: $primary-red;
+	background-color: $dark-red;
 	position: fixed;
 	width: 100%;
 	height: 60px;
@@ -74,6 +79,7 @@ nav {
 
 nav h2 {
 	color: $light-secondary-red;
+	font-weight: 700;
 	margin: 5px;
 	margin-left: 15px;
 	display: inline-block;
@@ -152,7 +158,8 @@ nav h2 a {
 }
 
 .thumb-name {
-	font-family: 'Arvo', '700';
+	font-family: 'Arvo';
+	font-weight: 700;
 	line-height: 3rem;
 	color: $dark-blue;
 	margin: 0px 5px 0px 5px;
@@ -191,7 +198,10 @@ nav h2 a {
 	border-radius: 0 0 4px 4px;
 }
 
-
+.highlight {
+	font-family: 'Coustard', '700';
+	color: $primary-red;
+}
 
 
 
