@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150205221041) do
+ActiveRecord::Schema.define(version: 20150209175625) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,18 +55,25 @@ ActiveRecord::Schema.define(version: 20150205221041) do
   end
 
   create_table "recipes", force: true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "title"
-    t.string   "image_url"
-    t.integer  "social_rank"
-    t.string   "source_url"
-    t.string   "publisher_url"
-    t.string   "publisher"
-    t.string   "f2f_url"
-    t.integer  "recipe_id"
-    t.string   "ftof_ingredients", array: true
+    t.string  "recipe_id"
+    t.string  "name"
+    t.string  "image_url"
+    t.integer "rating"
+    t.integer "number_of_servings"
+    t.string  "yield"
+    t.string  "yummly_html"
+    t.string  "yummly_url"
+    t.string  "yummly_text"
+    t.string  "yummly_logo"
+    t.string  "source_recipe_url"
+    t.string  "source_site_url"
+    t.string  "source_display_name"
+    t.integer "salty"
+    t.integer "sour"
+    t.integer "sweet"
+    t.integer "bitter"
+    t.integer "meaty"
+    t.integer "piquant"
   end
 
   create_table "users", force: true do |t|
