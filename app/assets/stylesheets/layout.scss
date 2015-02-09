@@ -7,6 +7,7 @@ $dark-red: #793B3B;
 $primary-blue: #E1E4F5;
 $light-blue: #FFDCDC;
 $dark-blue: #414662;
+$ultra-dark-blue: #2e3247;
 
 $secondary-red: #E9B0A0;
 $light-secondary-red: #F5E8E4;
@@ -37,6 +38,13 @@ $large-button: 40px;
 	color: $light-blue;
 	border: none;
 	outline: 0;
+	border-radius: 4px;
+	@include transition(all 0.4s);
+}
+
+.button:hover {
+	background-color: $ultra-dark-blue;
+	@include transition(all 0.4s);
 }
 
 .tag {
@@ -48,6 +56,7 @@ $large-button: 40px;
 	margin: 10px;
 	padding: 5px 15px 5px 15px;
 	border-radius: 4px;
+	text-transform: capitalize;
 }
 
 .tag-box {
@@ -101,6 +110,7 @@ nav h2 a {
 	padding: 0px;
 	vertical-align: top;
 	outline: 0;
+	border-radius: 4px;
 }
 
 #add-ingredient {
@@ -137,6 +147,8 @@ nav h2 a {
 .thumb-image {
 	display: block;
 	width: 600px;
+	border-bottom: 10px solid $dark-blue;
+	border-radius: 4px 4px 0 0;
 }
 
 .thumb-name {
@@ -149,9 +161,11 @@ nav h2 a {
 
 .title {
 	display: inline-block;
+	height: 100%;
 	width: 75%;
 	float: left;
 	background-color: $light-secondary-red;
+	border-radius: 0 0 4px 4px;
 }
 
 .aside {
@@ -162,12 +176,19 @@ nav h2 a {
 	background-color: $dark-blue;
 	color: $light-secondary-red;
 	text-align: center;
+	border-radius: 0 0 4px 0;
+}
+
+.aside h5 {
+	margin-right: 5px;
+	margin-left: 5px;
 }
 
 .info-container {
 	overflow: auto;
 	background-color: $light-secondary-red;
 	position: relative;
+	border-radius: 0 0 4px 4px;
 }
 
 
