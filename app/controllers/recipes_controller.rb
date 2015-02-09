@@ -5,7 +5,6 @@ class RecipesController < ApplicationController
   	else
 		  @recipes = YummlySearch.all
 		end
-
 	  respond_to do |format|
 	  	format.html
 	  	format.js

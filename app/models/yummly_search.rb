@@ -30,8 +30,21 @@ class YummlySearch
 	def self.find_by_ingredients(ingredients)
 		encoded_ingredients = URI.encode(ingredients)
 		response = get("/v1/api/recipes?_app_id=#{@app_id}&_app_key=#{@api_key}&q=" + encoded_ingredients)
-		response["matches"].map do |r|
-			YummlySearch.new(r)
+		
+		response["matches"].map do |yummly_recipe|
+			new_recipe = Recipe.find_or_create_by(recipe_id: yummly_recipe['id']) do |r|
+				r.recipe_id = yummly_recipe['id']
+				r.save
+
+			yummly_recipe['ingredients'].each do |yummly_ingredient|
+				Ingredient.find_or_create_by(name: yummly_ingredient) do |i|
+					i.name = yummly_ingredient
+					i.save
+					r.ingredients << i
+				end
+			end
+			end
+			YummlySearch.new(yummly_recipe)
 		end
 	end
 

@@ -7,6 +7,7 @@
 					<h1 class="thumb-name"><%= recipe.name %></h1>
 				</div>
 				<div class="aside">
+					<%= link_to "Show me!", recipe_path(recipe.id) %>
 					<h5>Ready In: <strong class="highlight"><br><%= recipe.time %> min</strong></h5>
 					<h5>Ingredients: <br><strong class="highlight"><%= recipe.ingredientsNum %></strong></h5>
 				</div>
