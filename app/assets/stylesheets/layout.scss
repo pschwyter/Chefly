@@ -1,12 +1,13 @@
 //Colours
 
-$primary-red: #793B3B;
+$primary-red: #CE7B7B;
 $light-red: #FFDCDC;
 $dark-red: #793B3B;
 
-$primary-blue: #E1E4F5;
+$primary-blue: #7B84B4;
 $light-blue: #FFDCDC;
 $dark-blue: #414662;
+$ultra-dark-blue: #2e3247;
 
 $secondary-red: #E9B0A0;
 $light-secondary-red: #F5E8E4;
@@ -37,12 +38,40 @@ $large-button: 40px;
 	color: $light-blue;
 	border: none;
 	outline: 0;
+	border-radius: 4px;
+	@include transition(all 0.2s);
+	border: solid 1px $ultra-dark-blue;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+	-webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 1px rgba(0, 0, 0, 0.2);
+	-moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 1px rgba(0, 0, 0, 0.2);
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.button:hover {
+	background-color: $ultra-dark-blue;
+	@include transition(all 0.2s);
+}
+
+.tag {
+	background-color: $dark-blue;
+	display: inline-block;
+	color: $light-blue;
+	border: none;
+	outline: 0;
+	margin: 10px;
+	padding: 5px 15px 5px 15px;
+	border-radius: 4px;
+	text-transform: capitalize;
+}
+
+.tag-box {
+	display: inline-block;
 }
 
 // Navbar
 
 nav {
-	background-color: $primary-red;
+	background-color: $dark-red;
 	position: fixed;
 	width: 100%;
 	height: 60px;
@@ -50,6 +79,7 @@ nav {
 
 nav h2 {
 	color: $light-secondary-red;
+	font-weight: 700;
 	margin: 5px;
 	margin-left: 15px;
 	display: inline-block;
@@ -86,6 +116,7 @@ nav h2 a {
 	padding: 0px;
 	vertical-align: top;
 	outline: 0;
+	border-radius: 4px;
 }
 
 #add-ingredient {
@@ -98,6 +129,10 @@ nav h2 a {
 #ingredient-search {
 	text-align: center;
 }
+
+// .ingredient-in-box {
+// 	background-color: $dark-blue;
+// }
 
 // Recipe Cards
 
@@ -118,10 +153,13 @@ nav h2 a {
 .thumb-image {
 	display: block;
 	width: 600px;
+	border-bottom: 10px solid $dark-blue;
+	border-radius: 4px 4px 0 0;
 }
 
 .thumb-name {
-	font-family: 'Arvo', '700';
+	font-family: 'Arvo';
+	font-weight: 700;
 	line-height: 3rem;
 	color: $dark-blue;
 	margin: 0px 5px 0px 5px;
@@ -130,9 +168,11 @@ nav h2 a {
 
 .title {
 	display: inline-block;
+	height: 100%;
 	width: 75%;
 	float: left;
 	background-color: $light-secondary-red;
+	border-radius: 0 0 4px 4px;
 }
 
 .aside {
@@ -142,17 +182,71 @@ nav h2 a {
 	float: right;
 	background-color: $dark-blue;
 	color: $light-secondary-red;
+	text-align: center;
+	border-radius: 0 0 4px 0;
+}
+
+.aside h5 {
+	margin-right: 5px;
+	margin-left: 5px;
 }
 
 .info-container {
 	overflow: auto;
 	background-color: $light-secondary-red;
 	position: relative;
+	border-radius: 0 0 4px 4px;
 }
 
+.highlight {
+	font-family: 'Coustard', '700';
+	color: $primary-red;
+}
 
+//Swipe Buttons
 
+.swipe {
+	height: 15vh;
+	width: 15vh;
+	min-height: 80px;
+	min-width: 80px;
+	background-color: $dark-red;
+	opacity: 0.8;
+	position: absolute;
+	top: 43%;
+	z-index: 3;
+	border-radius: 4px;
+}
 
+#left-swipe {
+	left: 0;
+}
+
+#right-swipe {
+	right: 0;
+}
+
+#left-arrow {
+	position: absolute;
+	width: 0;
+	height: 0;
+	margin-top: 2.5vh;
+	left: 2.5vh;
+	border-top: 5vh solid transparent;
+	border-bottom: 5vh solid transparent; 
+	border-right: 8vh solid $light-red; 
+}
+
+#right-arrow {
+	position: absolute;
+	width: 0;
+	height: 0;
+	margin-top: 2.5vh;
+	right: 2.5vh;
+	border-top: 5vh solid transparent;
+	border-bottom: 5vh solid transparent; 
+	border-left: 8vh solid $light-red; 
+}
 
 
 
