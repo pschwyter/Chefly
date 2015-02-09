@@ -157,22 +157,22 @@ nav h2 a {
 	border-radius: 4px 4px 0 0;
 }
 
-.thumb-name {
-	font-family: 'Arvo';
-	font-weight: 700;
-	line-height: 3rem;
-	color: $dark-blue;
-	margin: 0px 5px 0px 5px;
-	text-align: left;
-}
 
 .title {
 	display: inline-block;
-	height: 100%;
-	width: 75%;
+	height: 150px;
+	width: 450px;
 	float: left;
 	background-color: $light-secondary-red;
 	border-radius: 0 0 4px 4px;
+}
+
+.title span {
+	font-family: 'Arvo';
+	font-weight: 700;
+	color: $dark-blue;
+	text-align: left;
+	display: inline;
 }
 
 .aside {

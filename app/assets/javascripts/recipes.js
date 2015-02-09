@@ -53,6 +53,7 @@ $(document).ready(function(){
 
 		$("#search-results").children().hide();
 		$("#search-results .recipe-thumb:nth-child(" + child + ")").show();
+		$('.title').textfill({ maxFontPixels: 200 });
 	});
 
 	$('#left-swipe').on('click', function() {
@@ -62,8 +63,10 @@ $(document).ready(function(){
 
 		$("#search-results").children().hide();
 		$("#search-results .recipe-thumb:nth-child(" + child + ")").show();
+		$('.title').textfill({ maxFontPixels: 200 });
 	});
 });
+
 
 
 
