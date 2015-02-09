@@ -203,7 +203,28 @@ nav h2 a {
 	color: $primary-red;
 }
 
+//Swipe Buttons
 
+.swipe {
+	height: 15vh;
+	width: 15vh;
+	min-height: 80px;
+	min-width: 80px;
+	background-color: $dark-red;
+	opacity: 0.8;
+	position: absolute;
+	top: 43%;
+	z-index: 3;
+	border-radius: 4px;
+}
+
+#left-swipe {
+	left: 0;
+}
+
+#right-swipe {
+	right: 0;
+}
 
 
 

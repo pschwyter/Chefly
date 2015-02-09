@@ -45,14 +45,23 @@ $(document).ready(function(){
 	    });
 	});
 
-	var child = 2;
-	$('nav').on('click', function() {
+	var child = 1;
+	$('#right-swipe').on('click', function() {
+		child ++;
 		var numRecipes = $("#search-results").children().length;
 		if (child > numRecipes) { child = 1; }
 
 		$("#search-results").children().hide();
 		$("#search-results .recipe-thumb:nth-child(" + child + ")").show();
-		child ++;
+	});
+
+	$('#left-swipe').on('click', function() {
+		child --;
+		var numRecipes = $("#search-results").children().length;
+		if (child < 1) { child = numRecipes; }
+
+		$("#search-results").children().hide();
+		$("#search-results .recipe-thumb:nth-child(" + child + ")").show();
 	});
 });
 
