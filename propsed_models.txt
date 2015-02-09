@@ -1,0 +1,50 @@
+
+
+Recipe model:
+	has_many :courses
+	has_many :cuisines
+	has_many :ingredients
+######## FROM RECIPE SEARCH #######
+
+
+	name: ['recipeName'], string
+	image_url: ['smallImageUrls'][0]
+
+######## FROM RECIPE GET #######
+
+Recipe model:
+
+	recipe_id: ['id'], string
+	rating: ['rating'], integer
+	ingredient_lines: ['ingredientLines'], array
+	total_time_in_seconds: ['totalTimeInSeconds'], integer
+	number_of_servings: ['numberOfServings'], integer
+	yield: ['yield'], string
+
+	# YUMMLY ATTRIBUTION
+	yummly_html: ['attribution']['html']
+	yummly_url: ['attribution']['url']
+	yummly_text: ['attribution']['text']
+	yummly_logo: ['attribution']['logo']
+	
+	# SOURCE INFORMATION
+	source_recipe_url: ['source']['sourceRecipeUrl'], string
+	source_site_url: ['source']['sourceSiteUrl'], string
+	source_display_name: ['source']['sourceDisplayName'], string
+
+	# FLAVOR INFORMATION
+	salty: flavors['salty'], integer
+	sour: flavors['sour'], integer
+	sweet: flavors['sweet'], integer
+	bitter: flavors['bitter'], integer
+	meaty: flavors['meaty'], integer
+	piquant: flavors['piquant'], integer
+
+Course: new model
+	name: ['attributes']['course'][index], string
+
+Cuisine: new model
+	name: ['attributes']['cuisine'][index], string
+
+Ingredients: new model
+	name: [ingredients][index], string
