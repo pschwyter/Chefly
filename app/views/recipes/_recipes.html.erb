@@ -1,14 +1,16 @@
 <% if @recipes %>
 	<% @recipes.each do |recipe| %>
 		<div class="recipe-thumb">
-			<%= image_tag recipe.image, class:"thumb-image" %>
-			<div class="info-container">
-				<div class="title">
-					<span><%= recipe.name %></span>
-				</div>
-				<div class="aside">
-					<h5>Ready In: <strong class="highlight"><br><%= recipe.time %> min</strong></h5>
-					<h5>Ingredients: <br><strong class="highlight"><%= recipe.ingredientsNum %></strong></h5>
+			<div class="inner">
+				<%= image_tag recipe.image, class:"thumb-image" %>
+				<div class="info-container">
+					<div class="title">
+						<span><%= recipe.name %></span>
+					</div>
+					<div class="aside">
+						<h5>Ready In: <strong class="highlight"><br><%= recipe.time %> min</strong></h5>
+						<h5>Ingredients: <br><strong class="highlight"><%= recipe.ingredientsNum %></strong></h5>
+					</div>
 				</div>
 			</div>
 		</div>

@@ -65,6 +65,24 @@ $(document).ready(function(){
 		$("#search-results .recipe-thumb:nth-child(" + child + ")").show();
 		$('.title').textfill({ maxFontPixels: 200 });
 	});
+
+	//Add hover class to recipe thumb when hovering over buttons
+
+	$("#right-swipe").hover(
+		function() {
+	    	$(".recipe-thumb").addClass( "hover" );
+		}, function() {
+	    	$(".recipe-thumb").removeClass( "hover" );
+		}
+	);
+
+	$("#left-swipe").hover(
+		function() {
+	    	$(".recipe-thumb").addClass( "hover2" );
+		}, function() {
+	    	$(".recipe-thumb").removeClass( "hover2" );
+		}
+	);
 });
 
 
