@@ -226,6 +226,28 @@ nav h2 a {
 	right: 0;
 }
 
+#left-arrow {
+	position: absolute;
+	width: 0;
+	height: 0;
+	margin-top: 2.5vh;
+	left: 2.5vh;
+	border-top: 5vh solid transparent;
+	border-bottom: 5vh solid transparent; 
+	border-right: 8vh solid $light-red; 
+}
+
+#right-arrow {
+	position: absolute;
+	width: 0;
+	height: 0;
+	margin-top: 2.5vh;
+	right: 2.5vh;
+	border-top: 5vh solid transparent;
+	border-bottom: 5vh solid transparent; 
+	border-left: 8vh solid $light-red; 
+}
+
 
 
 
