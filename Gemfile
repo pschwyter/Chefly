@@ -9,6 +9,8 @@ gem "bourbon"
 gem "neat"
 gem "httparty"
 
+gem 'sprockets'
+
 gem 'react-rails', '~> 1.0.0.pre', github: 'reactjs/react-rails'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

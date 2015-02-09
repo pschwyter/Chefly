@@ -1,3 +1,5 @@
 $("#search-results").html("<%= escape_javascript(render 'recipes') %>").children().hide();
 
 $("#search-results .recipe-thumb:nth-child(1)").show();
+
+$('.title').textfill({ maxFontPixels: 200 });

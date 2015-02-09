@@ -3,6 +3,7 @@
 $primary-red: #CE7B7B;
 $light-red: #FFDCDC;
 $dark-red: #793B3B;
+$ultra-dark-red: #542727;
 
 $primary-blue: #7B84B4;
 $light-blue: #FFDCDC;
@@ -62,6 +63,17 @@ $large-button: 40px;
 	padding: 5px 15px 5px 15px;
 	border-radius: 4px;
 	text-transform: capitalize;
+	@include transition(all 0.2s);
+	border: solid 1px $ultra-dark-blue;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+	-webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 1px rgba(0, 0, 0, 0.2);
+	-moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 1px rgba(0, 0, 0, 0.2);
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.tag:hover {
+	background-color: $ultra-dark-blue;
+	@include transition(all 0.2s);
 }
 
 .tag-box {
@@ -139,51 +151,75 @@ nav h2 a {
 #ingredient-box {
 	text-align: center;
 	display: block;
+	height: 50px;
+	width: 80%;
 	margin-left: auto;
 	margin-right: auto;
 }
 
 .recipe-thumb {
-	width: 600px;
+	width: 500px;
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
+	perspective: 1000px;
+}
+
+.recipe-thumb.hover {
+	.inner {
+		transition: .3s; 
+		transform: rotateY(10deg);
+	}
+}
+
+.recipe-thumb.hover2 {
+	.inner {
+		transition: .3s; 
+		transform: rotateY(-10deg);
+	}
+}
+
+.inner {
+	transition: .3s; 
+	transform: rotate(0)
 }
 
 .thumb-image {
 	display: block;
-	width: 600px;
+	width: 500px;
 	border-bottom: 10px solid $dark-blue;
 	border-radius: 4px 4px 0 0;
 }
 
-.thumb-name {
-	font-family: 'Arvo';
-	font-weight: 700;
-	line-height: 3rem;
-	color: $dark-blue;
-	margin: 0px 5px 0px 5px;
-	text-align: left;
-}
-
 .title {
 	display: inline-block;
-	height: 100%;
-	width: 75%;
+	height: 160px;
+	width: 350px;
 	float: left;
+	padding-left: 15px;
+	padding-right: 15px;
 	background-color: $light-secondary-red;
 	border-radius: 0 0 4px 4px;
+}
+
+.title span {
+	font-family: 'Arvo';
+	font-weight: 700;
+	color: $dark-blue;
+	text-align: left;
+	display: inline;
 }
 
 .aside {
 	height: 100%;
 	display: inline-block;
-	width: 25%;
+	width: 150px;
 	float: right;
 	background-color: $dark-blue;
 	color: $light-secondary-red;
 	text-align: center;
 	border-radius: 0 0 4px 0;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
 }
 
 .aside h5 {
@@ -218,6 +254,11 @@ nav h2 a {
 	border-radius: 4px;
 }
 
+.swipe:hover {
+	background-color: $ultra-dark-red;
+	@include transition(all 0.2s);
+}
+
 #left-swipe {
 	left: 0;
 }
@@ -230,25 +271,41 @@ nav h2 a {
 	position: absolute;
 	width: 0;
 	height: 0;
-	margin-top: 2.5vh;
-	left: 2.5vh;
-	border-top: 5vh solid transparent;
-	border-bottom: 5vh solid transparent; 
-	border-right: 8vh solid $light-red; 
+	margin-top: 4.5vh;
+	left: 4.5vh;
+	border-top: 3vh solid transparent;
+	border-bottom: 3vh solid transparent; 
+	border-right: 5vh solid $light-red; 
 }
 
 #right-arrow {
 	position: absolute;
 	width: 0;
 	height: 0;
-	margin-top: 2.5vh;
-	right: 2.5vh;
-	border-top: 5vh solid transparent;
-	border-bottom: 5vh solid transparent; 
-	border-left: 8vh solid $light-red; 
+	margin-top: 4.5vh;
+	right: 4.5vh;
+	border-top: 3vh solid transparent;
+	border-bottom: 3vh solid transparent; 
+	border-left: 5vh solid $light-red; 
 }
 
+#right-img {
+	position: absolute;
+	height: 7vh;
+	width: 7vh;
+	border-radius: 50%;
+	border: 2px solid $light-red;
+	background-size: cover;
+}
 
+#left-img {
+	position: absolute;
+	height: 7vh;
+	width: 7vh;
+	border-radius: 50%;
+	border: 2px solid $light-red;
+	background-size: cover;
+}
 
 
 
