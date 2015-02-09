@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150209205335) do
+ActiveRecord::Schema.define(version: 20150209213619) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -96,12 +96,12 @@ ActiveRecord::Schema.define(version: 20150209205335) do
     t.string  "source_recipe_url"
     t.string  "source_site_url"
     t.string  "source_display_name"
-    t.integer "salty"
+    t.decimal "salty"
     t.integer "sour"
-    t.integer "sweet"
-    t.integer "bitter"
-    t.integer "meaty"
-    t.integer "piquant"
+    t.decimal "sweet"
+    t.decimal "bitter"
+    t.decimal "meaty"
+    t.decimal "piquant"
     t.string  "ingredient_lines",      default: [], array: true
     t.integer "total_time_in_seconds"
   end
