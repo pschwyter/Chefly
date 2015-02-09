@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150209183144) do
+ActiveRecord::Schema.define(version: 20150209195826) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,11 +24,33 @@ ActiveRecord::Schema.define(version: 20150209183144) do
     t.integer  "recipe_id"
   end
 
+  create_table "courses", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "name"
+  end
+
+  create_table "courses_recipes", id: false, force: true do |t|
+    t.integer "course_id"
+    t.integer "recipe_id"
+  end
+
+  add_index "courses_recipes", ["course_id"], name: "index_courses_recipes_on_course_id", using: :btree
+  add_index "courses_recipes", ["recipe_id"], name: "index_courses_recipes_on_recipe_id", using: :btree
+
   create_table "cuisines", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
   end
+
+  create_table "cuisines_recipes", id: false, force: true do |t|
+    t.integer "cuisine_id"
+    t.integer "recipe_id"
+  end
+
+  add_index "cuisines_recipes", ["cuisine_id"], name: "index_cuisines_recipes_on_cuisine_id", using: :btree
+  add_index "cuisines_recipes", ["recipe_id"], name: "index_cuisines_recipes_on_recipe_id", using: :btree
 
   create_table "ingredients", force: true do |t|
     t.string   "name"

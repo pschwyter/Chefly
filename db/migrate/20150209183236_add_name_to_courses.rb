@@ -1,5 +1,5 @@
 class AddNameToCourses < ActiveRecord::Migration
   def change
-  	add_column :cuisines, :name, :string
+  	add_column :courses, :name, :string
   end
 end
