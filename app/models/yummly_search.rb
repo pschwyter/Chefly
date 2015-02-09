@@ -9,7 +9,7 @@ class YummlySearch
 	def initialize(options)
 		@id = options["id"]
 		@name = options["recipeName"]
-		@image = options["smallImageUrls"][0].sub(/([=])\w+/,'=s600')
+		@image = options["smallImageUrls"][0].sub(/([=])\w+/,'=s500')
 		@ingredients_lines = options["ingredientLines"]
 		if options["totalTimeInSeconds"] != nil
 			@time = ((options["totalTimeInSeconds"] / 60 * 5) / 5).to_i
