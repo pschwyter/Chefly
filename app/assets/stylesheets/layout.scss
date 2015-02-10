@@ -271,40 +271,48 @@ nav h2 a {
 	position: absolute;
 	width: 0;
 	height: 0;
-	margin-top: 4.5vh;
-	left: 4.5vh;
-	border-top: 3vh solid transparent;
-	border-bottom: 3vh solid transparent; 
-	border-right: 5vh solid $light-red; 
+	margin-top: 3.5vh;
+	left: 0.9vh;
+	border-top: 4vh solid transparent;
+	border-bottom: 4vh solid transparent; 
+	border-right: 7vh solid $light-red;
+	z-index: 2; 
 }
 
 #right-arrow {
 	position: absolute;
 	width: 0;
 	height: 0;
-	margin-top: 4.5vh;
-	right: 4.5vh;
-	border-top: 3vh solid transparent;
-	border-bottom: 3vh solid transparent; 
-	border-left: 5vh solid $light-red; 
+	margin-top: 3.5vh;
+	right: 0.9vh;
+	border-top: 4vh solid transparent;
+	border-bottom: 4vh solid transparent; 
+	border-left: 7vh solid $light-red; 
+	z-index: 2;
 }
 
 #right-img {
 	position: absolute;
-	height: 7vh;
-	width: 7vh;
+	height: 8vh;
+	width: 8vh;
+	margin-top: 3.5vh;
+	right: 4.5vh;
 	border-radius: 50%;
 	border: 2px solid $light-red;
 	background-size: cover;
+	z-index: 3;
 }
 
 #left-img {
 	position: absolute;
-	height: 7vh;
-	width: 7vh;
+	height: 8vh;
+	width: 8vh;
+	margin-top: 3.5vh;
+	left: 4.5vh;
 	border-radius: 50%;
 	border: 2px solid $light-red;
 	background-size: cover;
+	z-index: 3;
 }
 
 
