@@ -7,7 +7,35 @@ $(document).ready(function(){
 	// Prepare ingredient query string
 	// $('#recipe-search').submit(function(e) {
 
-	// 	e.preventDefault();  
+	// 	e.preventDefault(); 
+	var callback = function(){
+		var ingredient = $('#ingredient').val();
+		$('#ingredient').val('');
+		$('#ingredient-box').append('<div class="tag-box"><button type="button" class="ingredient-in-box tag" data-ingredient='+ ingredient +'>' + ingredient + '</button></div>');
+
+		$('button.ingredient-in-box').on('click', function(){
+			$(this).remove();
+			recipeGet();
+		});
+
+		recipeGet();
+	}
+
+	var child = 1;
+	var imageCallback = function() {
+		var imgRight = child +1;
+		var imgLeft = child -1;
+
+		var numRecipes = $("#search-results").children().length;
+		if (imgRight > numRecipes) { imgRight = 1; }
+		if (imgLeft < 1) { imgLeft = numRecipes; }
+
+		var imageUrlRight = $("#search-results .recipe-thumb:nth-child(" + imgRight + ") .inner img").attr('src');
+		$('#right-img').css('background-image', 'url(' + imageUrlRight + ')');
+
+		var imageUrlLeft = $("#search-results .recipe-thumb:nth-child(" + imgLeft + ") .inner img").attr('src');
+		$('#left-img').css('background-image', 'url(' + imageUrlLeft + ')');
+	} 
 
 	var recipeGet = function() {
 		var ingredients = $('#ingredient-box div').map(function(index, div){return $(div).text()});
@@ -23,26 +51,15 @@ $(document).ready(function(){
 	    	type: "GET",
 	        url: $(this).attr('action'), //sumbits it to the given url of the form
 	        data: valuesToSubmit,
-	        dataType: "SCRIPT" // you want a difference between normal and ajax-calls, and json is standard
+	        dataType: "SCRIPT", // you want a difference between normal and ajax-calls, and json is standard
+	        success: imageCallback
 	    }).fail(function(){
 	    	console.log('fail');
 	    });
 	}
 
 	recipeGet();
-
-	var callback = function(){
-		var ingredient = $('#ingredient').val();
-		$('#ingredient').val('');
-		$('#ingredient-box').append('<div class="tag-box"><button type="button" class="ingredient-in-box tag" data-ingredient='+ ingredient +'>' + ingredient + '</button></div>');
-
-		$('button.ingredient-in-box').on('click', function(){
-			$(this).remove();
-			recipeGet();
-		});
-
-		recipeGet();
-	}
+	// setTimeout(imageCallback, 2000);
 
 	$('#ingredient').keypress(function(event){
 		if (event.which == 13) {
@@ -52,23 +69,6 @@ $(document).ready(function(){
 
 	$("#add-ingredient").on('click', callback);
 
-	var imageCallback = function() {
-		var imgRight = child +1;
-		var imgLeft = child -1;
-
-		var numRecipes = $("#search-results").children().length;
-		if (imgRight > numRecipes) { imgRight = 1; }
-		if (imgLeft < 1) { imgLeft = numRecipes; }
-
-		var imageUrlRight = $("#search-results .recipe-thumb:nth-child(" + imgRight + ") .inner img").attr('src');
-		$('#right-img').css('background-image', 'url(' + imageUrlRight + ')');
-
-		var imageUrlLeft = $("#search-results .recipe-thumb:nth-child(" + imgLeft + ") .inner img").attr('src');
-		$('#left-img').css('background-image', 'url(' + imageUrlLeft + ')');
-	}
-
-
-	var child = 1;
 	$('#right-swipe').on('click', function() {
 		child ++;
 
