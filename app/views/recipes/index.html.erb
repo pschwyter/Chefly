@@ -2,12 +2,10 @@
 
 <div id="left-swipe" class="swipe">
 	<div id="left-img"></div>
-	<div id="left-arrow"></div>
 </div>
 
 <div id="right-swipe" class="swipe">
 	<div id="right-img"></div>
-	<div id="right-arrow"></div>
 </div>
 
 <div id="ingredient-search">
@@ -16,10 +14,5 @@
 </div>
 
 <div id="ingredient-box"></div>
-<div>
-	<%= form_tag recipes_path, method: 'get', id: 'recipe-search' do %>
-		<%= submit_tag "Find Recipes", :name => nil, id: "submit" %>
-	<% end %>
-</div>
 
 <div id="search-results"></div>

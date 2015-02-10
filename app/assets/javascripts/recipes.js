@@ -4,28 +4,12 @@
 
 $(document).ready(function(){
 
-	var callback = function(){
-		var ingredient = $('#ingredient').val();
-		$('#ingredient').val('');
-		$('#ingredient-box').append('<div class="tag-box"><button type="button" class="ingredient-in-box tag" data-ingredient='+ ingredient +'>' + ingredient + '</button></div>');
-
-		$('button.ingredient-in-box').on('click', function(){
-			$(this).remove();
-		});
-	}
-
-	$('#ingredient').keypress(function(event){
-		if (event.which == 13) {
-			callback();
-		}       
-	});
-
-	$("#add-ingredient").on('click', callback);
-
 	// Prepare ingredient query string
-	$('#recipe-search').submit(function(e) {
+	// $('#recipe-search').submit(function(e) {
 
-		e.preventDefault();  
+	// 	e.preventDefault();  
+
+	var recipeGet = function() {
 		var ingredients = $('#ingredient-box div').map(function(index, div){return $(div).text()});
 		var ingredients_array = [];
 
@@ -43,7 +27,30 @@ $(document).ready(function(){
 	    }).fail(function(){
 	    	console.log('fail');
 	    });
+	}
+
+	recipeGet();
+
+	var callback = function(){
+		var ingredient = $('#ingredient').val();
+		$('#ingredient').val('');
+		$('#ingredient-box').append('<div class="tag-box"><button type="button" class="ingredient-in-box tag" data-ingredient='+ ingredient +'>' + ingredient + '</button></div>');
+
+		$('button.ingredient-in-box').on('click', function(){
+			$(this).remove();
+			recipeGet();
+		});
+
+		recipeGet();
+	}
+
+	$('#ingredient').keypress(function(event){
+		if (event.which == 13) {
+			callback();
+		}       
 	});
+
+	$("#add-ingredient").on('click', callback);
 
 	var imageCallback = function() {
 		var imgRight = child +1;

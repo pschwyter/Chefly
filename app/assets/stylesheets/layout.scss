@@ -267,36 +267,12 @@ nav h2 a {
 	right: 0;
 }
 
-#left-arrow {
-	position: absolute;
-	width: 0;
-	height: 0;
-	margin-top: 3.5vh;
-	left: 0.9vh;
-	border-top: 4vh solid transparent;
-	border-bottom: 4vh solid transparent; 
-	border-right: 7vh solid $light-red;
-	z-index: 2; 
-}
-
-#right-arrow {
-	position: absolute;
-	width: 0;
-	height: 0;
-	margin-top: 3.5vh;
-	right: 0.9vh;
-	border-top: 4vh solid transparent;
-	border-bottom: 4vh solid transparent; 
-	border-left: 7vh solid $light-red; 
-	z-index: 2;
-}
-
 #right-img {
 	position: absolute;
 	height: 8vh;
 	width: 8vh;
 	margin-top: 3.5vh;
-	right: 4.5vh;
+	right: 3.5vh;
 	border-radius: 50%;
 	border: 2px solid $light-red;
 	background-size: cover;
@@ -308,7 +284,7 @@ nav h2 a {
 	height: 8vh;
 	width: 8vh;
 	margin-top: 3.5vh;
-	left: 4.5vh;
+	left: 3.5vh;
 	border-radius: 50%;
 	border: 2px solid $light-red;
 	background-size: cover;
