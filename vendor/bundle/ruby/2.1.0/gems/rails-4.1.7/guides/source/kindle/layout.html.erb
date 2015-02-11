@@ -21,7 +21,10 @@
     <%= yield :index_section %>
     <div class="pagebreak">
   <% end %>
+  
+  <div class="container">
+    <%= yield.html_safe %>
+  </div>
 
-  <%= yield.html_safe %>
 </body>
-</html>
+</html> 
