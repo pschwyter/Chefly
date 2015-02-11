@@ -12,6 +12,11 @@
  *
  */
 
+/*
+ *= require jquery-ui
+ */
+
+
 $visual-grid: false;
 $visual-grid-color: red;
 $visual-grid-index: front;
@@ -24,6 +29,7 @@ $visual-grid-opacity: 0.1;
 @import "base";
 @import "layout";
 @import "module";
+@import "recipe_swiping";
 
 body {
 
@@ -33,9 +39,6 @@ body {
 	@include outer-container;
 }
 
-.inner-div {
-	// @include span-columns(4);
-}
 
 
 
