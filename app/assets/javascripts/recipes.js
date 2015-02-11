@@ -8,6 +8,25 @@ $(document).ready(function(){
 	// $('#recipe-search').submit(function(e) {
 
 	// 	e.preventDefault(); 
+
+	var flipCallback = function() {
+		$('.recipe-thumb').on('click', function(){
+			$('.inner').toggleClass('flipped');
+
+			var recipeId = $(this).data("id");
+			var id = {id: recipeId};
+
+			alert(recipeId);
+
+			$.ajax({
+				type: "GET",
+			    // url: $(this).attr('action'), //sumbits it to the given url of the form
+			    data: id,
+			    dataType: "SCRIPT" // you want a difference between normal and ajax-calls, and json is standard
+			});
+		});
+	}
+
 	var callback = function(){
 		var ingredient = $('#ingredient').val();
 		$('#ingredient').val('');
@@ -52,14 +71,16 @@ $(document).ready(function(){
 	        url: $(this).attr('action'), //sumbits it to the given url of the form
 	        data: valuesToSubmit,
 	        dataType: "SCRIPT", // you want a difference between normal and ajax-calls, and json is standard
-	        success: imageCallback
+	        success: [
+	        imageCallback, 
+	        flipCallback
+	        ]
 	    }).fail(function(){
 	    	console.log('fail');
 	    });
 	}
 
 	recipeGet();
-	// setTimeout(imageCallback, 2000);
 
 	$('#ingredient').keypress(function(event){
 		if (event.which == 13) {
