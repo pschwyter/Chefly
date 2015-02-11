@@ -1,0 +1,78 @@
+.search-results {
+  position: relative;
+  list-style: none;
+}
+
+.search-results > div {
+  position: absolute;
+  left: 32%;
+
+}
+
+.search-results > div:not(.active) {
+  display: none;
+}
+
+// Recipe Card Animations
+
+@-webkit-keyframes next-in {
+  from {
+    opacity: 0;
+    transform: translateX(800px) rotate(5deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0px) rotate(0deg);
+  }
+}
+
+@-webkit-keyframes next-out {
+  from {
+    opacity: 1;
+    transform: translateX(0px) rotate(0deg);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-800px) rotate(-5deg);
+  }
+}
+
+@-webkit-keyframes prev-in {
+  from {
+    opacity: 0;
+    transform: translateX(-800px) rotate(-5deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0px) rotate(0deg);
+  }
+}
+
+@-webkit-keyframes prev-out {
+  from {
+    opacity: 1;
+    transform: translateX(0px) rotate(0deg);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(800px) rotate(5deg);
+  }
+}
+
+// Add animations to recipe cards
+
+.search-results > div.next-in {
+  -webkit-animation: next-in 0.5s;
+}
+
+.search-results > div.next-out {
+  -webkit-animation: next-out 0.5s;
+}
+
+.search-results > div.prev-in {
+  -webkit-animation: prev-in 0.5s;
+}
+
+.search-results > div.prev-out {
+  -webkit-animation: prev-out 0.5s;
+}
