@@ -259,15 +259,15 @@ nav h2 a {
 	@include transition(all 0.2s);
 }
 
-#left-swipe {
+.left-swipe {
 	left: 0;
 }
 
-#right-swipe {
+.right-swipe {
 	right: 0;
 }
 
-#right-img {
+.right-img {
 	position: absolute;
 	height: 8vh;
 	width: 8vh;
@@ -279,7 +279,7 @@ nav h2 a {
 	z-index: 3;
 }
 
-#left-img {
+.left-img {
 	position: absolute;
 	height: 8vh;
 	width: 8vh;
@@ -290,22 +290,4 @@ nav h2 a {
 	background-size: cover;
 	z-index: 3;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
