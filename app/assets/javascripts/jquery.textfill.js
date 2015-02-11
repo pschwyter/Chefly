@@ -1,4 +1,4 @@
-;(function($) {
+(function($) {
     $.fn.textfill = function(options) {
         var fontSize = options.maxFontPixels;
         var ourText = $('span:visible:first', this);
