@@ -106,7 +106,7 @@ $(document).ready(function(){
 	// Transition out recipe result on clicking next
 	var currentIndex = 0;
   $('.swipe').on('click', function() {
-  	console.log('CLICK');
+
     var $active  = $('.search-results > div.active'),
         isNext   = $(this).hasClass('right-swipe');
     currentIndex = ((currentIndex + (isNext ? 1 : -1)) % recipeCount);
@@ -119,6 +119,7 @@ $(document).ready(function(){
     var $next = $('.search-results > div:eq(' + currentIndex + ')');
     $active.addClass(isNext ? 'next-out' : 'prev-out');
     $next.addClass('active').addClass(isNext ? 'next-in' : 'prev-in');
+
     setTimeout(function() { 
       $active.removeClass('active next-out prev-out');
       $next.removeClass('next-in prev-in');
@@ -131,7 +132,7 @@ $(document).ready(function(){
 
 
 
-
+// $('.title').textfill({ maxFontPixels: 200 });
 
 
 
