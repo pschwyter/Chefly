@@ -10,7 +10,7 @@ $(document).ready(function(){
 
 			$.ajax({
 				type: "GET",
-			    url: '/show_recipe', //sumbits it to the given url of the form
+			    url: '/show_recipe', //submits it to the given url of the form
 			    data: id,
 			    dataType: "SCRIPT" // you want a difference between normal and ajax-calls, and json is standard
 			});
@@ -22,13 +22,16 @@ $(document).ready(function(){
 		$('#ingredient').val('');
 		$('#ingredient-box').append('<div class="tag-box"><button type="button" class="ingredient-in-box tag" data-ingredient='+ ingredient +'>' + ingredient + '</button></div>');
 
+		// need to add click-to-remove each time an ingredient is added 
 		$('button.ingredient-in-box').on('click', function(){
 			$(this).remove();
+			// removing an ingredient makes another API call
 			recipeGet();
 		});
 
 		recipeGet();
 	}
+
 
 	var child = 1;
 	var imageCallback = function() {
@@ -61,19 +64,16 @@ $(document).ready(function(){
 	        url: "/recipes", //sumbits it to the given url of the form
 	        data: valuesToSubmit,
 	        dataType: "SCRIPT", // you want a difference between normal and ajax-calls, and json is standard
-	        success: [
-	        imageCallback, 
-	        flipCallback
-	        ]
 	    }).fail(function(){
 	    	console.log('fail');
 	    }).success(function(){
-	    	console.log('success');
 	    	var recipeCount = $('.search-results > div').length;
+	    	console.log('success, recipe count: ' + recipeCount);
 	    	var currentIndex = 0;
     	  /* add the active class to the first item to hide all the others */
 	    	$('.search-results > div:eq(' + currentIndex + ')').addClass('active');
 	    	imageCallback();
+	    	flipCallback();
 	    });
 	}
 
