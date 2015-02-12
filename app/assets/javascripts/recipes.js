@@ -1,37 +1,36 @@
-// # Place all the behaviors and hooks related to the matching controller here.
-// # All this logic will automatically be available in application.js.
-// # You can use CoffeeScript in this file: http://coffeescript.org/
-
 $(document).ready(function(){
 
 	var recipeCount = 10;
-	var recipeGet = function() {
-		var ingredients = $('#ingredient-box div').map(function(index, div){return $(div).text()});
-		var ingredients_array = [];
 
-		ingredients.each(function(index,value){ingredients_array.push(value)});
-		ingredients_string = ingredients_array.join(',');
-	    // var valuesToSubmit = {ingredients: string_ingredients};
-	    var valuesToSubmit = {ingredients: ingredients_string};
-	    console.log(valuesToSubmit);
+	var flipCallback = function() {
+		$('.recipe-thumb').on('click', function(){
+			$('.inner').toggleClass('flipped');
+			var recipeId = $(this).data("id");
+			var id = {id: recipeId};
 
-	    $.ajax({
-	    	type: "GET",
-        url: '/recipes', //submits it to the given url of the form
-        data: valuesToSubmit,
-        dataType: "SCRIPT" // you want a difference between normal and ajax-calls, and json is standard
-	    }).fail(function(){
-	    	console.log('fail');
-	    }).success(function(){
-	    	console.log('success');
-	    	var recipeCount = $('.search-results > div').length;
-	    	var currentIndex = 0;
-    	  /* add the active class to the first item to hide all the others */
-	    	$('.search-results > div:eq(' + currentIndex + ')').addClass('active');
-	    	imageCallback();
-	    });
+			$.ajax({
+				type: "GET",
+			    url: '/show_recipe', //sumbits it to the given url of the form
+			    data: id,
+			    dataType: "SCRIPT" // you want a difference between normal and ajax-calls, and json is standard
+			});
+		});
 	}
 
+	var callback = function(){
+		var ingredient = $('#ingredient').val();
+		$('#ingredient').val('');
+		$('#ingredient-box').append('<div class="tag-box"><button type="button" class="ingredient-in-box tag" data-ingredient='+ ingredient +'>' + ingredient + '</button></div>');
+
+		$('button.ingredient-in-box').on('click', function(){
+			$(this).remove();
+			recipeGet();
+		});
+
+		recipeGet();
+	}
+
+	var child = 1;
 	var imageCallback = function() {
 		var imgRight = currentIndex +2;
 		var imgLeft = currentIndex;
@@ -47,20 +46,38 @@ $(document).ready(function(){
 		$('.left-img').css('background-image', 'url(' + imageUrlLeft + ')');
 	}
 
-	recipeGet();
+	var recipeGet = function() {
+		var ingredients = $('#ingredient-box div').map(function(index, div){return $(div).text()});
+		var ingredients_array = [];
 
-	var callback = function(){
-		var ingredient = $('#ingredient').val();
-		$('#ingredient').val('');
-		$('#ingredient-box').append('<div class="tag-box"><button type="button" class="ingredient-in-box tag" data-ingredient='+ ingredient +'>' + ingredient + '</button></div>');
+		ingredients.each(function(index,value){ingredients_array.push(value)});
+		ingredients_string = ingredients_array.join(',');
+	    // var valuesToSubmit = {ingredients: string_ingredients};
+	    var valuesToSubmit = {ingredients: ingredients_string};
+	    console.log(valuesToSubmit);
 
-		$('button.ingredient-in-box').on('click', function(){
-			$(this).remove();
-			recipeGet();
-		});
-
-		recipeGet();
+	    $.ajax({
+	    	type: "GET",
+	        url: "/recipes", //sumbits it to the given url of the form
+	        data: valuesToSubmit,
+	        dataType: "SCRIPT", // you want a difference between normal and ajax-calls, and json is standard
+	        success: [
+	        imageCallback, 
+	        flipCallback
+	        ]
+	    }).fail(function(){
+	    	console.log('fail');
+	    }).success(function(){
+	    	console.log('success');
+	    	var recipeCount = $('.search-results > div').length;
+	    	var currentIndex = 0;
+    	  /* add the active class to the first item to hide all the others */
+	    	$('.search-results > div:eq(' + currentIndex + ')').addClass('active');
+	    	imageCallback();
+	    });
 	}
+
+	recipeGet();
 
 	$('#ingredient').keypress(function(event){
 		if (event.which == 13) {
@@ -69,7 +86,6 @@ $(document).ready(function(){
 	});
 
 	$("#add-ingredient").on('click', callback);
-
 
 	//Add hover class to recipe thumb when hovering over buttons
 

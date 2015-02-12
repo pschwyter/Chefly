@@ -59,7 +59,6 @@ class YummlyRecipe
 				end
 			end
 		end
-		binding.pry
 		YummlyRecipe.new(response)
 	end
 

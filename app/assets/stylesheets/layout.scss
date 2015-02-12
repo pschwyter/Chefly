@@ -142,10 +142,6 @@ nav h2 a {
 	text-align: center;
 }
 
-// .ingredient-in-box {
-// 	background-color: $dark-blue;
-// }
-
 // Recipe Cards
 
 #ingredient-box {
@@ -159,10 +155,34 @@ nav h2 a {
 
 .recipe-thumb {
 	width: 500px;
-	display: block;
+	height: 512px;
 	margin-left: auto;
 	margin-right: auto;
 	perspective: 1000px;
+}
+
+.inner.flipped {
+	-webkit-transform: rotatey(-180deg);
+}
+.inner {
+	height: 100%;
+	width: 100%;
+	-webkit-transform-style: preserve-3d;
+	-webkit-transition: 0.5s;
+	background-color: $light-secondary-red;
+	border-radius: 4px;
+}
+.face {
+	-webkit-backface-visibility: hidden;
+	z-index: 2;
+	position: absolute;
+}
+.front {
+	z-index: 1;
+	position: absolute;
+}
+.recipe-thumb .inner .back {
+	-webkit-transform: rotatey(-180deg);
 }
 
 .recipe-thumb.hover {
@@ -179,14 +199,9 @@ nav h2 a {
 	}
 }
 
-.inner {
-	transition: .3s; 
-	transform: rotate(0)
-}
-
 .thumb-image {
 	display: block;
-	width: 500px;
+	width: 100%;
 	border-bottom: 10px solid $dark-blue;
 	border-radius: 4px 4px 0 0;
 }
@@ -200,6 +215,7 @@ nav h2 a {
 	padding-right: 15px;
 	background-color: $light-secondary-red;
 	border-radius: 0 0 4px 4px;
+	line-height: 1.1;
 }
 
 .title span {
@@ -227,12 +243,12 @@ nav h2 a {
 	margin-left: 5px;
 }
 
-.info-container {
-	overflow: auto;
-	background-color: $light-secondary-red;
-	position: relative;
-	border-radius: 0 0 4px 4px;
-}
+// .info-container {
+// 	overflow: auto;
+// 	background-color: $light-secondary-red;
+// 	position: relative;
+// 	border-radius: 0 0 4px 4px;
+// }
 
 .highlight {
 	font-family: 'Coustard', '700';
