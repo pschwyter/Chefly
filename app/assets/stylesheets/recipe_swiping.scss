@@ -4,9 +4,9 @@
 }
 
 .search-results > div {
-  // position: absolute;
-  left: 32%;
-
+  position: absolute;
+  left: 50%;
+  margin-left: -250px;
 }
 
 .search-results > div:not(.active) {
