@@ -13,6 +13,7 @@ class RecipesController < ApplicationController
 	end
 
   def show_recipe
+    # returns a recipe model object!!
   	@recipe = YummlyRecipe.find(params[:id])
 
   	respond_to do |format|

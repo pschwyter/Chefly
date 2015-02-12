@@ -38,7 +38,7 @@ $(document).ready(function(){
 		var imgRight = currentIndex +2;
 		var imgLeft = currentIndex;
 
-		var recipeCount = $(".search-results").children().length;
+		recipeCount = $(".search-results").children().length;
 		if (imgRight > recipeCount) { imgRight = 1; }
 		if (imgLeft < 1) { imgLeft = recipeCount; }
 
@@ -67,7 +67,7 @@ $(document).ready(function(){
 	    }).fail(function(){
 	    	console.log('fail');
 	    }).success(function(){
-	    	var recipeCount = $('.search-results > div').length;
+	    	recipeCount = $('.search-results > div').length;
 	    	console.log('success, recipe count: ' + recipeCount);
 	    	var currentIndex = 0;
     	  /* add the active class to the first item to hide all the others */
