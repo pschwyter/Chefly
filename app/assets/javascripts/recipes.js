@@ -16,11 +16,9 @@ $(document).ready(function(){
 			var recipeId = $(this).data("id");
 			var id = {id: recipeId};
 
-			alert(recipeId);
-
 			$.ajax({
 				type: "GET",
-			    // url: $(this).attr('action'), //sumbits it to the given url of the form
+			    url: '/show_recipe', //sumbits it to the given url of the form
 			    data: id,
 			    dataType: "SCRIPT" // you want a difference between normal and ajax-calls, and json is standard
 			});
@@ -68,7 +66,7 @@ $(document).ready(function(){
 
 	    $.ajax({
 	    	type: "GET",
-	        url: $(this).attr('action'), //sumbits it to the given url of the form
+	        // url: $(this).attr('action'), //sumbits it to the given url of the form
 	        data: valuesToSubmit,
 	        dataType: "SCRIPT", // you want a difference between normal and ajax-calls, and json is standard
 	        success: [

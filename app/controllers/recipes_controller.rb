@@ -12,8 +12,13 @@ class RecipesController < ApplicationController
 
 	end
 
-  def show
+  def show_recipe
   	@recipe = YummlyRecipe.find(params[:id])
+
+  	respond_to do |format|
+  		format.html
+  		format.js
+  	end
   end
 
 end
