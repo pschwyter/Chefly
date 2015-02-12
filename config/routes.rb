@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   resources :recipes
   get '/recipes/ingredient_search', to: 'recipes#ingredient_search', as: 'ingredient_search'
+  get 'show_recipe' => 'recipes#show_recipe'
 
   get '/patients/:id', to: 'patients#show', as: 'patient'
 
