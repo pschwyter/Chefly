@@ -4,10 +4,6 @@
 
 $(document).ready(function(){
 
-	// Prepare ingredient query string
-	// $('#recipe-search').submit(function(e) {
-
-	// 	e.preventDefault();  
 	var recipeCount = 10;
 	var recipeGet = function() {
 		var ingredients = $('#ingredient-box div').map(function(index, div){return $(div).text()});
@@ -21,9 +17,9 @@ $(document).ready(function(){
 
 	    $.ajax({
 	    	type: "GET",
-	        url: $(this).attr('action'), //sumbits it to the given url of the form
-	        data: valuesToSubmit,
-	        dataType: "SCRIPT" // you want a difference between normal and ajax-calls, and json is standard
+        url: '/recipes', //submits it to the given url of the form
+        data: valuesToSubmit,
+        dataType: "SCRIPT" // you want a difference between normal and ajax-calls, and json is standard
 	    }).fail(function(){
 	    	console.log('fail');
 	    }).success(function(){
@@ -34,6 +30,21 @@ $(document).ready(function(){
 	    	$('.search-results > div:eq(' + currentIndex + ')').addClass('active');
 	    	imageCallback();
 	    });
+	}
+
+	var imageCallback = function() {
+		var imgRight = currentIndex +2;
+		var imgLeft = currentIndex;
+
+		var recipeCount = $(".search-results").children().length;
+		if (imgRight > recipeCount) { imgRight = 1; }
+		if (imgLeft < 1) { imgLeft = recipeCount; }
+
+		var imageUrlRight = $(".search-results .recipe-thumb:nth-child(" + imgRight + ") .inner img").attr('src');
+		$('.right-img').css('background-image', 'url(' + imageUrlRight + ')');
+
+		var imageUrlLeft = $(".search-results .recipe-thumb:nth-child(" + imgLeft + ") .inner img").attr('src');
+		$('.left-img').css('background-image', 'url(' + imageUrlLeft + ')');
 	}
 
 	recipeGet();
@@ -59,20 +70,6 @@ $(document).ready(function(){
 
 	$("#add-ingredient").on('click', callback);
 
-	var imageCallback = function() {
-		var imgRight = currentIndex +2;
-		var imgLeft = currentIndex;
-
-		var recipeCount = $(".search-results").children().length;
-		if (imgRight > recipeCount) { imgRight = 1; }
-		if (imgLeft < 1) { imgLeft = recipeCount; }
-
-		var imageUrlRight = $(".search-results .recipe-thumb:nth-child(" + imgRight + ") .inner img").attr('src');
-		$('.right-img').css('background-image', 'url(' + imageUrlRight + ')');
-
-		var imageUrlLeft = $(".search-results .recipe-thumb:nth-child(" + imgLeft + ") .inner img").attr('src');
-		$('.left-img').css('background-image', 'url(' + imageUrlLeft + ')');
-	}
 
 	//Add hover class to recipe thumb when hovering over buttons
 
@@ -94,8 +91,16 @@ $(document).ready(function(){
 
 	// Transition out recipe result on clicking next
 	var currentIndex = 0;
+
+
+	$(document).keypress(function(event){
+		if (event.which == 39) {
+			console.log("pressed Enter");
+			callback();
+		}       
+	});
+	
   $('.swipe').on('click', function() {
-  	console.log('CLICK');
     var $active  = $('.search-results > div.active'),
         isNext   = $(this).hasClass('right-swipe');
     currentIndex = ((currentIndex + (isNext ? 1 : -1)) % recipeCount);

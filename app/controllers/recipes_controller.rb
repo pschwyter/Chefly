@@ -13,7 +13,8 @@ class RecipesController < ApplicationController
 	end
 
   def show
-  	@recipe = YummlyRecipe.find(params[:id])
+  	# @recipe = YummlyRecipe.find(params[:id])
+  	@recipe = Recipe.first
   end
 
 end
