@@ -12,13 +12,19 @@
 <body>
 	<nav>
 		<div id="logo">
-			<h2><%= link_to "Chefly", root_path %></h2>
+			<h3><%= link_to "Chefly", root_path %></h3>
 		</div>
-		<div id="sign-in">
+		<div class="sign-in">
 			<% if current_user %>
-				<%= link_to "Sign out", destroy_user_session_path, :method => 'delete' %>
+				<div class="user-image"><%= image_tag current_user.avatar %><%= current_user.name.split(' ')[0] %></div>
+				<ul>
+				<hr>
+					<li><%= link_to "Sign out", destroy_user_session_path, :method => 'delete' %></li>
+				</ul>
 			<% else %>
+			<div id="sign-in">
 				<%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
+			</div>
 			<% end %>
 		</div>
 	</nav>
