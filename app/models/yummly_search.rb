@@ -31,7 +31,7 @@ class YummlySearch
 
 	def self.find_by_ingredients(ingredients)
 		encoded_ingredients = URI.encode(ingredients)
-		binding.pry
+		# binding.pry
 		response = get("/v1/api/recipes?_app_id=#{@app_id}&_app_key=#{@api_key}&q=" + encoded_ingredients)
 
 		response["matches"].map do |yummly_recipe|
