@@ -74,6 +74,8 @@ $(document).ready(function(){
 	    	$('.search-results > div:eq(' + currentIndex + ')').addClass('active');
 	    	imageCallback();
 	    	flipCallback();
+	    	// adds textfill to first result
+	    	$('.title').textfill({ maxFontPixels: 200 });
 	    });
 	}
 
@@ -130,6 +132,9 @@ $(document).ready(function(){
     var $next = $('.search-results > div:eq(' + currentIndex + ')');
     $active.addClass(isNext ? 'next-out' : 'prev-out');
     $next.addClass('active').addClass(isNext ? 'next-in' : 'prev-in');
+
+    // add textfill after showing next recipe
+    $('.title').textfill({ maxFontPixels: 200 });
 
     setTimeout(function() { 
       $active.removeClass('active next-out prev-out');
