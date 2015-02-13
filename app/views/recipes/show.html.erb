@@ -1,0 +1,11 @@
+<h1>Recipes#show</h1>
+<p>Find me in app/views/recipes/show.html.erb</p>
+
+<%= image_tag @recipe.image %>
+<%= @recipe.name %>
+<% @recipe.ingredient_lines.each do |ingredient| %>
+	<div>
+		<%= ingredient %>
+	</div>
+<% end %>
+

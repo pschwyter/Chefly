@@ -1,12 +1,12 @@
 //Colours
 
 $primary-red: #CE7B7B;
-$light-red: #FFDCDC;
+$light-red: #FBEEEE;
 $dark-red: #793B3B;
 $ultra-dark-red: #542727;
 
 $primary-blue: #7B84B4;
-$light-blue: #FFDCDC;
+$light-blue: #EAECF5;
 $dark-blue: #414662;
 $ultra-dark-blue: #2e3247;
 
@@ -15,6 +15,7 @@ $light-secondary-red: #F5E8E4;
 $dark-secondary-red: #AE8276;
 
 $light-grey: #dddbdb;
+$facebook-color: #45619d;
 
 // Button and Field Sizes
 
@@ -108,7 +109,7 @@ nav h3 a {
 	display: inline-block;
 }
 
-.sign-in {
+.sign-out {
 	height: 54px;
 	float: right;
 	display: inline-block;
@@ -117,7 +118,7 @@ nav h3 a {
 	font-size: 15px;
 }
 
-.sign-in:hover {
+.sign-out:hover {
 	background-color: $light-secondary-red;
 	transition: .2s;
 
@@ -162,16 +163,27 @@ hr {
 }
 
 #sign-in {
-	margin-top: 9px;
+	float: right;
+	display: inline-block;
+	margin-top: 7px;
+	margin-right: 7px;
 	padding: 10px;
-	border-radius: 4px;
+	font-size: 12px;
+	background-color: $facebook-color;
+}
+
+#sign-in:hover {
 	background-color: $dark-blue;
 }
 
 #sign-in a {
 	font-size: 14px;
-	color: $light-secondary-red;
 	text-decoration: none;
+}
+
+i.fa.fa-facebook {
+	font-size: 18px;
+	padding-right: 5px;
 }
 
 .user-image {
