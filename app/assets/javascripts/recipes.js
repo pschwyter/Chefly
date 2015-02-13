@@ -124,6 +124,7 @@ $(document).ready(function(){
         isNext   = $(this).hasClass('right-swipe');
     currentIndex = ((currentIndex + (isNext ? 1 : -1)) % recipeCount);
 
+
      // go back to the last item if we hit -1 
     if (currentIndex === -1) {
       currentIndex = recipeCount - 1;
@@ -132,9 +133,8 @@ $(document).ready(function(){
     var $next = $('.search-results > div:eq(' + currentIndex + ')');
     $active.addClass(isNext ? 'next-out' : 'prev-out');
     $next.addClass('active').addClass(isNext ? 'next-in' : 'prev-in');
-
-    // add textfill after showing next recipe
-    $('.title').textfill({ maxFontPixels: 200 });
+    var textfillTargetChild = currentIndex + 1;
+    $('.recipe-thumb:nth-child('+textfillTargetChild+') .title').textfill({ maxFontPixels: 200 });
 
     setTimeout(function() { 
       $active.removeClass('active next-out prev-out');
@@ -146,9 +146,6 @@ $(document).ready(function(){
 
 });
 
-
-
-// $('.title').textfill({ maxFontPixels: 200 });
 
 
 
