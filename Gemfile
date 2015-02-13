@@ -6,11 +6,11 @@ gem 'sass-rails', '~> 4.0.3'
 gem 'uglifier', '>= 1.3.0'
 gem 'jbuilder', '~> 2.0'
 
-gem 'devise'
-gem 'omniauth-facebook'
-
 gem 'sqlite3'
 gem "pg"
+
+gem 'devise'
+gem 'omniauth-facebook'
 
 gem "neat"
 gem "httparty"
@@ -24,10 +24,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 group :development do
   gem 'spring'
-
-  gem "better_errors"
-  gem "binding_of_caller"
-
-  gem "pry-rails"
-  # gem "awesome_print"
+  gem 'best_errors'
+  gem 'pry-rails'
 end

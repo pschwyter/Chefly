@@ -17,3 +17,6 @@
 
 # Ignore devise
 /config/initializers/devise.rb
+
+# Ignore vendored gems
+/vendor/bundle
