@@ -2,6 +2,7 @@
 
 $primary-red: #CE7B7B;
 $light-red: #FBEEEE;
+$mid-red: #9E4E4E;
 $dark-red: #793B3B;
 $ultra-dark-red: #542727;
 
@@ -86,10 +87,13 @@ $large-button: 40px;
 // Navbar
 
 nav {
-	background-color: $dark-red;
+	@include background-image( linear-gradient($mid-red, $dark-red));
 	position: fixed;
 	width: 100%;
 	height: 54px;
+	-webkit-box-shadow: 0 8px 6px -6px #3a3a3a;
+	-moz-box-shadow: 0 8px 6px -7px #3a3a3a;
+	box-shadow: 0 8px 6px -7px #3a3a3a;
 }
 
 nav h3 {
@@ -143,6 +147,9 @@ ul {
 	margin: 0px;
 	padding-left: 1px;
 	border-radius: 0px 0px 4px 4px;
+	-webkit-box-shadow: 0 8px 6px -6px #3a3a3a;
+	-moz-box-shadow: 0 8px 6px -7px #3a3a3a;
+	box-shadow: 0 8px 6px -7px #3a3a3a;
 }
 
 ul:hover {
@@ -211,7 +218,7 @@ i.fa.fa-facebook {
 // Search
 
 #ingredient-search {
-	padding-top: 100px;
+	padding-top: 85px;
 	text-align: center;
 }
 
@@ -268,6 +275,9 @@ i.fa.fa-facebook {
 	-webkit-transition: 0.5s;
 	background-color: $light-secondary-red;
 	border-radius: 4px;
+	// -webkit-box-shadow: 0px 1px 5px #3a3a3a;
+	// box-shadow: 0px 1px 5px #3a3a3a;
+	// -moz-box-shadow: 0px 1px 5px #3a3a3a;
 }
 .face {
 	-webkit-backface-visibility: hidden;
@@ -339,13 +349,6 @@ i.fa.fa-facebook {
 	margin-right: 5px;
 	margin-left: 5px;
 }
-
-// .info-container {
-// 	overflow: auto;
-// 	background-color: $light-secondary-red;
-// 	position: relative;
-// 	border-radius: 0 0 4px 4px;
-// }
 
 .highlight {
 	font-family: 'Coustard', '700';
