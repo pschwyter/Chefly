@@ -1,18 +1,21 @@
 //Colours
 
 $primary-red: #CE7B7B;
-$light-red: #FFDCDC;
+$light-red: #FBEEEE;
 $dark-red: #793B3B;
 $ultra-dark-red: #542727;
 
 $primary-blue: #7B84B4;
-$light-blue: #FFDCDC;
+$light-blue: #EAECF5;
 $dark-blue: #414662;
 $ultra-dark-blue: #2e3247;
 
 $secondary-red: #E9B0A0;
 $light-secondary-red: #F5E8E4;
 $dark-secondary-red: #AE8276;
+
+$light-grey: #dddbdb;
+$facebook-color: #45619d;
 
 // Button and Field Sizes
 
@@ -86,10 +89,10 @@ nav {
 	background-color: $dark-red;
 	position: fixed;
 	width: 100%;
-	height: 60px;
+	height: 54px;
 }
 
-nav h2 {
+nav h3 {
 	color: $light-secondary-red;
 	font-weight: 700;
 	margin: 5px;
@@ -97,7 +100,7 @@ nav h2 {
 	display: inline-block;
 }
 
-nav h2 a {
+nav h3 a {
 	text-decoration: none;
 	color: $light-secondary-red;
 }
@@ -106,10 +109,104 @@ nav h2 a {
 	display: inline-block;
 }
 
+.sign-out {
+	height: 54px;
+	float: right;
+	display: inline-block;
+	text-align: center;
+	transition: .2s; 
+	font-size: 15px;
+}
+
+.sign-out:hover {
+	background-color: $light-secondary-red;
+	transition: .2s;
+
+	.user-image {
+		color: $dark-red;
+		transition: .2s; 
+	}
+
+	ul, ul li, ul li a {
+		display: block;
+	}
+
+	hr {
+		display: block;
+	}
+}
+
+ul {
+	display: none;
+	list-style-type: none;
+	background-color: $light-secondary-red;
+	margin: 0px;
+	padding-left: 1px;
+	border-radius: 0px 0px 4px 4px;
+}
+
+ul:hover {
+	background-color: $light-grey;
+}
+
+ul li a {
+	padding: 10px 0px 10px 0px;
+	color: $dark-red;
+	text-decoration: none;
+}
+
+hr {
+	display: none;
+	border: none;
+	margin: 0px 5px 0px 5px;
+	border-bottom: 1px solid $light-grey;
+}
+
 #sign-in {
 	float: right;
 	display: inline-block;
+	margin-top: 7px;
+	margin-right: 7px;
+	padding: 10px;
+	font-size: 12px;
+	background-color: $facebook-color;
 }
+
+#sign-in:hover {
+	background-color: $dark-blue;
+}
+
+#sign-in a {
+	font-size: 14px;
+	text-decoration: none;
+}
+
+i.fa.fa-facebook {
+	font-size: 18px;
+	padding-right: 5px;
+}
+
+.user-image {
+	padding-top: 9px;
+	padding-bottom: 9px;
+	padding-left: 10px;
+	padding-right: 10px;
+	height: 54px;  
+	color: $light-secondary-red;
+	vertical-align: middle;
+	display: inline-block;
+	transition: .2s; 
+}
+
+.user-image img {
+	vertical-align: middle;
+	height: 35px;
+	width: 35px;
+	border-radius: 50%;
+	border: 2px solid $light-secondary-red;
+	margin-right: 10px;
+}
+
 
 // Search
 
