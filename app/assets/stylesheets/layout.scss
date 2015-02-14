@@ -387,7 +387,7 @@ i.fa.fa-facebook {
 	position: absolute;
 	height: 8vh;
 	width: 8vh;
-	margin-top: 3.5vh;
+	margin-top: 0.5vh;
 	right: 3.5vh;
 	border-radius: 50%;
 	border: 2px solid $light-red;
@@ -399,11 +399,22 @@ i.fa.fa-facebook {
 	position: absolute;
 	height: 8vh;
 	width: 8vh;
-	margin-top: 3.5vh;
+	margin-top: 0.5vh;
 	left: 3.5vh;
 	border-radius: 50%;
 	border: 2px solid $light-red;
 	background-size: cover;
 	z-index: 3;
+}
+
+.right-title, .left-title {
+	color: $light-red;
+	font-family: 'Arvo';
+	font-size: 0.75rem;
+	text-align: center;
+	position: absolute;
+	vertical-align: bottom;
+	bottom: 0;
+	margin: 5px;
 }
 

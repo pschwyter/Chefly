@@ -43,10 +43,14 @@ $(document).ready(function(){
 		if (imgLeft < 1) { imgLeft = recipeCount; }
 
 		var imageUrlRight = $(".search-results .recipe-thumb:nth-child(" + imgRight + ") .inner img").attr('src');
+		var titleRight = $(".search-results .recipe-thumb:nth-child(" + imgRight + ") .inner .title span").text();
 		$('.right-img').css('background-image', 'url(' + imageUrlRight + ')');
+		$('.right-title').text(titleRight);
 
 		var imageUrlLeft = $(".search-results .recipe-thumb:nth-child(" + imgLeft + ") .inner img").attr('src');
+		var titleLeft = $(".search-results .recipe-thumb:nth-child(" + imgLeft + ") .inner .title span").text();
 		$('.left-img').css('background-image', 'url(' + imageUrlLeft + ')');
+		$('.left-title').text(titleLeft);
 	}
 
 	var recipeGet = function() {
