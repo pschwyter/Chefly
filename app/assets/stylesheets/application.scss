@@ -30,23 +30,6 @@ $visual-grid-opacity: 0.1;
 @import "layout";
 @import "module";
 @import "recipe_swiping";
-
-body {
-
-}
-
-.content-wrapper {
-	@include outer-container;
-}
-
-
-
-
-
-
-
-
-
-
+@import "recipe_back";
 
 

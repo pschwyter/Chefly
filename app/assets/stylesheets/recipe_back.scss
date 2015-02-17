@@ -1,0 +1,29 @@
+.recipe-back-info {
+	// border: 5px solid green;
+	// float: none;
+	// left: 0;
+}
+
+.recipe-name {
+	// border: 1px solid black;
+	height: 20%;
+	width: 100%;
+}
+
+.recipe-name {
+	display: inline-block;
+	float: left;
+	padding-left: 15px;
+	padding-right: 15px;
+	background-color: $light-secondary-red;
+	border-radius: 0 0 4px 4px;
+	line-height: 1.1;
+}
+
+.recipe-name span {
+	font-family: 'Arvo';
+	font-weight: 700;
+	color: $dark-blue;
+	text-align: left;
+	display: inline;
+}
