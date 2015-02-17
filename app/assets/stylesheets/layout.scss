@@ -278,6 +278,11 @@ i.fa.fa-facebook {
 	z-index: 1;
 	position: absolute;
 }
+
+.back {
+	width: 100%;
+	height: 512px;
+}
 .recipe-thumb .inner .back {
 	-webkit-transform: rotatey(-180deg);
 }
