@@ -1,6 +1,10 @@
-<h1><%= @recipe.name %></h1>
-<ul>
-	<% @recipe.ingredients.each do |i| %>
-		<li><%= i.name %></li>
-	<% end %>
-</ul>
+<div class="recipe-name">
+	<span><%= @recipe.name %></span>
+</div>
+<div class="recipe-ingredients">
+<% @recipe.ingredients.each do |i| %>
+	<div class="ingredient">
+		<%= i.name %>
+	</div>
+<% end %>
+</div>
