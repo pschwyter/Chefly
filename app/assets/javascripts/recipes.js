@@ -4,15 +4,18 @@ $(document).ready(function(){
 
 	var flipCallback = function() {
 		$('.recipe-thumb').on('click', function(){
+			var that = this;
 			$('.inner').toggleClass('flipped');
 			var recipeId = $(this).data("id");
 			var id = {id: recipeId};
 
 			$.ajax({
 				type: "GET",
-			    url: '/show_recipe', //submits it to the given url of the form
-			    data: id,
-			    dataType: "SCRIPT" // you want a difference between normal and ajax-calls, and json is standard
+		    url: '/show_recipe', //submits it to the given url of the form
+		    data: id,
+		    dataType: "SCRIPT" // you want a difference between normal and ajax-calls, and json is standard
+			}).success(function(){
+				$('.recipe-name', that).textfill({ maxFontPixels: 200 });
 			});
 		});
 	}
@@ -61,7 +64,7 @@ $(document).ready(function(){
 
 	    $.ajax({
 	    	type: "GET",
-	        url: "/recipes", //sumbits it to the given url of the form
+	        // url: "/recipes", //sumbits it to the given url of the form
 	        data: valuesToSubmit,
 	        dataType: "SCRIPT", // you want a difference between normal and ajax-calls, and json is standard
 	    }).fail(function(){
