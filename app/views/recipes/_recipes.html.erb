@@ -11,6 +11,7 @@
 					<div class="aside">
 						<h5>Ready In: <strong class="highlight"><br><%= recipe.time %> min</strong></h5>
 						<h5>Ingredients: <br><strong class="highlight"><%= recipe.ingredientsNum %></strong></h5>
+						<%= button_to "Favourite", { controller: 'favourites', action: 'create', favourite: {recipe_id: recipe.id}}, remote: true %>
 					</div>
 				</div>
 				<div class="face back">
