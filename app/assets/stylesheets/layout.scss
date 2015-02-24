@@ -61,25 +61,23 @@ $large-button: 40px;
 }
 
 .tag {
-	// background-color: $dark-blue;
-	// display: inline-block;
-	// color: $light-blue;
-	// border: none;
-	// outline: 0;
-	// margin: 10px;
-	// padding: 5px 15px 5px 15px;
-	// border-radius: 4px;
-	// text-transform: capitalize;
-	// @include transition(all 0.2s);
-	// border: solid 1px $ultra-dark-blue;
-	// text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
-	// -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 1px rgba(0, 0, 0, 0.2);
-	// -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 1px rgba(0, 0, 0, 0.2);
-	// box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 1px rgba(0, 0, 0, 0.2);
+	background-color: transparent;
+	display: inline-block;
+	color: $dark-grey;
+	border: none;
+	outline: 0;
+	margin: 10px;
+	padding: 5px 15px 5px 15px;
+	border-radius: 15px;
+	text-transform: capitalize;
+	border: solid 1px $dark-grey;
+	@include transition(all 0.2s);
 }
 
 .tag:hover {
-	background-color: $ultra-dark-blue;
+	background-color: $dark-grey;
+	color: $light-grey;
+	text-decoration: line-through;
 	@include transition(all 0.2s);
 }
 
@@ -93,7 +91,7 @@ nav {
 	background-color: $light-grey;
 	position: fixed;
 	width: 100%;
-	height: 54px;
+	height: 40px;
 	border-bottom: 1px solid $light-grey-plus;
 }
 
@@ -106,6 +104,7 @@ nav h3 {
 nav h3 a {
 	color: $dark-grey;
 	font-weight: 400;
+	font-size: 2.25rem;
 	text-decoration: none;
 }
 
@@ -113,8 +112,40 @@ nav h3 a {
 	display: inline-block;
 }
 
+#sign-in {
+	z-index: 1;
+	background-color: transparent;
+	color: $dark-grey;
+	float: right;
+	display: inline-block;
+	margin-top: 4px;
+	margin-right: 4px;
+	padding: 7px;
+	font-size: 12px;
+	border: 1px solid $dark-grey;
+	border-radius: 5px;
+	@include transition(all 0.2s);
+}
+
+#sign-in:hover {
+	color: $light-grey;
+	background-color: $dark-grey;
+	@include transition(all 0.2s);
+
+	i.fa.fa-facebook {
+		color: $light-grey;
+		@include transition(all 0.2s);
+	}
+}
+
+#sign-in a {
+	font-size: 14px;
+	text-decoration: none;
+	color: $dark-grey;
+}
+
 .sign-out {
-	height: 54px;
+	height: 40px;
 	float: right;
 	display: inline-block;
 	text-align: center;
@@ -150,10 +181,12 @@ ul {
 	-webkit-box-shadow: 0 8px 6px -6px #3a3a3a;
 	-moz-box-shadow: 0 8px 6px -7px #3a3a3a;
 	box-shadow: 0 8px 6px -7px #3a3a3a;
+	@include transition(all 0.2s);
 }
 
 ul:hover {
 	background-color: $mid-grey;
+	@include transition(all 0.2s);
 }
 
 ul li a {
@@ -171,44 +204,19 @@ hr {
 	border-bottom: 1px solid $light-grey-plus;
 }
 
-#sign-in {
-	z-index: 1;
-	background-color: transparent;
-	color: $dark-grey;
-	float: right;
-	display: inline-block;
-	margin-top: 10px;
-	margin-right: 10px;
-	padding: 7px;
-	font-size: 12px;
-	border: 1px solid $dark-grey;
-	border-radius: 5px;
-	@include transition(all 0.2s);
-}
-
-#sign-in:hover {
-	background-color: $light-grey-plus;
-	@include transition(all 0.2s);
-}
-
-#sign-in a {
-	font-size: 14px;
-	text-decoration: none;
-	color: $dark-grey;
-}
-
 i.fa.fa-facebook {
 	color: $dark-grey;
 	font-size: 14px;
 	padding-right: 5px;
+	@include transition(all 0.2s);
 }
 
 .user-image {
-	padding-top: 9px;
-	padding-bottom: 9px;
+	padding-top: 5px;
+	padding-bottom: 5px;
 	padding-left: 10px;
 	padding-right: 10px;
-	height: 54px;  
+	height: 40px;  
 	color: $dark-grey;
 	vertical-align: middle;
 	display: inline-block;
@@ -219,8 +227,8 @@ i.fa.fa-facebook {
 
 .user-image img {
 	vertical-align: middle;
-	height: 35px;
-	width: 35px;
+	height: 30px;
+	width: 30px;
 	border-radius: 50%;
 	border: 1px solid $dark-grey;
 	margin-right: 10px;
@@ -239,12 +247,13 @@ i.fa.fa-facebook {
 	width: 30%;
 	text-align: center;
 	opacity: 0.9;
-	background-color: $light-secondary-red;
-	border: 1px solid grey;
+	background-color: white;
+	border: 1px solid #AEAEAE;
 	padding: 0px;
 	vertical-align: top;
 	outline: 0;
-	border-radius: 4px;
+	border-radius: 20px;
+	-webkit-box-shadow: inset 0px 2px 14px -7px rgba(0, 0, 0, 1);
 }
 
 #add-ingredient {
