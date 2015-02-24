@@ -1,5 +1,11 @@
 //Colours
 
+$light-grey: #FCFCFC;
+$light-grey-plus: #D0D0D0;
+$mid-grey: #939393;
+$dark-grey: #404040;
+
+
 $primary-red: #CE7B7B;
 $light-red: #FBEEEE;
 $mid-red: #9E4E4E;
@@ -15,7 +21,6 @@ $secondary-red: #E9B0A0;
 $light-secondary-red: #F5E8E4;
 $dark-secondary-red: #AE8276;
 
-$light-grey: #dddbdb;
 $facebook-color: #45619d;
 
 // Button and Field Sizes
@@ -27,52 +32,50 @@ $large-button: 40px;
 //BG
 
 .bg {
-	background-image: url('board.jpg');
+	background-color: $light-grey;
 	width: 100%;
 	height: 100vh;
 	position: absolute;
 	z-index: -1;
-	background-size: cover;
-	background-repeat: no-repeat;
 }
 
 // Buttons
 
 .button {
-	background-color: $dark-blue;
-	color: $light-blue;
-	border: none;
-	outline: 0;
-	border-radius: 4px;
-	@include transition(all 0.2s);
-	border: solid 1px $ultra-dark-blue;
-	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
-	-webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 1px rgba(0, 0, 0, 0.2);
-	-moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 1px rgba(0, 0, 0, 0.2);
-	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 1px rgba(0, 0, 0, 0.2);
+	// background-color: $dark-blue;
+	// color: $light-blue;
+	// border: none;
+	// outline: 0;
+	// border-radius: 4px;
+	// @include transition(all 0.2s);
+	// border: solid 1px $ultra-dark-blue;
+	// text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+	// -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 1px rgba(0, 0, 0, 0.2);
+	// -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 1px rgba(0, 0, 0, 0.2);
+	// box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 
 .button:hover {
-	background-color: $ultra-dark-blue;
-	@include transition(all 0.2s);
+	// background-color: $ultra-dark-blue;
+	// @include transition(all 0.2s);
 }
 
 .tag {
-	background-color: $dark-blue;
-	display: inline-block;
-	color: $light-blue;
-	border: none;
-	outline: 0;
-	margin: 10px;
-	padding: 5px 15px 5px 15px;
-	border-radius: 4px;
-	text-transform: capitalize;
-	@include transition(all 0.2s);
-	border: solid 1px $ultra-dark-blue;
-	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
-	-webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 1px rgba(0, 0, 0, 0.2);
-	-moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 1px rgba(0, 0, 0, 0.2);
-	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 1px rgba(0, 0, 0, 0.2);
+	// background-color: $dark-blue;
+	// display: inline-block;
+	// color: $light-blue;
+	// border: none;
+	// outline: 0;
+	// margin: 10px;
+	// padding: 5px 15px 5px 15px;
+	// border-radius: 4px;
+	// text-transform: capitalize;
+	// @include transition(all 0.2s);
+	// border: solid 1px $ultra-dark-blue;
+	// text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+	// -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 1px rgba(0, 0, 0, 0.2);
+	// -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 1px rgba(0, 0, 0, 0.2);
+	// box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 
 .tag:hover {
@@ -87,26 +90,23 @@ $large-button: 40px;
 // Navbar
 
 nav {
-	@include background-image( linear-gradient($mid-red, $dark-red));
+	background-color: $light-grey;
 	position: fixed;
 	width: 100%;
 	height: 54px;
-	-webkit-box-shadow: 0 8px 6px -6px #3a3a3a;
-	-moz-box-shadow: 0 8px 6px -7px #3a3a3a;
-	box-shadow: 0 8px 6px -7px #3a3a3a;
+	border-bottom: 1px solid $light-grey-plus;
 }
 
 nav h3 {
-	color: $light-secondary-red;
-	font-weight: 700;
 	margin: 5px;
 	margin-left: 15px;
 	display: inline-block;
 }
 
 nav h3 a {
+	color: $dark-grey;
+	font-weight: 400;
 	text-decoration: none;
-	color: $light-secondary-red;
 }
 
 #logo {
@@ -118,17 +118,17 @@ nav h3 a {
 	float: right;
 	display: inline-block;
 	text-align: center;
-	transition: .2s; 
+	@include transition(all 0.2s);
 	font-size: 15px;
 }
 
 .sign-out:hover {
-	background-color: $light-secondary-red;
-	transition: .2s;
+	background-color: $dark-grey;
+	@include transition(all 0.2s);
 
 	.user-image {
-		color: $dark-red;
-		transition: .2s; 
+		color: $light-grey;
+		@include transition(all 0.2s);
 	}
 
 	ul, ul li, ul li a {
@@ -143,7 +143,7 @@ nav h3 a {
 ul {
 	display: none;
 	list-style-type: none;
-	background-color: $light-secondary-red;
+	background-color: $dark-grey;
 	margin: 0px;
 	padding-left: 1px;
 	border-radius: 0px 0px 4px 4px;
@@ -153,43 +153,53 @@ ul {
 }
 
 ul:hover {
-	background-color: $light-grey;
+	background-color: $mid-grey;
 }
 
 ul li a {
 	padding: 10px 0px 10px 0px;
-	color: $dark-red;
+	font-size: 0.75rem;
+	font-weight: 100;
+	color: $light-grey;
 	text-decoration: none;
 }
 
 hr {
 	display: none;
 	border: none;
-	margin: 0px 5px 0px 5px;
-	border-bottom: 1px solid $light-grey;
+	margin: -1px 0px 0px 0px;
+	border-bottom: 1px solid $light-grey-plus;
 }
 
 #sign-in {
+	z-index: 1;
+	background-color: transparent;
+	color: $dark-grey;
 	float: right;
 	display: inline-block;
-	margin-top: 7px;
-	margin-right: 7px;
-	padding: 10px;
+	margin-top: 10px;
+	margin-right: 10px;
+	padding: 7px;
 	font-size: 12px;
-	background-color: $facebook-color;
+	border: 1px solid $dark-grey;
+	border-radius: 5px;
+	@include transition(all 0.2s);
 }
 
 #sign-in:hover {
-	background-color: $dark-blue;
+	background-color: $light-grey-plus;
+	@include transition(all 0.2s);
 }
 
 #sign-in a {
 	font-size: 14px;
 	text-decoration: none;
+	color: $dark-grey;
 }
 
 i.fa.fa-facebook {
-	font-size: 18px;
+	color: $dark-grey;
+	font-size: 14px;
 	padding-right: 5px;
 }
 
@@ -199,10 +209,12 @@ i.fa.fa-facebook {
 	padding-left: 10px;
 	padding-right: 10px;
 	height: 54px;  
-	color: $light-secondary-red;
+	color: $dark-grey;
 	vertical-align: middle;
 	display: inline-block;
-	transition: .2s; 
+	font-size: 0.9rem;
+	font-weight: 200;
+	@include transition(all 0.2s);
 }
 
 .user-image img {
@@ -210,7 +222,7 @@ i.fa.fa-facebook {
 	height: 35px;
 	width: 35px;
 	border-radius: 50%;
-	border: 2px solid $light-secondary-red;
+	border: 1px solid $dark-grey;
 	margin-right: 10px;
 }
 
