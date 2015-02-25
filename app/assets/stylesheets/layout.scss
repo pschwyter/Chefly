@@ -420,8 +420,19 @@ i.fa.fa-facebook {
 	font-size: 1rem;
 }
 
-.dots h1 {
+.dots {
+	z-index: 3;
+	position: absolute;
+	display: inline-block;
+	padding-right: 15px;
+	bottom: 0;
+	right: 0;
+}
 
+.dots h2 {
+	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.35);
+	color: white;
+	margin: 0;
 }
 
 .highlight {
