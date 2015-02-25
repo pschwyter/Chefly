@@ -14,3 +14,19 @@
 	background-repeat: no-repeat;
 	background-size: 100%;
 }
+
+.favourite-filler {
+	// border: 2px solid black;
+	width: 100%;
+	height: 70%;
+}
+
+.favourite-aside {
+	width: 100%;
+	div {
+		@include span-columns(4 of 12);
+		margin: 2px;
+		font-size: 0.8em;
+		text-align: center;
+	}
+}

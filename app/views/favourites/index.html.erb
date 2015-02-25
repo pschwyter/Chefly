@@ -1,7 +1,15 @@
 <div class="favourites-grid">
 <% @favourites.each do |favourite| %>
 	<div class="favourite-recipe favourite-grid-item" style="background-image: url(<%= favourite.recipe.image_url_size(300) %>)">
-		<%= favourite.recipe.name %>
+		<div class="favourite-title">
+			<%= favourite.recipe.name %>
+		</div>
+		<div class="favourite-filler"></div>
+		<div class="favourite-aside">
+			<div><strong class=""><%= favourite.recipe_readable_time %></strong></div>
+			<div><strong class=""><%= favourite.recipe_ingredients_count %><br>ingredients </strong></div>
+			<div><strong class="">270 <br> calories</strong></div>
+		</div>
 	</div>
 <% end %>
 </div>
