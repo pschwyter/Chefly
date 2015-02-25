@@ -1,0 +1,16 @@
+.favourites-grid {
+	@include outer-container;
+	padding-top: 100px;
+}
+
+.favourite-grid-item {
+	@include span-columns(3);
+	margin: 20px;
+	height: 200px;
+}
+
+.favourite-recipe {
+	border: 2px solid black;
+	background-repeat: no-repeat;
+	background-size: 100%;
+}

@@ -16,6 +16,7 @@ Rails.application.routes.draw do
 
   resources :users
 
+  get 'favourites' => 'favourites#index'
   post 'favourite_recipe' => 'favourites#create'
   delete 'favourite_recipe' => 'favourites#destroy'
 

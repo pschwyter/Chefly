@@ -12,4 +12,9 @@ class Recipe < ActiveRecord::Base
 	# 		Recipe.all
 	# 	end
 	# end
+
+	def image_url_size(size)
+		url = self.image_url
+		new_url = url.sub(/([=])\w+/,"=s#{size}")
+	end
 end

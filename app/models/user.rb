@@ -29,4 +29,5 @@ class User < ActiveRecord::Base
 		favourite = Favourite.find_by(recipe: recipe, user: self)
 		favourite.destroy
 	end
+
 end

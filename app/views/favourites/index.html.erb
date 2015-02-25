@@ -1,0 +1,7 @@
+<div class="favourites-grid">
+<% @favourites.each do |favourite| %>
+	<div class="favourite-recipe favourite-grid-item" style="background-image: url(<%= favourite.recipe.image_url_size(300) %>)">
+		<%= favourite.recipe.name %>
+	</div>
+<% end %>
+</div>
