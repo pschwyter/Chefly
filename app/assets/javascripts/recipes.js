@@ -23,7 +23,7 @@ $(document).ready(function(){
 	var callback = function(){
 		var ingredient = $('#ingredient').val();
 		$('#ingredient').val('');
-		$('#ingredient-box').append('<div class="tag-box"><button type="button" class="ingredient-in-box tag" data-ingredient='+ ingredient +'>' + ingredient + '</button></div>');
+		$('#ingredient-box').append('<div class="tag-box"><button type="button" class="ingredient-in-box tag" data-ingredient='+ ingredient +'>+' + ingredient + '</button></div>');
 
 		// need to add click-to-remove each time an ingredient is added 
 		$('button.ingredient-in-box').on('click', function(){
