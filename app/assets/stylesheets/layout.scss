@@ -308,12 +308,15 @@ i.fa.fa-facebook {
 .front {
 	z-index: 1;
 	position: absolute;
+	height: 100%;
+	width: 100%;
 }
 
 .back {
-	width: 100%;
-	height: 512px;
+	width: 600px;
+	height: 400px;
 }
+
 .recipe-thumb .inner .back {
 	-webkit-transform: rotatey(-180deg);
 }
@@ -333,29 +336,32 @@ i.fa.fa-facebook {
 }
 
 .thumb-image {
+	z-index: 1;
+	position: absolute;
 	display: block;
-	width: 100%;
+	width: 600px;
+	height: 400px;
 	border-radius: 4px 4px 4px 4px;
 }
 
 .title {
+	z-index: 3;
+	position: absolute;
 	display: inline-block;
-	height: 160px;
-	width: 350px;
-	float: left;
+	height: 100px;
+	width: 450px;
 	padding-left: 15px;
-	padding-right: 15px;
-	background-color: $light-secondary-red;
-	border-radius: 0 0 4px 4px;
 	line-height: 1.1;
+	bottom: 0;
 }
 
 .title span {
-	font-family: 'Arvo';
-	font-weight: 700;
-	color: $dark-blue;
+	position: absolute;
+	font-weight: 300;
+	color: white;
 	text-align: left;
 	display: inline;
+	bottom: 0;
 }
 
 .aside {
