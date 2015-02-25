@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
   def index
-  	if params[:ingredients]
+  	if params[:ingredients] != "" && params[:ingredients] != nil
 		  @recipes = YummlySearch.find_by_ingredients(params[:ingredients])
   	else
 		  @recipes = YummlySearch.all

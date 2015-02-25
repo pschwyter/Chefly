@@ -16,7 +16,6 @@
  *= require jquery-ui
  */
 
-
 $visual-grid: false;
 $visual-grid-color: red;
 $visual-grid-index: front;
@@ -31,5 +30,8 @@ $visual-grid-opacity: 0.1;
 @import "module";
 @import "recipe_swiping";
 @import "recipe_back";
+@import "favourites";
 
-
+.content {
+	@include outer-container;
+}

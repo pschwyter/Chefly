@@ -30,9 +30,12 @@ class YummlySearch
 	end
 
 	def self.find_by_ingredients(ingredients)
-		encoded_ingredients = URI.encode(ingredients)
+		parsed_ingredients = ingredients.sub(/(,,)/,',')
+		ingredients_array = parsed_ingredients.split(',')
+		included_ingredients_array = ingredients_array.map {|i| "allowedIngredient[]=#{i}"}
+		included_ingredients_string = included_ingredients_array.join("&")
 
-		response = get("/v1/api/recipes?_app_id=#{@app_id}&_app_key=#{@api_key}&q=#{encoded_ingredients}")
+		response = get("/v1/api/recipes?_app_id=#{@app_id}&_app_key=#{@api_key}&#{included_ingredients_string}&requirePictures=true")
 
 		response["matches"].map do |yummly_recipe|
 			new_recipe = Recipe.find_or_create_by(recipe_id: yummly_recipe['id']) do |r|
