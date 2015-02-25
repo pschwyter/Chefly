@@ -184,7 +184,7 @@ ul {
 	@include transition(all 0.2s);
 }
 
-ul:hover {
+li:hover {
 	background-color: $mid-grey;
 	@include transition(all 0.2s);
 }
