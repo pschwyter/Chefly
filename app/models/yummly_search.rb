@@ -10,7 +10,7 @@ class YummlySearch
 		@id = options["id"]
 		@name = options["recipeName"]
 		if options['smallImageUrls']
-			@image = options["smallImageUrls"][0].sub(/([=])\w+/,'=s500')
+			@image = options["smallImageUrls"][0].sub(/([=])\w+/,'=s650')
 		end
 		@ingredients_lines = options["ingredientLines"]
 		if options["totalTimeInSeconds"] != nil
