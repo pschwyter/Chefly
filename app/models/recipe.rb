@@ -17,4 +17,14 @@ class Recipe < ActiveRecord::Base
 		url = self.image_url
 		new_url = url.sub(/([=])\w+/,"=s#{size}")
 	end
+
+	def readable_time
+		minutes = (self.total_time_in_seconds % 3600)/60
+		hours = (self.total_time_in_seconds / 3600).floor
+		if hours > 0
+			"#{hours}hrs #{minutes}mins"
+		else
+			"#{minutes}mins"
+		end
+	end
 end

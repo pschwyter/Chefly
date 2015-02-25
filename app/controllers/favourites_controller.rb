@@ -7,12 +7,12 @@ class FavouritesController < ApplicationController
 	def create
 		recipe = Recipe.find_by(recipe_id: favourite_params[:recipe_id])
 		Favourite.create(recipe: recipe, user: current_user)
-		redirect_to '/recipes/index'
+		render nothing: true
 	end
 
 	def destroy
 		current_user.unfavourite(favourite_params[:recipe_id])
-		redirect_to '/recipes/index'
+		render nothing: true
 	end
 
 	private
