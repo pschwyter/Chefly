@@ -3,14 +3,19 @@
 		<div data-id=<%= recipe.id %> class="recipe-thumb">
 			<!-- <div class="invisible-button"></div> -->
 			<div class="inner">
-				<div class="face front"> 
+				<div class="face front">
+					<div class="top mask"></div> 
+					<div class="bottom mask"></div> 
+					<div class="border"></div>
 					<%= image_tag recipe.image, class:"thumb-image" %>
 					<div class="title">
 						<span><%= recipe.name %></span>
 					</div>
 					<div class="aside">
-						<h5>Ready In: <strong class="highlight"><br><%= recipe.time %> min</strong></h5>
-						<h5>Ingredients: <br><strong class="highlight"><%= recipe.ingredientsNum %></strong></h5>
+						<h4><%= recipe.time %> <span>min</span> • <%= recipe.ingredientsNum %> <span>ing</span></h4>
+					</div>
+					<div class="dots">
+						<h1>•••</h1>
 					</div>
 				</div>
 				<div class="face back">
