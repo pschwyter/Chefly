@@ -1,32 +1,108 @@
+.favourites-header {
+	padding-top: 140px;
+}
 .favourites-grid {
 	@include outer-container;
-	padding-top: 100px;
+	@include fill-parent();
+	// padding-top: 60px;
 }
 
 .favourite-grid-item {
 	@include span-columns(3);
+	// @include reset-display;
+	// @include pad(); 
 	margin: 20px;
 	height: 200px;
+	// border-radius: 4px;
+	position: relative;
 }
 
 .favourite-recipe {
-	border: 2px solid black;
 	background-repeat: no-repeat;
 	background-size: 100%;
 }
 
+.favourite-mask {
+	z-index: 2;
+	position: absolute;
+	display: block;
+	width: 100%;
+	height: 100%;
+	// border-radius: 4px 4px 4px 4px;
+}
+
 .favourite-filler {
 	// border: 2px solid black;
+	// width: 100%;
+	// height: 70%;
+}
+
+.favourite-title {
+	z-index: 3;
+	position: absolute;
+	display: inline-block;
 	width: 100%;
-	height: 70%;
+	padding-left: 15px;
+	margin-bottom: 4px;
+	line-height: 1.1;
+	bottom: 0;
+}
+
+.favourite-title span {
+	position: absolute;
+	font-size: 1.4em;
+	font-weight: 300;
+	color: white;
+	text-align: left;
+	display: inline;
+	bottom: 0;
+	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.35);
 }
 
 .favourite-aside {
+	z-index: 3;
+	position: absolute;
+	font-weight: 300;
+	display: inline-block;
 	width: 100%;
-	div {
-		@include span-columns(4 of 12);
-		margin: 2px;
-		font-size: 0.8em;
-		text-align: center;
-	}
+	color: white;
+	display: inline;
+	float: right;
+	right: 0;
+	top: 0;
 }
+
+.favourite-aside h4 {
+	margin-top: 5px;
+	float: right;
+	margin-right: 15px;
+	display: inline-block;
+	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.35);
+	font-size: 1em;
+}
+
+.favourite-aside h4 span {
+	font-size: 1em;
+}
+
+
+// Recipe card animation
+
+.favourite-recipe {
+	@include transition(all 0.4s ease);
+}
+
+.favourite-recipe:hover {
+	@include transform(scale(1.25));
+}
+
+@include keyframes(explodedFavouriteRecipe) {
+  from {
+    @include transform(scale(0));
+  }
+  to {
+    @include transform(scale(3));
+  }
+}
+
+
