@@ -83,6 +83,13 @@
 	height: 100%;
 }
 
+.favourite-recipe.flipped {
+	z-index: 10000;
+	// position: absolute;
+	// top: 30%;
+	// left: 30%;
+}
+
 
 // Recipe card animation
 
@@ -95,13 +102,12 @@
 }
 
 .favourite-recipe.flipped {
-	@include transform(rotatey(-180deg));
+	@include transform(rotatey(-180deg) scale(2));
 }
 
 .favourite-recipe {
 	-webkit-transform-style: preserve-3d;
 	-webkit-transition: 0.5s;
-	// background-color: $light-secondary-red;
 	border-radius: 4px;
 }
 
