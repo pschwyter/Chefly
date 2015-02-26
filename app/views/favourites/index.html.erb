@@ -3,14 +3,18 @@
 <div class="favourites-grid">
 <% @favourites.each do |favourite| %>
 	<div class="favourite-recipe favourite-grid-item" style="background-image: url(<%= favourite.recipe.image_url_size(300) %>)">
-		<div class="top favourite-mask"></div>
-		<div class="bottom favourite-mask"></div>
-		<div class="favourite-title">
-			<span><%= favourite.recipe.name %></span>
+		<div class="favourite-face favourite-front">
+			<div class="top favourite-mask"></div>
+			<div class="bottom favourite-mask"></div>
+			<div class="favourite-aside">
+				<h4><%= favourite.recipe_readable_time %> • <%= favourite.recipe_ingredients_count %> <span>ing</span></h4>
+			</div>
+			<div class="favourite-title">
+				<span><%= favourite.recipe.name %></span>
+			</div>
 		</div>
-		<!-- <div class="favourite-filler"></div> -->
-		<div class="favourite-aside">
-			<h4><%= favourite.recipe_readable_time %> • <%= favourite.recipe_ingredients_count %> <span>ing</span></h4>
+		<div class="favourite-face favourite-back">
+			
 		</div>
 	</div>
 <% end %>

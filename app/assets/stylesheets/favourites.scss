@@ -9,8 +9,6 @@
 
 .favourite-grid-item {
 	@include span-columns(3);
-	// @include reset-display;
-	// @include pad(); 
 	margin: 20px;
 	height: 200px;
 	// border-radius: 4px;
@@ -31,25 +29,20 @@
 	// border-radius: 4px 4px 4px 4px;
 }
 
-.favourite-filler {
-	// border: 2px solid black;
-	// width: 100%;
-	// height: 70%;
-}
-
 .favourite-title {
 	z-index: 3;
-	position: absolute;
+	position: relative;
 	display: inline-block;
 	width: 100%;
+	padding-top: 30%;
 	padding-left: 15px;
-	margin-bottom: 4px;
+	padding-bottom: 4px;
 	line-height: 1.1;
-	bottom: 0;
+	bottom: 0px;
 }
 
 .favourite-title span {
-	position: absolute;
+	position: relative;
 	font-size: 1.4em;
 	font-weight: 300;
 	color: white;
@@ -61,7 +54,7 @@
 
 .favourite-aside {
 	z-index: 3;
-	position: absolute;
+	position: relative;
 	font-weight: 300;
 	display: inline-block;
 	width: 100%;
@@ -85,6 +78,11 @@
 	font-size: 1em;
 }
 
+.favourite-face {
+	width: 100%;
+	height: 100%;
+}
+
 
 // Recipe card animation
 
@@ -96,13 +94,20 @@
 	@include transform(scale(1.25));
 }
 
-@include keyframes(explodedFavouriteRecipe) {
-  from {
-    @include transform(scale(0));
-  }
-  to {
-    @include transform(scale(3));
-  }
+.favourite-recipe.flipped {
+	@include transform(rotatey(-180deg));
 }
 
+.favourite-recipe {
+	-webkit-transform-style: preserve-3d;
+	-webkit-transition: 0.5s;
+	// background-color: $light-secondary-red;
+	border-radius: 4px;
+}
+
+.favourite-face {
+	@include backface-visibility(hidden);
+	z-index: 2;
+	position: relative;
+}
 
