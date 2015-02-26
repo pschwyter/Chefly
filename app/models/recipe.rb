@@ -22,9 +22,9 @@ class Recipe < ActiveRecord::Base
 		minutes = (self.total_time_in_seconds % 3600)/60
 		hours = (self.total_time_in_seconds / 3600).floor
 		if hours > 0
-			"#{hours}hrs #{minutes}mins"
+			"#{hours}hrs"
 		else
-			"#{minutes}mins"
+			"#{minutes}min"
 		end
 	end
 end

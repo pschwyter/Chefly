@@ -35,7 +35,7 @@ class YummlySearch
 		encoded_ingredients_array = ingredients_array.map {|i| URI.encode(i)}
 		included_ingredients_array = encoded_ingredients_array.map {|i| "allowedIngredient[]=#{i}"}
 		included_ingredients_string = included_ingredients_array.join("&")
-		binding.pry
+
 		response = get("/v1/api/recipes?_app_id=#{@app_id}&_app_key=#{@api_key}&#{included_ingredients_string}&requirePictures=true")
 
 		response["matches"].map do |yummly_recipe|
