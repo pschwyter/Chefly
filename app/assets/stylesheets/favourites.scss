@@ -10,7 +10,7 @@
 .favourite-grid-item {
 	@include span-columns(4);
 	margin: 20px;
-	height: 200px;
+	height: 260px;
 	// border-radius: 4px;
 	position: relative;
 }
@@ -91,14 +91,6 @@
 .favourite-back {
 	z-index: 3;
 }
-
-.favourite-recipe.flipped {
-	z-index: 10000;
-	// position: absolute;
-	// top: 30%;
-	// left: 30%;
-}
-
 
 // Recipe card animation
 

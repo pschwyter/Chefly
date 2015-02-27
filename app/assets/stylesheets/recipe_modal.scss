@@ -16,13 +16,17 @@
     margin: 0;
   }
 
+  h4 {
+    margin: 0;
+  }
+
   p {
     color: $base-font-color;
     line-height: $base-line-height;
   }
   //////////////////////////////////////////////////////////////////////////////////
 
-  $modal-padding: 3em;
+  $modal-padding: 0em;
   $modal-background: $base-background-color;
   $modal-close-color: $light-gray;
   $modal-image-height: 135px;
@@ -72,7 +76,7 @@
   .modal-close {
     @include position(absolute, ($modal-padding /2) ($modal-padding /2) null null);
     @include size(1.5em);
-    background: $modal-background;
+    // background: $modal-background;
     cursor: pointer;
 
     &:after,
@@ -102,7 +106,9 @@
     border-radius: $base-border-radius;
     margin-top: 0;
     margin: auto;
+    height: 70%;
     max-height: 95%;
+    max-width: 640px;
     overflow: auto;
     padding: $modal-padding / 2;
     position: relative;
@@ -164,3 +170,35 @@
 }
 
 // Based on code by Kasper Mikiewicz
+
+.favourite-banner-container {
+  width: 100%;
+  height: 30%;
+  overflow: hidden;
+}
+
+.favourite-recipe-stats {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  vertical-align: middle;
+  height: 24%;
+  color: white;
+  font-size: 1.4rem;
+  h4 {
+    position: relative;
+    top: 40%;
+    width: 100%;
+    text-align: center;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.35);
+  }
+}
+
+
+
+
+
+
+
+
+
