@@ -17,7 +17,7 @@ class YummlyRecipe
 		r = Recipe.find_by(recipe_id: recipe_id)
 		unless r.name 
 			response = get("/v1/api/recipe/#{recipe_id}?_app_id=#{@app_id}&_app_key=#{@api_key}&q=#{recipe_id}").parsed_response
-			binding.pry
+
 			r.recipe_id = response['id']
 			r.name = response['name']
 			r.rating = response['rating']
