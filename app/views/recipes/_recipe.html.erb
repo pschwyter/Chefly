@@ -1,4 +1,7 @@
 <div class="recipe-show">
+	<div class="banner-image-container">
+		<%= image_tag @recipe.image_url_size(650), class:"banner-image" %>
+	</div>
 	<% if current_user %>
 		<% if current_user.has_favourited(@recipe.recipe_id) %>
 			<%= button_to "Unfavorite", { controller: :favourites, action: 'destroy', favourite: {recipe_id: @recipe.recipe_id}}, :method => :delete, remote: true %>
