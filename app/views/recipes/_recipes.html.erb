@@ -15,19 +15,10 @@
 						<h4><%= recipe.time %> <span>min</span> • <%= recipe.ingredientsNum %> <span>ing</span></h4>
 					</div>
 					<div class="dots">
-						<h1>•••</h1>
+						<h2>•••</h2>
 					</div>
 				</div>
 				<div class="face back">
-					<h1>non-ajax</h1>
-					<div class="test-show"></div>
-					<% if current_user %>
-						<% if current_user.has_favourited(recipe.id) %>
-							<%= button_to "Unfavorite", { controller: :favourites, action: 'destroy', favourite: {recipe_id: recipe.id}}, :method => :delete, remote: true %>
-						<% else %>
-							<%= button_to "Favourite", { controller: 'favourites', action: 'create', favourite: {recipe_id: recipe.id}}, remote: true %>
-						<% end %>
-					<% end %>
 				</div>
 			</div>
 		</div>
