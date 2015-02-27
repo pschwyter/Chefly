@@ -1,5 +1,8 @@
 <div class="recipe-show">
 	<div class="banner-image-container">
+		<div class="banner-text">
+			<h3><%= ((@recipe.total_time_in_seconds/ 60 * 5) / 5).to_i %> <span>min</span> • <%= @recipe.number_of_servings %> <span>servings</span> • <%= @recipe.calories %> <span>cal</span></h3>
+		</div>
 		<div class="dark-mask"></div>
 		<%= image_tag @recipe.image_url_size(650), class:"banner-image" %>
 	</div>
@@ -12,14 +15,10 @@
 	<% end %>
 
 	<span><%= @recipe.name %></span>
-	<span><%= @recipe.rating %></span>
-	<span><%= @recipe.yield %></span>
 	<ul>
 		<% @recipe.ingredient_lines.each do |ingredient| %>
 			<li><%= ingredient %></li>
 		<% end %>
 	</ul>
-	<span><%= @recipe.source_recipe_url %></span>
-	<span><%= @recipe.sweet %></span>
-	<span><%= @recipe.salty %></span>
+	<a class="recipe-button" href=<%= @recipe.source_recipe_url %>>Find Full Recipe on <%= @recipe.source_display_name %></a>
 </div>
