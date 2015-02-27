@@ -17,10 +17,9 @@
 		<% if current_user %>
 			<div class="sign-out">
 				<div class="user-image"><%= image_tag current_user.avatar %><%= current_user.name.split(' ')[0] %></div>
-				<ul>
+				<ul class="menu">
 					<hr>
 					<li><%= link_to "Favourites", favourites_path %></li>
-					<hr>
 					<li><%= link_to "Sign out", destroy_user_session_path, :method => 'delete' %></li>
 				</ul>
 			</div>
