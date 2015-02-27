@@ -15,9 +15,10 @@ class YummlyRecipe
 	def self.find(recipe_id)
 		# create the recipe in our DB if it doesn't already exist
 		r = Recipe.find_by(recipe_id: recipe_id)
-		unless r.name 
-			response = get("/v1/api/recipe/#{recipe_id}?_app_id=#{@app_id}&_app_key=#{@api_key}&q=#{recipe_id}").parsed_response
 
+		unless r
+			response = get("/v1/api/recipe/#{recipe_id}?_app_id=#{@app_id}&_app_key=#{@api_key}&q=#{recipe_id}").parsed_response
+			r = Recipe.new()
 			r.recipe_id = response['id']
 			r.name = response['name']
 			r.rating = response['rating']
