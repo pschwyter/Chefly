@@ -5,24 +5,6 @@ $light-grey-plus: #D0D0D0;
 $mid-grey: #939393;
 $dark-grey: #404040;
 
-
-$primary-red: #CE7B7B;
-$light-red: #FBEEEE;
-$mid-red: #9E4E4E;
-$dark-red: #793B3B;
-$ultra-dark-red: #542727;
-
-$primary-blue: #7B84B4;
-$light-blue: #EAECF5;
-$dark-blue: #414662;
-$ultra-dark-blue: #2e3247;
-
-$secondary-red: #E9B0A0;
-$light-secondary-red: #F5E8E4;
-$dark-secondary-red: #AE8276;
-
-$facebook-color: #45619d;
-
 // Button and Field Sizes
 
 $small-button: 15px;
@@ -275,7 +257,7 @@ i.fa.fa-facebook {
 	width: 100%;
 	-webkit-transform-style: preserve-3d;
 	-webkit-transition: 0.5s;
-	background-color: $light-secondary-red;
+	background-color: $light-grey;
 	border-radius: 4px;
 	// -webkit-box-shadow: 0px 1px 5px #3a3a3a;
 	// box-shadow: 0px 1px 5px #3a3a3a;
@@ -425,7 +407,6 @@ i.fa.fa-facebook {
 .swipe {
 	height: 120px;
 	width: 120px;
-	background-color: $dark-red;
 	opacity: 0.8;
 	position: absolute;
 	top: 43%;
@@ -433,7 +414,6 @@ i.fa.fa-facebook {
 }
 
 .swipe:hover {
-	background-color: $ultra-dark-red;
 	@include transition(all 0.2s);
 }
 
