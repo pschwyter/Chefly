@@ -409,15 +409,32 @@ i.fa.fa-facebook {
 }
 
 .banner-image-container {
+	position: relative;
 	height: 100px;
 	width: 100%;
 	overflow: hidden;
 	border-radius: 4px 4px 0px 0px;
-	vertical-align: middle;
 }
 
 .banner-image {
-	
+	-webkit-filter: blur(10px);
+	-moz-filter: blur(10px);
+	-o-filter: blur(10px);
+	-ms-filter: blur(10px);
+	filter: blur(10px);
+	margin-top: -45%;
+	vertical-align: middle;
+	background-position: center;
+}
+
+.dark-mask {
+	z-index: 3;
+	position: absolute;
+	display: block;
+	height: 100%;
+	width: 100%;
+	background-color: rgba(0, 0, 0, 0.25);
+	box-sizing: border-box;
 }
 
 //Swipe Buttons
