@@ -1,10 +1,20 @@
-<div class="recipe-name">
+<div class="recipe-show">
+	<% if current_user %>
+		<% if current_user.has_favourited(@recipe.recipe_id) %>
+			<%= button_to "Unfavorite", { controller: :favourites, action: 'destroy', favourite: {recipe_id: @recipe.recipe_id}}, :method => :delete, remote: true %>
+		<% else %>
+			<%= button_to "Favourite", { controller: 'favourites', action: 'create', favourite: {recipe_id: @recipe.recipe_id}}, remote: true %>
+		<% end %>
+	<% end %>
+
 	<span><%= @recipe.name %></span>
-</div>
-<div class="recipe-ingredients">
-<% @recipe.ingredients.each do |i| %>
-	<div class="ingredient">
-		<%= i.name %>
-	</div>
-<% end %>
+	<span><%= @recipe.rating %></span>
+	<span><%= @recipe.yield %></span>
+	<ul>
+		<% @recipe.ingredient_lines.each do |ingredient| %>
+			<li><%= ingredient %></li>
+		<% end %>
+	</ul>
+	<span><%= @recipe.source_recipe_url %></span>
+	<a><%= @recipe.source_site_url %></a>
 </div>
