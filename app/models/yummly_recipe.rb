@@ -14,9 +14,14 @@ class YummlyRecipe
 
 	def self.find(recipe_id)
 		# create the recipe in our DB if it doesn't already exist
-		r = Recipe.find_by(recipe_id: recipe_id)
-		unless r.name 
+		r = Recipe.find_or_create_by(recipe_id: recipe_id)
+
+		if r.name == nil
+
 			response = get("/v1/api/recipe/#{recipe_id}?_app_id=#{@app_id}&_app_key=#{@api_key}&q=#{recipe_id}").parsed_response
+
+			binding.pry
+			r.calories = response['nutritionEstimates'].select{|nut| nut['attribute'] == 'ENERC_KCAL'}[0]['value']
 			r.recipe_id = response['id']
 			r.name = response['name']
 			r.rating = response['rating']

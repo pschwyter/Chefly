@@ -28,6 +28,7 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
     arel (5.0.1.20140414130214)
+    awesome_print (1.6.1)
     bcrypt (3.1.10)
     best_errors (0.1.4)
       better_errors (~> 2.1)
@@ -174,6 +175,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  awesome_print
   best_errors
   bourbon
   coffee-rails (~> 4.0.0)

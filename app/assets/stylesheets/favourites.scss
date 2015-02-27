@@ -3,7 +3,7 @@
 }
 .favourites-grid {
 	@include outer-container;
-	@include fill-parent();
+	// @include fill-parent();
 	// padding-top: 60px;
 }
 
@@ -81,6 +81,15 @@
 .favourite-face {
 	width: 100%;
 	height: 100%;
+	z-index: 2;
+}
+
+.favourite-front {
+	z-index: 1;
+}
+
+.favourite-back {
+	z-index: 3;
 }
 
 .favourite-recipe.flipped {
@@ -93,22 +102,18 @@
 
 // Recipe card animation
 
-.favourite-recipe {
-	@include transition(all 0.4s ease);
-}
-
 .favourite-recipe:hover {
 	@include transform(scale(1.25));
 }
 
-.favourite-recipe.flipped {
-	@include transform(rotatey(-180deg) scale(2));
+.favourite-recipe {
+	@include transform-style(preserve-3d);
+	@include transition(0.5s);
+	border-radius: 4px;
 }
 
-.favourite-recipe {
-	-webkit-transform-style: preserve-3d;
-	-webkit-transition: 0.5s;
-	border-radius: 4px;
+.favourite-recipe.flipped {
+	@include transform(rotatey(-180deg) scale(2));
 }
 
 .favourite-face {
@@ -116,4 +121,10 @@
 	z-index: 2;
 	position: relative;
 }
+
+.favourite-face.favourite-back {
+	@include transform(rotatey(-180deg));
+}
+
+
 
