@@ -272,12 +272,6 @@ i.fa.fa-facebook {
 	width: 100%;
 }
 
-.back {
-	width: 600px;
-	height: 400px;
-	border-radius: 5px;
-}
-
 .recipe-show {
 	height: 100%;
 	width: 100%;
@@ -408,16 +402,88 @@ i.fa.fa-facebook {
 	margin: 0;
 }
 
+// Back of Card
+
+.back {
+	width: 600px;
+	height: 400px;
+	border-radius: 5px;
+}
+
 .banner-image-container {
+	position: relative;
 	height: 100px;
 	width: 100%;
 	overflow: hidden;
 	border-radius: 4px 4px 0px 0px;
-	vertical-align: middle;
 }
 
 .banner-image {
-	
+	-webkit-filter: blur(10px);
+	-moz-filter: blur(10px);
+	-o-filter: blur(10px);
+	-ms-filter: blur(10px);
+	filter: blur(10px);
+	margin-top: -45%;
+	vertical-align: middle;
+	background-position: center;
+}
+
+.dark-mask {
+	z-index: 3;
+	position: absolute;
+	display: block;
+	height: 100%;
+	width: 100%;
+	background-color: rgba(0, 0, 0, 0.25);
+	box-sizing: border-box;
+}
+
+.banner-text {
+	z-index: 4;
+	position: absolute;
+	color: white;
+	font-weight: 300;
+	display: inline-block;
+	width: 100%;
+	text-align: center;
+}
+
+.banner-text h3 {
+	text-align: center;
+	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.35);
+}
+
+.banner-text h3 span {
+	font-size: 1.25rem;
+}
+
+.recipe-button {
+	text-decoration: none;
+	color: $dark-grey;
+	border: 1px solid $dark-grey;
+	border-radius: 4px;
+	padding: 9px 15px 9px 15px;
+	@include transition(all 0.2s);
+	display: inline-block;
+}
+
+.recipe-button:hover {
+	background-color: $dark-grey;
+	color: white;
+	@include transition(all 0.2s);
+}
+
+.ingredients-list li {
+	list-style-type: none;
+}
+
+.ingredients-list li:nth-child(even) {
+	background-color: white;
+}
+
+.ingredients-list li:nth-child(odd) {
+	background-color: $light-grey;
 }
 
 //Swipe Buttons
