@@ -8,7 +8,7 @@
 }
 
 .favourite-grid-item {
-	@include span-columns(3);
+	@include span-columns(4);
 	margin: 20px;
 	height: 200px;
 	// border-radius: 4px;
@@ -103,7 +103,7 @@
 // Recipe card animation
 
 .favourite-recipe:hover {
-	@include transform(scale(1.25));
+	@include transform(scale(1.1));
 }
 
 .favourite-recipe {
@@ -112,19 +112,6 @@
 	border-radius: 4px;
 }
 
-.favourite-recipe.flipped {
-	@include transform(rotatey(-180deg) scale(2));
-}
-
-.favourite-face {
-	@include backface-visibility(hidden);
-	z-index: 2;
-	position: relative;
-}
-
-.favourite-face.favourite-back {
-	@include transform(rotatey(-180deg));
-}
 
 
 
