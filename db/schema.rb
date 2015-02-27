@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150224210752) do
+ActiveRecord::Schema.define(version: 20150227203031) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -111,6 +111,7 @@ ActiveRecord::Schema.define(version: 20150224210752) do
     t.decimal "piquant"
     t.string  "ingredient_lines",      default: [], array: true
     t.integer "total_time_in_seconds"
+    t.integer "calories"
   end
 
   create_table "users", force: true do |t|
