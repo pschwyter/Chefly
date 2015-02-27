@@ -2,20 +2,37 @@
 
 <div class="favourites-grid">
 <% @favourites.each do |favourite| %>
-	<div class="favourite-recipe favourite-grid-item" style="background-image: url(<%= favourite.recipe.image_url_size(300) %>)">
-		<div class="favourite-face favourite-front">
-			<div class="top favourite-mask"></div>
-			<div class="bottom favourite-mask"></div>
-			<div class="favourite-aside">
-				<h4><%= favourite.recipe_readable_time %> • <%= favourite.recipe_ingredients_count %> <span>ing</span></h4>
+	
+	<!-- Recipe modal -->
+	<div class="modal">
+	  <label for="modal-1">
+	    <div class="favourite-recipe favourite-grid-item" style="background-image: url(<%= favourite.recipe.image_url_size(300) %>)">
+				<div class="favourite-face favourite-front">
+					<div class="top favourite-mask"></div>
+					<div class="bottom favourite-mask"></div>
+					<div class="favourite-aside">
+						<h4><%= favourite.recipe_readable_time %> • <%= favourite.recipe_ingredients_count %> <span>ing</span></h4>
+					</div>
+					<div class="favourite-title">
+						<span><%= favourite.recipe.name %></span>
+					</div>
+				</div>
 			</div>
-			<div class="favourite-title">
-				<span><%= favourite.recipe.name %></span>
-			</div>
-		</div>
-		<div class="favourite-face favourite-back">
-			TEST
-		</div>
+	  </label>
+	  <input class="modal-state" id="modal-1" type="checkbox" />
+	  <div class="modal-window">
+	    <div class="modal-inner">
+	      <label class="modal-close" for="modal-1"></label>
+	      <h4><%= favourite.recipe_readable_time %> • <%= favourite.recipe_ingredients_count %> <span>ing</span></h4>
+	      <p class="modal-content"></p>
+	      <ul>
+	      	<% favourite.recipe.ingredient_lines.each do |i| %>
+	      		<li><%= i %></li>
+      		<% end %>
+	      </ul>
+	    </div>
+	  </div>
 	</div>
 <% end %>
 </div>
+
