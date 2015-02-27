@@ -134,7 +134,7 @@ nav h3 a {
 	}
 }
 
-ul {
+ul.menu {
 	display: none;
 	list-style-type: none;
 	background-color: $dark-grey;
@@ -148,16 +148,16 @@ ul {
 	@include transition(all 0.2s);
 }
 
-li:hover {
+ul.menu li:hover {
 	background-color: $mid-grey;
 	@include transition(all 0.2s);
 }
 
-li:last-child:hover {
+ul.menu li:last-child:hover {
 	border-radius: 0px 0px 4px 4px;
 }
 
-ul li a {
+ul.menu li a {
 	padding: 10px 0px 10px 0px;
 	font-size: 0.75rem;
 	font-weight: 100;
