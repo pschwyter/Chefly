@@ -26,5 +26,6 @@ group :development do
   gem 'spring'
   gem 'best_errors'
   gem 'pry-rails'
+  gem 'awesome_print'
   gem 'quiet_assets'
 end
