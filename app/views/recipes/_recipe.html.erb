@@ -15,7 +15,7 @@
 	<% end %>
 
 	<span><%= @recipe.name %></span>
-	<ul>
+	<ul class="ingredients-list">
 		<% @recipe.ingredient_lines.each do |ingredient| %>
 			<li><%= ingredient %></li>
 		<% end %>

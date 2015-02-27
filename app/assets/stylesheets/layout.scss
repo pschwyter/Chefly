@@ -474,6 +474,18 @@ i.fa.fa-facebook {
 	@include transition(all 0.2s);
 }
 
+.ingredients-list li {
+	list-style-type: none;
+}
+
+.ingredients-list li:nth-child(even) {
+	background-color: white;
+}
+
+.ingredients-list li:nth-child(odd) {
+	background-color: $light-grey;
+}
+
 //Swipe Buttons
 
 .swipe {
