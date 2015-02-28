@@ -92,6 +92,26 @@
 	z-index: 3;
 }
 
+.favourite-recipe-button {
+	margin: 0 auto;
+	text-decoration: none;
+	text-align: center;
+	color: $dark-grey;
+	border: 1px solid $dark-grey;
+	border-radius: 4px;
+	padding: 9px 15px 9px 15px;
+	@include transition(all 0.2s);
+	display: block;
+	max-width: 50%;
+
+}
+
+.favourite-recipe-button:hover {
+	background-color: $dark-grey;
+	color: white;
+	@include transition(all 0.2s);
+}
+
 // Recipe card animation
 
 .favourite-recipe:hover {
