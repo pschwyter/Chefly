@@ -118,7 +118,24 @@ $(document).ready(function(){
 		if (event.which == 39) {
 			console.log("pressed Enter");
 			callback();
-		}       
+		}        
+	});
+
+	$(document).keydown(function(){
+
+		if (event.which == 38) {
+			$('.recipe-thumb.active').click();
+		}
+
+		if (event.which == 37) {
+			console.log('left arrow');
+			$('.left-swipe').click();
+		}
+
+		if (event.which == 39) {
+			console.log('right arrow');
+			$('.right-swipe').click();
+		}
 	});
 	
 	$('.swipe').on('click', function() {
