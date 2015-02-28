@@ -125,17 +125,27 @@ $(document).ready(function(){
 
 		if (event.which == 38) {
 			$('.recipe-thumb.active').click();
+			return;
 		}
 
 		if (event.which == 37) {
 			console.log('left arrow');
 			$('.left-swipe').click();
+			return;
 		}
 
 		if (event.which == 39) {
 			console.log('right arrow');
 			$('.right-swipe').click();
+			return;
 		}
+
+		if ($('#ingredient').is(':focus') == false) {
+			$('#ingredient').focus();
+		}
+
+		console.log('we got to the end');
+
 	});
 	
 	$('.swipe').on('click', function() {
