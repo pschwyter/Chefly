@@ -11,7 +11,7 @@
 					<div class="top favourite-mask"></div>
 					<div class="bottom favourite-mask"></div>
 					<div class="favourite-aside">
-						<h4><%= favourite.recipe_readable_time %> • <%= favourite.recipe_ingredients_count %> <span>ing</span></h4>
+						<h4><%= favourite.recipe_readable_time %> • <%= favourite.recipe_ingredients_count %> <span>ing</span> • <%= favourite.recipe_calories %> <span>cal</span></h4>
 					</div>
 					<div class="favourite-title">
 						<span><%= favourite.recipe.name %></span>
@@ -19,6 +19,7 @@
 				</div>
 			</div>
 	  </label>
+	  
 	  <input class="modal-state" id="modal-<%= i %>" type="checkbox" />
 	  <div class="modal-window">
 	    <div class="modal-inner">
