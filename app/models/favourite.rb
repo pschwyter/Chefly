@@ -12,7 +12,7 @@ class Favourite < ActiveRecord::Base
 	end
 
 	def recipe_ingredients_count
-		self.recipe.ingredients.count
+		self.recipe.ingredient_lines.count
 	end
 
 	def recipe_readable_time
