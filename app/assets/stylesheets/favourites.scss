@@ -98,7 +98,7 @@
 }
 
 .favourite-recipe-button {
-	margin: 0 auto;
+	margin: 4% auto;
 	text-decoration: none;
 	text-align: center;
 	color: $dark-grey;
@@ -120,7 +120,7 @@
 // Recipe card animation
 
 .favourite-recipe:hover {
-	@include transform(scale(1.04));
+	@include transform(scale(1.02));
 	// z-index: 1000000;
 }
 

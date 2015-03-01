@@ -8,9 +8,9 @@
 	</div>
 	<% if current_user %>
 		<% if current_user.has_favourited(@recipe.recipe_id) %>
-			<%= button_to "Unfavorite", { controller: :favourites, action: 'destroy', favourite: {recipe_id: @recipe.recipe_id}}, :method => :delete, remote: true %>
+			<%= button_to "Unfavorite", { controller: :favourites, action: 'destroy', favourite: {recipe_id: @recipe.recipe_id}}, class: "fav", :method => :delete, remote: true %>
 		<% else %>
-			<%= button_to "Favourite", { controller: 'favourites', action: 'create', favourite: {recipe_id: @recipe.recipe_id}}, remote: true %>
+			<%= button_to "Favourite", { controller: 'favourites', action: 'create', favourite: {recipe_id: @recipe.recipe_id}}, class: "fav", remote: true %>
 		<% end %>
 	<% end %>
 
