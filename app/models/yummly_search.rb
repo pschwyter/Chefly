@@ -1,8 +1,8 @@
 class YummlySearch
 	include HTTParty
 	base_uri 'http://api.yummly.com'
-	@app_id = '548c220e'
-	@api_key = "b542c6f2342b145ce8f524981bc75653"
+	@app_id = YUMMLY_APP_ID
+	@api_key = YUMMLY_API_KEY
 
 	attr_accessor :id, :name, :image, :time, :ingredientsNum
 

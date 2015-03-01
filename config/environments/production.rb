@@ -75,4 +75,9 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  FACEBOOK_APP_ID       = Rails.application.secrets.FACEBOOK_APP_ID
+  FACEBOOK_APP_SECRET   = Rails.application.secrets.FACEBOOK_APP_SECRET
+  YUMMLY_APP_ID         = Rails.application.secrets.YUMMLY_APP_ID
+  YUMMLY_API_KEY        = Rails.application.secrets.YUMMLY_API_KEY
 end
