@@ -1,5 +1,5 @@
 .favourites-header {
-	padding-top: 140px;
+	padding-top: 40px;
 }
 .favourites-grid {
 	@include outer-container;
@@ -7,9 +7,13 @@
 	// padding-top: 60px;
 }
 
+.centered-grid {
+	@include shift(1);
+}
+
 .favourite-grid-item {
-	@include span-columns(4);
-	margin: 16px 32px;
+	@include span-columns(5);
+	margin: 4px 8px;
 	height: 260px;
 	// max-height: 260px;
 	border-radius: 4px;
@@ -76,7 +80,7 @@
 }
 
 .favourite-aside h4 span {
-	font-size: 1em;
+	font-size: 1.2em;
 }
 
 .favourite-face {
@@ -116,7 +120,8 @@
 // Recipe card animation
 
 .favourite-recipe:hover {
-	@include transform(scale(1.1));
+	@include transform(scale(1.04));
+	// z-index: 1000000;
 }
 
 .favourite-recipe {
