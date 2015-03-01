@@ -20,7 +20,10 @@ class YummlyRecipe
 
 			response = get("/v1/api/recipe/#{recipe_id}?_app_id=#{@app_id}&_app_key=#{@api_key}&q=#{recipe_id}").parsed_response
 
-			r.calories = response['nutritionEstimates'].select{|nut| nut['attribute'] == 'ENERC_KCAL'}[0]['value']
+			unless response['nutritionEstimates'].select{|nut| nut['attribute'] == 'ENERC_KCAL'}.empty?
+				r.calories = response['nutritionEstimates'].select{|nut| nut['attribute'] == 'ENERC_KCAL'}[0]['value']
+			end
+
 			r.recipe_id = response['id']
 			r.name = response['name']
 			r.rating = response['rating']
