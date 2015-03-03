@@ -14,7 +14,7 @@
 		<% end %>
 	<% end %>
 
-	<span><%= @recipe.name %></span>
+	<h5><%= @recipe.name %></h5>
 	<ul class="ingredients-list">
 		<% @recipe.ingredient_lines.each do |ingredient| %>
 			<li><%= ingredient %></li>
