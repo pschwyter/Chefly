@@ -474,6 +474,11 @@ i.fa.fa-facebook {
 	@include transition(all 0.2s);
 }
 
+.ingredients-list {
+	overflow-y: auto;
+	// height: 120px;
+}
+
 .ingredients-list li {
 	list-style-type: none;
 }
