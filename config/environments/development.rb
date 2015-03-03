@@ -36,4 +36,9 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
 
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  
+  FACEBOOK_APP_ID       = Rails.application.secrets.FACEBOOK_APP_ID
+  FACEBOOK_APP_SECRET   = Rails.application.secrets.FACEBOOK_APP_SECRET
+  YUMMLY_APP_ID         = Rails.application.secrets.YUMMLY_APP_ID
+  YUMMLY_API_KEY        = Rails.application.secrets.YUMMLY_API_KEY
 end

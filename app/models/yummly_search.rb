@@ -1,8 +1,8 @@
 class YummlySearch
 	include HTTParty
 	base_uri 'http://api.yummly.com'
-	@app_id = '548c220e'
-	@api_key = "b542c6f2342b145ce8f524981bc75653"
+	@app_id = YUMMLY_APP_ID
+	@api_key = YUMMLY_API_KEY
 
 	attr_accessor :id, :name, :image, :time, :ingredientsNum
 
@@ -30,27 +30,37 @@ class YummlySearch
 	end
 
 	def self.find_by_ingredients(ingredients)
-		parsed_ingredients = ingredients.sub(/(,,)/,',').sub(/^,/,'').sub(/,$/,'')
-		ingredients_array = parsed_ingredients.split(',')
-		encoded_ingredients_array = ingredients_array.map {|i| URI.encode(i)}
-		included_ingredients_array = encoded_ingredients_array.map {|i| "allowedIngredient[]=#{i}"}
-		included_ingredients_string = included_ingredients_array.join("&")
+
+		included_ingredients_string = parse_ingredients(ingredients)
 
 		response = get("/v1/api/recipes?_app_id=#{@app_id}&_app_key=#{@api_key}&#{included_ingredients_string}&requirePictures=true")
 
 		response["matches"].map do |yummly_recipe|
 			new_recipe = Recipe.find_or_create_by(recipe_id: yummly_recipe['id']) do |r|
-
+				# binding.pry
 				r.recipe_id = yummly_recipe['id']
 				r.save
-
-			yummly_recipe['ingredients'].each do |yummly_ingredient|
-				Ingredient.find_or_create_by(name: yummly_ingredient) do |i|
-					i.name = yummly_ingredient
-					i.save
-					r.ingredients << i
+				
+				yummly_recipe['ingredients'].each do |yummly_ingredient|
+					Ingredient.find_or_create_by(name: yummly_ingredient) do |i|
+						i.name = yummly_ingredient
+						i.save
+						r.ingredients << i
+						r.save
+					end
 				end
-			end
+
+				yummly_recipe['ingredients'].each do |yummly_ingredient|
+					if Ingredient.exists?(name: yummly_ingredient)
+						i = Ingredient.find_by(name: yummly_ingredient)
+						r.ingredients << i 
+					else
+						i = Ingredient.create(name: yummly_ingredient)
+						r.ingredients << i
+					end
+					r.save
+				end
+
 			end
 			YummlySearch.new(yummly_recipe)
 		end
@@ -60,4 +70,13 @@ class YummlySearch
 		response = get("/v1/api/recipe/#{recipe_id}?_app_id=#{@app_id}&_app_key=#{@api_key}&q=#{recipe_id}").parsed_response
 		response
 	end
+
+	def self.parse_ingredients(ingredients)
+		remove_commas = ingredients.sub(/(,,)/,',').sub(/^,/,'').sub(/,$/,'')
+		ingredients_array = remove_commas.split(',')
+		encoded_ingredients_array = ingredients_array.map {|i| URI.encode(i)}
+		included_ingredients_array = encoded_ingredients_array.map {|i| "allowedIngredient[]=#{i}"}
+		included_ingredients_string = included_ingredients_array.join("&")
+	end
+
 end

@@ -11,3 +11,9 @@ development:
   pool: 5
   host: localhost
 
+production:
+  adapter: postgresql
+  encoding: utf-8
+  database: chefly_production
+  pool: 5
+  host: localhost

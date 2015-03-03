@@ -20,14 +20,14 @@ Rails.application.configure do
   # config.action_dispatch.rack_cache = true
 
   # Disable Rails's static asset server (Apache or nginx will already do this).
-  config.serve_static_assets = false
+  config.serve_static_assets = true
 
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
-  config.assets.compile = false
+  config.assets.compile = true
 
   # Generate digests for assets URLs.
   config.assets.digest = true
@@ -75,4 +75,11 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  config.secret_key_base = '6c2e06ff5157cfd8cd6404fd088cd35f57ba8a766657b950b082d7536254eedcde3e66080e20f56efc651991e931e8caa6b1af245a3fd09ee99598bd88be7455'
+
+  FACEBOOK_APP_ID       = Rails.application.secrets.FACEBOOK_APP_ID
+  FACEBOOK_APP_SECRET   = Rails.application.secrets.FACEBOOK_APP_SECRET
+  YUMMLY_APP_ID         = Rails.application.secrets.YUMMLY_APP_ID
+  YUMMLY_API_KEY        = Rails.application.secrets.YUMMLY_API_KEY
 end

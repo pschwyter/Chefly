@@ -1,8 +1,8 @@
 class YummlyRecipe
 	include HTTParty
 	base_uri 'http://api.yummly.com'
-	@app_id = '548c220e'
-	@api_key = "b542c6f2342b145ce8f524981bc75653"
+	@app_id = YUMMLY_APP_ID
+	@api_key = YUMMLY_API_KEY
 
 	attr_accessor :id, :name, :image, :ingredient_lines
 
@@ -20,7 +20,10 @@ class YummlyRecipe
 
 			response = get("/v1/api/recipe/#{recipe_id}?_app_id=#{@app_id}&_app_key=#{@api_key}&q=#{recipe_id}").parsed_response
 
-			r.calories = response['nutritionEstimates'].select{|nut| nut['attribute'] == 'ENERC_KCAL'}[0]['value']
+			unless response['nutritionEstimates'].select{|nut| nut['attribute'] == 'ENERC_KCAL'}.empty?
+				r.calories = response['nutritionEstimates'].select{|nut| nut['attribute'] == 'ENERC_KCAL'}[0]['value']
+			end
+
 			r.recipe_id = response['id']
 			r.name = response['name']
 			r.rating = response['rating']
