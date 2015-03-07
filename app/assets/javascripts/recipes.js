@@ -151,8 +151,8 @@ $(document).ready(function(){
 	$('.swipe').on('click', function() {
 
 		$('.inner').removeClass('flipped');
-		var $active  = $('.search-results > div.active'),
-		isNext   = $(this).hasClass('right-swipe');
+		var $active = $('.search-results > div.active'),
+		isNext = $(this).hasClass('right-swipe');
 		currentIndex = ((currentIndex + (isNext ? 1 : -1)) % recipeCount);
 
 

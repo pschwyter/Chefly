@@ -1,6 +1,7 @@
 //Colours
 
 $light-grey: #FCFCFC;
+$list-grey: #eaeaea;
 $light-grey-plus: #D0D0D0;
 $mid-grey: #939393;
 $dark-grey: #404040;
@@ -284,6 +285,12 @@ i.fa.fa-facebook {
 	border: 1px solid $light-grey-plus;
 }
 
+.recipe-show h4 {
+	padding-left: 40px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
 .recipe-thumb .inner .back {
 	-webkit-transform: rotatey(-180deg);
 }
@@ -463,13 +470,20 @@ i.fa.fa-facebook {
 }
 
 .recipe-button {
+	height: 40px;
+	width: 156px;
+	position: absolute;
+	bottom: 5px;
+	left: 50%;
+	margin-left: -78px;
+	text-align: center;
+	line-height: 40px;
 	text-decoration: none;
 	color: $dark-grey;
 	border: 1px solid $dark-grey;
 	border-radius: 4px;
-	padding: 9px 15px 9px 15px;
-	@include transition(all 0.2s);
 	display: inline-block;
+	@include transition(all 0.2s);
 }
 
 .recipe-button:hover {
@@ -479,13 +493,15 @@ i.fa.fa-facebook {
 }
 
 .ingredients-list {
-	// position: absolute;
-	// overflow: auto;
-	// height: 120px;
+	padding-right: 40px;
+	overflow: hidden;
+	height: 190px;
 }
 
 .ingredients-list li {
 	list-style-type: none;
+	padding: 5px;
+	font-size: 0.9rem;
 }
 
 .ingredients-list li:nth-child(even) {
@@ -493,7 +509,7 @@ i.fa.fa-facebook {
 }
 
 .ingredients-list li:nth-child(odd) {
-	background-color: $light-grey;
+	background-color: $list-grey;
 }
 
 //Swipe Buttons
