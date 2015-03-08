@@ -121,7 +121,9 @@ $(document).ready(function(){
 		}        
 	});
 
-	$(document).keydown(function(){
+	$(document).keydown(function(event){
+
+		event.preventDefault();
 
 		if (event.which == 38) {
 			$('.recipe-thumb.active').click();
