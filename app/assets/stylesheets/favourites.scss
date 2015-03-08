@@ -1,28 +1,34 @@
 .favourites-header {
-	padding-top: 40px;
-}
-.favourites-grid {
-	@include outer-container;
-	// @include fill-parent();
-	// padding-top: 60px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	width: 600px;
+	background-color: $dark-grey;
+	margin: 0 auto;
+	text-align: center;
+	color: $light-grey-plus;
+	border-radius: 5px 5px 0px 0px;
+	font-weight: 300;
+	// background-color: $light-grey-plus;
 }
 
-.centered-grid {
-	@include shift(1);
+.favourites-container {
+	z-index: -1;
+	margin-bottom: 20px;
+	padding-top: 120px;
 }
 
 .favourite-grid-item {
-	@include span-columns(5);
 	margin: 4px 8px;
 	height: 260px;
-	// max-height: 260px;
-	border-radius: 4px;
 	position: relative;
 }
 
 .favourite-recipe {
 	background-repeat: no-repeat;
 	background-size: 100%;
+	height: 200px;
+	width: 600px;
+	margin: 0 auto;
 }
 
 .favourite-mask {
@@ -31,28 +37,32 @@
 	display: block;
 	width: 100%;
 	height: 100%;
-	// border-radius: 4px 4px 4px 4px;
+	background-color: black;
+	opacity: 0.05;
+	@include transition(all 0.2s);
 }
 
 .favourite-title {
 	z-index: 3;
 	position: absolute;
 	display: inline-block;
-	width: 100%;
+	height: 180px;
+	width: 450px;
 	padding-left: 15px;
-	padding-bottom: 8px;
+	margin-top: 10px;
+	margin-bottom: 10px;
 	line-height: 1.1;
-	bottom: 0px;
+	top: 0;
 }
 
 .favourite-title span {
-	position: relative;
-	font-size: 1.4em;
+	position: absolute;
 	font-weight: 300;
 	color: white;
 	text-align: left;
+	opacity: 0.5;
 	display: inline;
-	bottom: 0;
+	top: 0;
 	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.35);
 }
 
@@ -120,14 +130,23 @@
 // Recipe card animation
 
 .favourite-recipe:hover {
-	@include transform(scale(1.02));
+	@include transform(translate(10px, 0px));
 	// z-index: 1000000;
+
+	.favourite-mask {
+		opacity: 0.3;
+		@include transition(all 0.2s);
+	}
+
+	.favourite-title span {
+		opacity: 0.85;
+		@include transition(all 0.2s);
+	}
 }
 
 .favourite-recipe {
 	@include transform-style(preserve-3d);
-	@include transition(0.5s);
-	border-radius: 4px;
+	@include transition(0.3s);
 }
 
 

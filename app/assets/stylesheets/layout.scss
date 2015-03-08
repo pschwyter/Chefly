@@ -49,10 +49,6 @@ $large-button: 40px;
 	display: inline-block;
 }
 
-.fav {
-	// z-index: 99999;
-}
-
 .dear-god-dont-flip {
 	pointer-events: none;
 }
@@ -66,8 +62,6 @@ $large-button: 40px;
 	color: #F2A1A1;
 	text-decoration: none;
 	margin-top: 12px;
-
-}
 
 .fa-heart-o.top-heart {
 	background-color: white;
@@ -90,6 +84,7 @@ nav {
 	width: 100%;
 	height: 40px;
 	border-bottom: 1px solid $light-grey-plus;
+	z-index: 10;
 }
 
 nav h3 {
