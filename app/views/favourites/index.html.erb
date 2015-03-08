@@ -1,54 +1,48 @@
+<div class="favourites-container">
 
-<div class="favourites-grid">
-	<h1 class="favourites-header">My Favourites</h1>
-<div class="centered-grid">
-<% @favourites.each_with_index do |favourite, i| %>
-	
-	<!-- Recipe modal -->
-	<div class="modal">
-	  <label for="modal-<%= i %>">
-	    <div class="favourite-recipe favourite-grid-item" style="background-image: url(<%= favourite.recipe.image_url_size(300) %>)">
-				<div class="favourite-face favourite-front">
-					<div class="top favourite-mask"></div>
-					<div class="bottom favourite-mask"></div>
-					<div class="favourite-aside">
-						<h4><%= favourite.recipe_readable_time %> • <%= favourite.recipe_ingredients_count %> <span>ing</span> • <%= favourite.recipe_calories %> <span>cal</span></h4>
-					</div>
-					<div class="favourite-title">
-						<span><%= favourite.recipe.name %></span>
+	<h4 class="favourites-header">Flavourites</h4>
+	<% @favourites.each_with_index do |favourite, i| %>
+
+		<!-- Recipe modal -->
+		<div class="modal">
+			<label for="modal-<%= i %>">
+				<div class="favourite-recipe favourite-grid-item" style="background-image: url(<%= favourite.recipe.image_url_size(650) %>)">
+					<div class="favourite-mask"></div>
+					<div class="favourite-face favourite-front">
+						<div class="favourite-title">
+							<span><%= favourite.recipe.name %></span>
+						</div>
 					</div>
 				</div>
-			</div>
-	  </label>
+			</label>
 
-	  <input class="modal-state" id="modal-<%= i %>" type="checkbox" />
-	  <div class="modal-window">
-	    <div class="modal-inner">
-	    	<div class="favourite-banner-container">
-	    		<div class="favourite-recipe-stats">
-			      <h4><%= favourite.recipe_readable_time %> • <%= favourite.recipe_ingredients_count %> <span>ing</span> • <%= favourite.recipe_calories %> <span>cal</span></h4>
-		      </div>
-	    		<%= image_tag favourite.recipe.image_url_size(650), class:"favourite-banner-image" %>
-	    	</div>
-	      <label class="modal-close" for="modal-<%= i %>"></label>
-      	<% if current_user %>
+			<input class="modal-state" id="modal-<%= i %>" type="checkbox" />
+			<div class="modal-window">
+				<div class="modal-inner">
+					<div class="favourite-banner-container">
+						<div class="favourite-recipe-stats">
+							<h4><%= favourite.recipe_readable_time %> • <%= favourite.recipe_ingredients_count %> <span>ing</span> • <%= favourite.recipe_calories %> <span>cal</span></h4>
+						</div>
+						<%= image_tag favourite.recipe.image_url_size(650), class:"favourite-banner-image" %>
+					</div>
+					<label class="modal-close" for="modal-<%= i %>"></label>
+					<% if current_user %>
 					<% if current_user.has_favourited(favourite.recipe_id) %>
-						<%= button_to "Unfavorite", { controller: :favourites, action: 'destroy', favourite: {recipe_id: favourite.recipe_id}}, :method => :delete, remote: true %>
+					<%= button_to "Unfavorite", { controller: :favourites, action: 'destroy', favourite: {recipe_id: favourite.recipe_id}}, :method => :delete, remote: true %>
 					<% else %>
-						<%= button_to "Favourite", { controller: 'favourites', action: 'create', favourite: {recipe_id: favourite.recipe_id}}, remote: true %>
+					<%= button_to "Favourite", { controller: 'favourites', action: 'create', favourite: {recipe_id: favourite.recipe_id}}, remote: true %>
 					<% end %>
-				<% end %>
-	      <p class="modal-content"></p>
-	      <ul class="ingredients-list">
-	      	<% favourite.recipe.ingredient_lines.each do |i| %>
-	      		<li><%= i %></li>
-      		<% end %>
-	      </ul>
-	      <a class="favourite-recipe-button" href=<%= favourite.recipe_source_recipe_url %>>Find Full Recipe on <%= favourite.recipe_source_display_name %></a>
-	    </div>
-	  </div>
-	</div>
-<% end %>
-</div>
+					<% end %>
+					<p class="modal-content"></p>
+					<ul class="ingredients-list">
+						<% favourite.recipe.ingredient_lines.each do |i| %>
+						<li><%= i %></li>
+						<% end %>
+					</ul>
+					<a class="favourite-recipe-button" href=<%= favourite.recipe_source_recipe_url %>>Find Full Recipe on <%= favourite.recipe_source_display_name %></a>
+				</div>
+			</div>
+		</div>
+	<% end %>
 </div>
 

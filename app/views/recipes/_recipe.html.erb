@@ -1,22 +1,23 @@
 <div class="recipe-show">
 	<div class="banner-image-container">
 		<div class="banner-text">
-			<h3>
+			<h4>
 				<%= ((@recipe.total_time_in_seconds/ 60 * 5) / 5).to_i %> <span>min</span> • 
 				<%= @recipe.number_of_servings %> <span>servings</span>
 				<% if @recipe.calories %>
 					 • <%= @recipe.calories.round(-1) %><span> cal</span>
 				<% end %>
-			</h3>
+			</h4>
 		</div>
 		<div class="dark-mask"></div>
 		<%= image_tag @recipe.image_url_size(650), class:"banner-image" %>
 	</div>
 	<% if current_user %>
 		<% if current_user.has_favourited(@recipe.recipe_id) %>
-			<%= button_to "Unfavorite", { controller: :favourites, action: 'destroy', favourite: {recipe_id: @recipe.recipe_id}}, class: "fav", :method => :delete, remote: true %>
+
+			<%= button_to "Unfavourite", { controller: :favourites, action: 'destroy', favourite: {recipe_id: @recipe.recipe_id}}, class: "fav", :method => :delete, remote: true %>
 		<% else %>
-			<%= button_to "Favourite", { controller: 'favourites', action: 'create', favourite: {recipe_id: @recipe.recipe_id}}, class: "fav", remote: true %>
+			<%= button_to "Flavourite", { controller: 'favourites', action: 'create', favourite: {recipe_id: @recipe.recipe_id}}, class: "fav", remote: true %>
 		<% end %>
 	<% end %>
 
