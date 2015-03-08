@@ -123,21 +123,19 @@ $(document).ready(function(){
 
 	$(document).keydown(function(event){
 
-		event.preventDefault();
-
 		if (event.which == 38) {
 			$('.recipe-thumb.active').click();
 			return;
 		}
 
 		if (event.which == 37) {
-			console.log('left arrow');
+			event.preventDefault();
 			$('.left-swipe').click();
 			return;
 		}
 
 		if (event.which == 39) {
-			console.log('right arrow');
+			event.preventDefault();
 			$('.right-swipe').click();
 			return;
 		}
