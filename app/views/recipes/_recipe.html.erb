@@ -7,6 +7,7 @@
 				<% if @recipe.calories %>
 					 • <%= @recipe.calories.round(-1) %><span> cal</span>
 				<% end %>
+
 			</h4>
 		</div>
 		<div class="dark-mask"></div>
@@ -14,13 +15,15 @@
 	</div>
 	<% if current_user %>
 		<% if current_user.has_favourited(@recipe.recipe_id) %>
-
-			<%= button_to "Unfavourite", { controller: :favourites, action: 'destroy', favourite: {recipe_id: @recipe.recipe_id}}, class: "fav", :method => :delete, remote: true %>
+			<%= link_to "", { controller: :favourites, action: 'destroy', favourite: {recipe_id: @recipe.recipe_id}}, class: "fav fa fa-heart fa-2x top-heart", :method => :delete, remote: true %>
+			<i class="fa fa-heart-o fa-2x"></i>
 		<% else %>
-			<%= button_to "Flavourite", { controller: 'favourites', action: 'create', favourite: {recipe_id: @recipe.recipe_id}}, class: "fav", remote: true %>
+			<%= link_to "", { controller: 'favourites', action: 'create', favourite: {recipe_id: @recipe.recipe_id}}, class: "fav fa fa-heart-o fa-2x top-heart", method: :post, remote: true %>
+			<i class="fa fa-heart fa-2x bottom-heart"></i>
 		<% end %>
 	<% end %>
 
+	<!-- <h5><%= @recipe.name %></h5> -->
 	<h4>Ingredients</h4>
 	<div class="overflow">
 		<ul class="ingredients-list">
