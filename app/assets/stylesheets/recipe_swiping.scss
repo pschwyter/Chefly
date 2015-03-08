@@ -15,17 +15,17 @@
 
 // Recipe Card Animations
 
-// .recipe-thumb:hover {
-//   @include transition(0.4s);
-// }
-
-.recipe-thumb {
+.recipe-thumb.active .face.front:hover {
   @include transition(0.4s);
 }
 
-// .recipe-thumb:hover {
-//   @include transform(scale(1.01));
-// }
+.recipe-thumb.active .face.front {
+  @include transition(0.4s);
+}
+
+.recipe-thumb.active .face.front:hover {
+  @include transform(scale(1.01));
+}
 
 @include keyframes(next-in) {
   from {
