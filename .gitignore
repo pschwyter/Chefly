@@ -23,4 +23,4 @@
 /config/initializers/devise.rb
 
 # Ignore secrets
-# /config/secrets.yml
+/config/secrets.yml
