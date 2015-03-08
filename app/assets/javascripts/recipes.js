@@ -114,29 +114,31 @@ $(document).ready(function(){
 	var currentIndex = 0;
 
 
-	$(document).keypress(function(event){
-		if (event.which == 39) {
-			console.log("pressed Enter");
-			callback();
-		}        
-	});
+	// hot-keys!
 
 	$(document).keydown(function(event){
 
+		// up-arrow
 		if (event.which == 38) {
 			$('.recipe-thumb.active').click();
 			return;
 		}
-
+		// left-arrow
 		if (event.which == 37) {
 			event.preventDefault();
 			$('.left-swipe').click();
 			return;
 		}
-
+		// right-arrow
 		if (event.which == 39) {
 			event.preventDefault();
 			$('.right-swipe').click();
+			return;
+		}
+		// f key
+		if (event.which == 70) {
+			event.preventDefault();
+			$('.active .fav').click();
 			return;
 		}
 
@@ -147,7 +149,13 @@ $(document).ready(function(){
 		console.log('we got to the end');
 
 	});
+
+	$('.active .fav').click(function(event){
+		event.preventDefault();
+		$('.active .recipe-show').addClass('dear-god-dont-flip');
+	});
 	
+	// super awesome swiping action
 	$('.swipe').on('click', function() {
 
 		$('.inner').removeClass('flipped');
