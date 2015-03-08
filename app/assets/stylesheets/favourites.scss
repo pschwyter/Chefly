@@ -11,6 +11,14 @@
 	// background-color: $light-grey-plus;
 }
 
+.end-decoration {
+	width: 600px;
+	height: 20px;
+	background-color: $dark-grey;
+	margin: 0 auto;
+	border-radius: 0px 0px 5px 5px ;
+}
+
 .favourites-container {
 	z-index: -1;
 	margin-bottom: 20px;
@@ -26,6 +34,7 @@
 .favourite-recipe {
 	background-repeat: no-repeat;
 	background-size: 100%;
+	background-position: center;
 	height: 200px;
 	width: 600px;
 	margin: 0 auto;
@@ -105,26 +114,6 @@
 
 .favourite-back {
 	z-index: 3;
-}
-
-.favourite-recipe-button {
-	margin: 4% auto;
-	text-decoration: none;
-	text-align: center;
-	color: $dark-grey;
-	border: 1px solid $dark-grey;
-	border-radius: 4px;
-	padding: 9px 15px 9px 15px;
-	@include transition(all 0.2s);
-	display: block;
-	max-width: 60%;
-
-}
-
-.favourite-recipe-button:hover {
-	background-color: $dark-grey;
-	color: white;
-	@include transition(all 0.2s);
 }
 
 // Recipe card animation
