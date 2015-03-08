@@ -50,11 +50,37 @@ $large-button: 40px;
 }
 
 .fav {
-	z-index: 999999;
-	float: right;
-	margin-right: 40px;
-	margin-top: 5px;
+	// z-index: 99999;
 }
+
+.dear-god-dont-flip {
+	pointer-events: none;
+}
+
+.fa-heart-o,
+.fa-heart {
+	position: absolute;
+	top: 100px;
+	right: 42px;
+	font-size: 48px;
+	color: #F2A1A1;
+	text-decoration: none;
+	margin-top: 12px;
+
+}
+
+.fa-heart-o.top-heart {
+	background-color: white;
+}
+
+.top-heart {
+	z-index: 100;
+}
+
+.top-heart:hover {
+	opacity: 0;
+}
+
 
 // Navbar
 
