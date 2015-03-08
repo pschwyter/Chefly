@@ -34,15 +34,21 @@
 					<% end %>
 					<% end %>
 					<p class="modal-content"></p>
+					<h4>Ingredients</h4>
 					<ul class="ingredients-list">
 						<% favourite.recipe.ingredient_lines.each do |i| %>
 						<li><%= i %></li>
 						<% end %>
 					</ul>
-					<a class="favourite-recipe-button" href=<%= favourite.recipe_source_recipe_url %>>Find Full Recipe on <%= favourite.recipe_source_display_name %></a>
+					<a href=<%= favourite.recipe_source_recipe_url %>>
+						<div class="recipe-button">
+							View Full Recipe
+						</div>
+					</a>
 				</div>
 			</div>
 		</div>
 	<% end %>
+	<div class="end-decoration"></div>
 </div>
 
