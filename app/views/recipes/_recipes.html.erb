@@ -12,7 +12,12 @@
 						<span><%= recipe.name %></span>
 					</div>
 					<div class="aside">
-						<h4><%= recipe.time %> <span>min</span> • <%= recipe.ingredientsNum %> <span>ing</span></h4>
+						<h4>
+							<% if recipe.time != "NA" %>
+								<%= recipe.time %> <span>min</span> • 
+							<% end %>
+							<%= recipe.ingredientsNum %> <span>ing</span>
+						</h4>
 					</div>
 					<div class="dots">
 						<h2>•••</h2>

@@ -1,7 +1,13 @@
 <div class="recipe-show">
 	<div class="banner-image-container">
 		<div class="banner-text">
-			<h3><%= ((@recipe.total_time_in_seconds/ 60 * 5) / 5).to_i %> <span>min</span> • <%= @recipe.number_of_servings %> <span>servings</span> • <%= @recipe.calories %> <span>cal</span></h3>
+			<h3>
+				<%= ((@recipe.total_time_in_seconds/ 60 * 5) / 5).to_i %> <span>min</span> • 
+				<%= @recipe.number_of_servings %> <span>servings</span>
+				<% if @recipe.calories %>
+					 • <%= @recipe.calories.round(-1) %><span> cal</span>
+				<% end %>
+			</h3>
 		</div>
 		<div class="dark-mask"></div>
 		<%= image_tag @recipe.image_url_size(650), class:"banner-image" %>
@@ -14,11 +20,26 @@
 		<% end %>
 	<% end %>
 
-	<h5><%= @recipe.name %></h5>
-	<ul class="ingredients-list">
-		<% @recipe.ingredient_lines.each do |ingredient| %>
-			<li><%= ingredient %></li>
-		<% end %>
-	</ul>
-	<a class="recipe-button" href=<%= @recipe.source_recipe_url %>>Find Full Recipe on <%= @recipe.source_display_name %></a>
+	<!-- <h5><%= @recipe.name %></h5> -->
+	<h4>Ingredients</h4>
+	<div class="overflow">
+		<ul class="ingredients-list">
+			<% @recipe.ingredient_lines.take(6).each do |ingredient| %>
+				<li>
+					<%= ingredient[0, 65].capitalize %><% if ingredient.length > 65 %>...
+					<% end %>
+				</li>
+			<% end %>
+			<% if @recipe.ingredient_lines.count == 7 %>
+				<li><strong>1 more ingredient</strong></li>
+			<% elsif @recipe.ingredient_lines.count > 7 %>
+				<li><strong><%=  @recipe.ingredient_lines.count - 6 %> more ingredients</strong></li>
+			<% end %>
+		</ul>
+	</div>
+	<a href=<%= @recipe.source_recipe_url %>>
+		<div class="recipe-button">
+			View Full Recipe
+		</div>
+	</a>
 </div>

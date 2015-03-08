@@ -121,7 +121,7 @@ $(document).ready(function(){
 		}        
 	});
 
-	$(document).keydown(function(){
+	$(document).keydown(function(event){
 
 		if (event.which == 38) {
 			$('.recipe-thumb.active').click();
@@ -129,13 +129,13 @@ $(document).ready(function(){
 		}
 
 		if (event.which == 37) {
-			console.log('left arrow');
+			event.preventDefault();
 			$('.left-swipe').click();
 			return;
 		}
 
 		if (event.which == 39) {
-			console.log('right arrow');
+			event.preventDefault();
 			$('.right-swipe').click();
 			return;
 		}
@@ -150,8 +150,9 @@ $(document).ready(function(){
 	
 	$('.swipe').on('click', function() {
 
-		var $active  = $('.search-results > div.active'),
-		isNext   = $(this).hasClass('right-swipe');
+		$('.inner').removeClass('flipped');
+		var $active = $('.search-results > div.active'),
+		isNext = $(this).hasClass('right-swipe');
 		currentIndex = ((currentIndex + (isNext ? 1 : -1)) % recipeCount);
 
 
