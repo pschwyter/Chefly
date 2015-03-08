@@ -3,7 +3,7 @@ $(document).ready(function(){
 	var recipeCount = 10;
 
 	var flipCallback = function() {
-		$('.recipe-thumb').on('click', function(){
+		$('.recipe-flip').on('click', function(){
 			var that = this;
 			$('.inner').toggleClass('flipped');
 			var recipeId = $(this).data("id");
@@ -151,8 +151,7 @@ $(document).ready(function(){
 	});
 
 	$('.active .fav').click(function(event){
-		event.preventDefault();
-		$('.active .recipe-show').addClass('dear-god-dont-flip');
+		$('.recipe-flip').removeClass('recipe-flip');
 	});
 	
 	// super awesome swiping action

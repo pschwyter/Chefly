@@ -53,6 +53,10 @@ $large-button: 40px;
 	pointer-events: none;
 }
 
+.fav {
+	pointer-events: auto;
+}
+
 .fa-heart-o,
 .fa-heart {
 	position: absolute;
@@ -62,6 +66,7 @@ $large-button: 40px;
 	color: #F2A1A1;
 	text-decoration: none;
 	margin-top: 12px;
+}
 
 .fa-heart-o.top-heart {
 	background-color: white;
