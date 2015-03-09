@@ -2,7 +2,10 @@
 	<div class="banner-image-container">
 		<div class="banner-text">
 			<h4>
-				<%= ((@recipe.total_time_in_seconds/ 60 * 5) / 5).to_i %> <span>min</span> • 
+				<% if @recipe.total_time_in_seconds %>
+					<%= ((@recipe.total_time_in_seconds/ 60 * 5) / 5).to_i %> 
+				<% end %>
+				<span>min</span> • 
 				<%= @recipe.number_of_servings %> <span>servings</span>
 				<% if @recipe.calories %>
 					 • <%= @recipe.calories.round(-1) %><span> cal</span>
