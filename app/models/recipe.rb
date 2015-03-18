@@ -20,11 +20,6 @@ class Recipe < ActiveRecord::Base
 
 	def readable_time
 		minutes = (self.total_time_in_seconds % 3600)/60
-		hours = (self.total_time_in_seconds / 3600).floor
-		if hours > 0
-			"#{hours}hrs"
-		else
-			"#{minutes}min"
-		end
+		return "#{minutes} min"
 	end
 end
