@@ -50,15 +50,9 @@ $large-button: 40px;
 }
 
 .dear-god-dont-flip {
-	pointer-events: none;
 }
 
 .fav {
-	pointer-events: auto;
-}
-
-.fa-heart-o,
-.fa-heart {
 	position: absolute;
 	top: 100px;
 	right: 42px;
@@ -66,6 +60,16 @@ $large-button: 40px;
 	color: #F2A1A1;
 	text-decoration: none;
 	margin-top: 12px;
+}
+
+.favourite-fav {
+	position: absolute;
+	top: 160px;
+	right: 50px;
+	font-size: 48px;
+	color: #F2A1A1;
+	text-decoration: none;
+	margin-top: 12px;	
 }
 
 .fa-heart-o.top-heart {

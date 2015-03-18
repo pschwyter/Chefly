@@ -2,6 +2,7 @@
 	<div class="banner-image-container">
 		<div class="dark-mask"></div>
 		<div class="banner-text">
+
 			<h3>
 				<%= ((@recipe.total_time_in_seconds/ 60 * 5) / 5).to_i %> <span>min</span> • 
 				<%= @recipe.number_of_servings %> <span>servings</span>
@@ -15,10 +16,10 @@
 	<% if current_user %>
 		<% if current_user.has_favourited(@recipe.recipe_id) %>
 			<%= link_to "", { controller: :favourites, action: 'destroy', favourite: {recipe_id: @recipe.recipe_id}}, class: "fav fa fa-heart fa-2x top-heart", :method => :delete, remote: true %>
-			<i class="fa fa-heart-o fa-2x"></i>
+			<i class="fav fa fa-heart-o fa-2x"></i>
 		<% else %>
 			<%= link_to "", { controller: 'favourites', action: 'create', favourite: {recipe_id: @recipe.recipe_id}}, class: "fav fa fa-heart-o fa-2x top-heart", method: :post, remote: true %>
-			<i class="fa fa-heart fa-2x bottom-heart"></i>
+			<i class="fav fa fa-heart fa-2x bottom-heart"></i>
 		<% end %>
 	<% end %>
 
