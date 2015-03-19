@@ -22,7 +22,10 @@
 					<div class="fav-banner-content">	
 						<div class="modal-mask"></div>
 						<div class="favourite-recipe-stats">
-							<h4><%= favourite.recipe_readable_time %> • <%= favourite.recipe_number_of_servings %> <span>servings</span> • <%= favourite.recipe_calories %> <span>cal</span></h4>
+							<h4><%= favourite.recipe_readable_time %> • <%= favourite.recipe_number_of_servings %> <span>servings</span>
+							<% if favourite.recipe_calories %>
+							 • <%= favourite.recipe_calories.round(-1) %> <span>cal</span></h4>
+							<% end %>
 						</div>
 					</div>
 					<div class="favourite-banner-container">
