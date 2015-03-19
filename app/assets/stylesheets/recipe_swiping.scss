@@ -15,18 +15,6 @@
 
 // Recipe Card Animations
 
-.recipe-thumb.active .face.front:hover {
-  @include transition(0.4s);
-}
-
-.recipe-thumb.active .face.front {
-  @include transition(0.4s);
-}
-
-.recipe-thumb.active .face.front:hover {
-  @include transform(scale(1.01));
-}
-
 @include keyframes(next-in) {
   from {
     opacity: 0;

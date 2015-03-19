@@ -19,11 +19,13 @@
 			<input class="modal-state" id="modal-<%= i %>" type="checkbox" />
 			<div class="modal-window">
 				<div class="modal-inner">
-					<div class="favourite-banner-container">
+					<div class="fav-banner-content">	
 						<div class="modal-mask"></div>
 						<div class="favourite-recipe-stats">
 							<h4><%= favourite.recipe_readable_time %> • <%= favourite.recipe_number_of_servings %> <span>servings</span> • <%= favourite.recipe_calories %> <span>cal</span></h4>
 						</div>
+					</div>
+					<div class="favourite-banner-container">
 						<%= image_tag favourite.recipe.image_url_size(650), class:"favourite-banner-image" %>
 					</div>
 					<label class="modal-close" for="modal-<%= i %>"></label>
