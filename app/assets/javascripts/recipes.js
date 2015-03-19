@@ -118,36 +118,26 @@ $(document).ready(function(){
 
 	$(document).keydown(function(event){
 
-		// up-arrow
-		if (event.which == 38) {
-			$('.recipe-thumb.active').click();
-			return;
-		}
-		// left-arrow
-		if (event.which == 37) {
-			event.preventDefault();
-			$('.left-swipe').click();
-			return;
-		}
-		// right-arrow
-		if (event.which == 39) {
-			event.preventDefault();
-			$('.right-swipe').click();
-			return;
-		}
-		// f key
-		if (event.which == 70) {
-			event.preventDefault();
-			$('.active .fav').click();
-			return;
-		}
+		if (($('#ingredient').is(':focus') == false) || $('#ingredient').val() == "" ) {
 
-		if ($('#ingredient').is(':focus') == false) {
-			$('#ingredient').focus();
+			// up-arrow
+			if (event.which == 38) {
+				$('.recipe-thumb.active').click();
+				return;
+			}
+			// left-arrow
+			if (event.which == 37) {
+				event.preventDefault();
+				$('.left-swipe').click();
+				return;
+			}
+			// right-arrow
+			if (event.which == 39) {
+				event.preventDefault();
+				$('.right-swipe').click();
+				return;
+			}
 		}
-
-		console.log('we got to the end');
-
 	});
 
 	$('.active .fav').click(function(event){
