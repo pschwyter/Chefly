@@ -34,9 +34,11 @@
 					<label class="modal-close" for="modal-<%= i %>"></label>
 					<% if current_user %>
 					<% if current_user.has_favourited(favourite.recipe_id) %>
-					<%= button_to "Unfavorite", { controller: :favourites, action: 'destroy', favourite: {recipe_id: favourite.recipe_id}}, :method => :delete, remote: true %>
+						<%= link_to "", { controller: :favourites, action: 'destroy', favourite: {recipe_id: favourite.recipe_id}}, class: "fav-icon fa fa-heart fa-2x top-heart", :method => :delete, remote: true %>
+						<i class="fav-icon fa fa-heart-o fa-2x"></i>
 					<% else %>
-					<%= button_to "Favourite", { controller: 'favourites', action: 'create', favourite: {recipe_id: favourite.recipe_id}}, remote: true %>
+						<%= link_to "", { controller: 'favourites', action: 'create', favourite: {recipe_id: favourite.recipe_id}}, class: "fav-icon fa fa-heart-o fa-2x top-heart", method: :post, remote: true %>
+						<i class="fav-icon fa fa-heart fa-2x bottom-heart"></i>
 					<% end %>
 					<% end %>
 					<p class="modal-content"></p>
