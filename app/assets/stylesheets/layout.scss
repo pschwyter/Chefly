@@ -636,11 +636,12 @@ i.info:hover {
 .info-container {
 	color: white;
 	position: absolute;
-	left: 20%;
+	left: 50%;
 	top: 10%;
-	width: 60%;
+	width: 684px;
 	height: 80%;
-	margin: auto;
+	margin-left: -342px;
+	margin-y: auto;
 	text-align: center;
 	z-index: 12;
 	display: table;
@@ -660,7 +661,7 @@ i.info:hover {
 
 .info-activated {
 	visibility: visible;
-	opacity: 0.6;
+	opacity: 0.8;
 	@include transition(all 0.2s);
 }
 
