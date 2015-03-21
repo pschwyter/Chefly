@@ -70,6 +70,19 @@ $(document).ready(function(){
 	    	flipCallback();
 	    	// adds textfill to first result
 	    	$('.title').textfill({ maxFontPixels: 200 });
+
+		    var $firstRecipe 	= $('.active'),
+			    	recipeId 			= $firstRecipe.data("id"),
+				  	id 						= {id: recipeId};
+
+	    	$.ajax({
+					type: "GET",
+			    url: '/show_recipe', //submits it to the given url of the form
+			    data: id,
+			    dataType: "SCRIPT" // you want a difference between normal and ajax-calls, and json is standard
+				}).success(function(){
+					$('.recipe-name', $firstRecipe).textfill({ maxFontPixels: 200 });
+				});
 	    });
 	}
 
