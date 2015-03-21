@@ -8,15 +8,6 @@ $(document).ready(function(){
 			$('.inner').toggleClass('flipped');
 			var recipeId = $(this).data("id");
 			var id = {id: recipeId};
-
-			$.ajax({
-				type: "GET",
-		    url: '/show_recipe', //submits it to the given url of the form
-		    data: id,
-		    dataType: "SCRIPT" // you want a difference between normal and ajax-calls, and json is standard
-			}).success(function(){
-				$('.recipe-name', that).textfill({ maxFontPixels: 200 });
-			});
 		});
 	}
 
@@ -159,20 +150,33 @@ $(document).ready(function(){
 
 		$('.inner').removeClass('flipped');
 		var $active = $('.search-results > div.active'),
-		isNext = $(this).hasClass('right-swipe');
-		currentIndex = ((currentIndex + (isNext ? 1 : -1)) % recipeCount);
+				$isNext  = $(this).hasClass('right-swipe');
+		
+		currentIndex = ((currentIndex + ($isNext ? 1 : -1)) % recipeCount);
 
 
-     // go back to the last item if we hit -1 
-     if (currentIndex === -1) {
-     	currentIndex = recipeCount - 1;
-     }
+    // go back to the last item if we hit -1 
+    if (currentIndex === -1) {
+    	currentIndex = recipeCount - 1;
+    }
 
-     var $next = $('.search-results > div:eq(' + currentIndex + ')');
-     $active.addClass(isNext ? 'next-out' : 'prev-out');
-     $next.addClass('active').addClass(isNext ? 'next-in' : 'prev-in');
+     var $next 		= $('.search-results > div:eq(' + currentIndex + ')'),
+     		 recipeId = $next.data("id"),
+				 id 			= {id: recipeId};
+
+     $active.addClass($isNext ? 'next-out' : 'prev-out');
+     $next.addClass('active').addClass($isNext ? 'next-in' : 'prev-in');
      var textfillTargetChild = currentIndex + 1;
      $('.recipe-thumb:nth-child('+textfillTargetChild+') .title').textfill({ maxFontPixels: 200 });
+
+     $.ajax({
+				type: "GET",
+		    url: '/show_recipe', //submits it to the given url of the form
+		    data: id,
+		    dataType: "SCRIPT" // you want a difference between normal and ajax-calls, and json is standard
+			}).success(function(){
+				$('.recipe-name', $next).textfill({ maxFontPixels: 200 });
+			});
 
      setTimeout(function() { 
      	$active.removeClass('active next-out prev-out');
