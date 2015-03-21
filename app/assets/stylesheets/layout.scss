@@ -643,12 +643,20 @@ i.info:hover {
 	margin: auto;
 	text-align: center;
 	z-index: 12;
-	display: none;
+	visibility: hidden;
+	transform: scale(0.8);
+	@include transition(all 0.2s);
 }
 
 .info-activated {
 	visibility: visible;
 	opacity: 0.6;
+	@include transition(all 0.2s);
+}
+
+.info-con-activated {
+	transform: scale(1);
+	visibility: visible;
 	@include transition(all 0.2s);
 }
 
