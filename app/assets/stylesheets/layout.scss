@@ -618,7 +618,7 @@ i.info {
 }
 
 i.info:hover {
-	color: $dark-grey;
+	color: $mid-grey;
 	@include transition(all 0.2s);
 }
 
@@ -636,9 +636,9 @@ i.info:hover {
 .info-container {
 	color: white;
 	position: absolute;
-	left: 10%;
+	left: 20%;
 	top: 10%;
-	width: 80%;
+	width: 60%;
 	height: 80%;
 	margin: auto;
 	text-align: center;
@@ -660,6 +660,12 @@ i.info:hover {
 	@include transition(all 0.2s);
 }
 
+.info-container p {
+	line-height: 1.4;
+	font-weight: 200;
+}
 
-
-
+#info-break {
+	width: 100%;
+	border-color: white;
+}
