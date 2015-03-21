@@ -12,17 +12,21 @@
 
 </head>
 <body>
+	<div class="info-overlay"></div>
+	<div class="info-container">
+		<h4>Welcome to Chefly!</h4>
+	</div>
 	<nav>
 		<h3 id="logo"><%= link_to "Chefly", root_path %></h3>
 		<% if current_user %>
-			<div class="sign-out">
-				<div class="user-image"><%= image_tag current_user.avatar %><%= current_user.name.split(' ')[0] %></div>
-				<ul class="menu">
-					<hr>
-					<li><%= link_to "Favourites", favourites_path %></li>
-					<li><%= link_to "Sign out", destroy_user_session_path, :method => 'delete' %></li>
-				</ul>
-			</div>
+		<div class="sign-out">
+			<div class="user-image"><%= image_tag current_user.avatar %><%= current_user.name.split(' ')[0] %></div>
+			<ul class="menu">
+				<hr>
+				<li><%= link_to "Favourites", favourites_path %></li>
+				<li><%= link_to "Sign out", destroy_user_session_path, :method => 'delete' %></li>
+			</ul>
+		</div>
 		<% else %>
 		<%= link_to user_omniauth_authorize_path(:facebook) do %>
 		<div id="sign-in"><i class="fa fa-facebook"></i> Sign-in</div> 

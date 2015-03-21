@@ -1,19 +1,16 @@
 <div class="recipe-show">
 	<div class="banner-image-container">
+		<div class="dark-mask"></div>
 		<div class="banner-text">
-			<h4>
-				<% if @recipe.total_time_in_seconds %>
-					<%= ((@recipe.total_time_in_seconds/ 60 * 5) / 5).to_i %> 
-				<% end %>
-				<span>min</span> • 
+
+			<h3>
+				<%= ((@recipe.total_time_in_seconds/ 60 * 5) / 5).to_i %> <span>min</span> • 
 				<%= @recipe.number_of_servings %> <span>servings</span>
 				<% if @recipe.calories %>
 					 • <%= @recipe.calories.round(-1) %><span> cal</span>
 				<% end %>
-
-			</h4>
+			</h3>
 		</div>
-		<div class="dark-mask"></div>
 		<%= image_tag @recipe.image_url_size(650), class:"banner-image" %>
 	</div>
 	<% if current_user %>
@@ -27,7 +24,7 @@
 	<% end %>
 
 	<!-- <h5><%= @recipe.name %></h5> -->
-	<h4>Ingredients</h4>
+	<h4 class="ingredients-title">Ingredients</h4>
 	<div class="overflow">
 		<ul class="ingredients-list">
 			<% @recipe.ingredient_lines.take(6).each do |ingredient| %>

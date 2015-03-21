@@ -318,7 +318,7 @@ i.fa.fa-facebook {
 	border: 1px solid $light-grey-plus;
 }
 
-.recipe-show h4 {
+.ingredients-title {
 	padding-left: 40px;
 	margin-top: 10px;
 	margin-bottom: 10px;
@@ -603,6 +603,45 @@ i.fa.fa-facebook {
 .left-swipe .border:hover, .right-swipe .border:hover {
 	background-color: rgba(0, 0, 0, 0.35);
 	@include transition(all 0.2s);
+}
+
+// Info Button
+
+i.info {
+	position: absolute;
+	bottom: 5px;
+	left: 5px;
+	color: $light-grey-plus;
+	font-size: 1.2rem;
+	@include transition(all 0.2s);
+}
+
+i.info:hover {
+	color: $dark-grey;
+	@include transition(all 0.2s);
+}
+
+.info-overlay {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	z-index: 11;
+	background-color: black;
+	opacity: 0.6;
+	display: none;
+}
+
+.info-container {
+	color: white;
+	position: absolute;
+	left: 10%;
+	top: 10%;
+	width: 80%;
+	height: 80%;
+	margin: auto;
+	text-align: center;
+	z-index: 12;
+	display: none;
 }
 
 

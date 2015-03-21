@@ -119,7 +119,7 @@
 // Recipe card animation
 
 .favourite-recipe:hover {
-	@include transform(translate(10px, 0px));
+	@include transform(translate(20px, 0px));
 	// z-index: 1000000;
 
 	.favourite-mask {
