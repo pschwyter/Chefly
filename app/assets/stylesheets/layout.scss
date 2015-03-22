@@ -644,15 +644,9 @@ i.info:hover {
 	margin-y: auto;
 	text-align: center;
 	z-index: 12;
-	display: table;
 	visibility: hidden;
 	transform: scale(0.7);
 	@include transition(all 0.2s);
-}
-
-.info-contents {
-	display: table-cell;
-	vertical-align: middle;
 }
 
 .info-contents h3 {
