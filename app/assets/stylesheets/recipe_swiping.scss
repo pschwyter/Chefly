@@ -19,10 +19,12 @@
   from {
     opacity: 0;
     transform: translateX(800px) rotate(5deg);
+    -webkit-transform: translateX(800px) rotate(5deg);
   }
   to {
     opacity: 1;
     transform: translateX(0px) rotate(0deg);
+    -webkit-transform: translateX(0px) rotate(0deg);
   }
 }
 
@@ -30,10 +32,12 @@
   from {
     opacity: 1;
     transform: translateX(0px) rotate(0deg);
+    -webkit-transform: translateX(0px) rotate(0deg);
   }
   to {
     opacity: 0;
     transform: translateX(-800px) rotate(-5deg);
+    -webkit-transform: translateX(-800px) rotate(-5deg);
   }
 }
 
@@ -41,10 +45,12 @@
   from {
     opacity: 0;
     transform: translateX(-800px) rotate(-5deg);
+    -webkit-transform: translateX(-800px) rotate(-5deg);
   }
   to {
     opacity: 1;
     transform: translateX(0px) rotate(0deg);
+    -webkit-transform: translateX(0px) rotate(0deg);
   }
 }
 
@@ -52,10 +58,12 @@
   from {
     opacity: 1;
     transform: translateX(0px) rotate(0deg);
+    -webkit-transform: translateX(0px) rotate(0deg);
   }
   to {
     opacity: 0;
     transform: translateX(800px) rotate(5deg);
+    -webkit-transform: translateX(800px) rotate(5deg);
   }
 }
 
@@ -63,16 +71,20 @@
 
 .search-results > div.next-in {
   -webkit-animation: next-in 0.5s;
+  animation: next-in 0.5s;
 }
 
 .search-results > div.next-out {
   -webkit-animation: next-out 0.5s;
+  animation: next-out 0.5s;
 }
 
 .search-results > div.prev-in {
   -webkit-animation: prev-in 0.5s;
+  animation: next-in 0.5s;
 }
 
 .search-results > div.prev-out {
   -webkit-animation: prev-out 0.5s;
+  animation: next-out 0.5s;
 }
