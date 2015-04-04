@@ -40,9 +40,9 @@
 			<% end %>
 		</ul>
 	</div>
-	<a href=<%= @recipe.source_recipe_url %>>
-		<div class="recipe-button">
-			View Full Recipe
-		</div>
-	</a>
+	<div class="button-container">
+		<form action=<%= @recipe.source_recipe_url %> target="_blank">
+	    	<input class="recipe-button" type="submit" value="View Full Recipe">
+		</form>
+	</div>
 </div>

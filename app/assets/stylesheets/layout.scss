@@ -502,20 +502,21 @@ i.fa.fa-facebook {
 	font-size: 1.25rem;
 }
 
-.recipe-button {
-	height: 40px;
-	width: 156px;
+.button-container {
 	position: absolute;
+	width: 100%;
 	bottom: 5px;
-	left: 50%;
-	margin-left: -78px;
 	text-align: center;
-	line-height: 40px;
+}
+
+.recipe-button {
 	text-decoration: none;
+	background-color: white;
 	color: $dark-grey;
 	border: 1px solid $dark-grey;
 	border-radius: 4px;
 	display: inline-block;
+	padding: 10px;
 	@include transition(all 0.2s);
 }
 
