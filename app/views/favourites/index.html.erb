@@ -56,11 +56,11 @@
 							<li><strong><%=  favourite.recipe.ingredient_lines.count - 6 %> more ingredients</strong></li>
 						<% end %>
 					</ul>
-					<a href=<%= favourite.recipe_source_recipe_url %>>
-						<div class="recipe-button">
-							View Full Recipe
-						</div>
-					</a>
+					<div class="button-container">
+						<form action=<%= favourite.recipe_source_recipe_url %> target="_blank">
+					    	<input class="recipe-button" type="submit" value="View Full Recipe">
+						</form>
+					</div>
 				</div>
 			</div>
 		</div>
