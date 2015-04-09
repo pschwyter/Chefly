@@ -181,10 +181,11 @@ $(document).ready(function(){
 				$('.recipe-name', $next).textfill({ maxFontPixels: 200 });
 			});
 
+     imageCallback();
+     
      setTimeout(function() { 
      	$active.removeClass('active next-out prev-out');
      	$next.removeClass('next-in prev-in');
-     	imageCallback();
      }, 500);
      return false;
  });
