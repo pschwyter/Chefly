@@ -520,7 +520,7 @@ i.fa.fa-facebook {
 
 .ingredients-list {
 	padding-right: 40px;
-	overflow: hidden;
+	overflow: scroll;
 	height: 190px;
 }
 
@@ -671,11 +671,19 @@ i.info:hover {
 	margin-top: 30px;
 }
 
+// Media queries
 
+@media screen and (max-width: 1024px) {
 
+	.recipe-thumb, .thumb-image, .back {
+		width: 474px;
+		height: 316px;
+	}
 
-
-
+	.ingredients-list {
+		height: 100px;
+	}
+}
 
 
 

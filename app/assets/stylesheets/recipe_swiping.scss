@@ -18,6 +18,16 @@
   display: none;
 }
 
+// Media Queries
+
+@media screen and (max-width: 1024px) {
+
+  .search-results > div {
+    margin-left: -237px;
+     margin-top: -158px;
+  }
+}
+
 // Recipe Card Animations
 
 @include keyframes(next-in) {

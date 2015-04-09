@@ -27,16 +27,11 @@
 	<h4 class="ingredients-title">Ingredients</h4>
 	<div class="overflow">
 		<ul class="ingredients-list">
-			<% @recipe.ingredient_lines.take(6).each do |ingredient| %>
+			<% @recipe.ingredient_lines.each do |ingredient| %>
 				<li>
 					<%= ingredient[0, 65].capitalize %><% if ingredient.length > 65 %>...
 					<% end %>
 				</li>
-			<% end %>
-			<% if @recipe.ingredient_lines.count == 7 %>
-				<li><strong>1 more ingredient</strong></li>
-			<% elsif @recipe.ingredient_lines.count > 7 %>
-				<li><strong><%=  @recipe.ingredient_lines.count - 6 %> more ingredients</strong></li>
 			<% end %>
 		</ul>
 	</div>
