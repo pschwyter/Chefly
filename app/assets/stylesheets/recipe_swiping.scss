@@ -1,11 +1,15 @@
 .search-results {
-  position: relative;
-  list-style: none;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
 }
 
 .search-results > div {
   position: absolute;
   left: 50%;
+  top: 50%;
+  margin-top: -200px;
   margin-left: -300px;
 }
 
