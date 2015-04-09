@@ -623,50 +623,37 @@ i.info:hover {
 	background-color: black;
 	opacity: 0;
 	visibility: hidden;
-	@include transition(all 0.2s);
+	display: table;
+	@include transition(all 0.15s);
+}
+
+.info-overlay.info-activated {
+	visibility: visible;
+	opacity: 0.85;
+	@include transition(all 0.15s);
 }
 
 .info-container {
-	color: white;
-	position: absolute;
-	left: 50%;
-	top: 10%;
-	width: 684px;
-	height: 80%;
-	margin-left: -342px;
-	margin-y: auto;
 	text-align: center;
 	z-index: 12;
 	visibility: hidden;
+	display: table-cell;
+	vertical-align: middle;
 	transform: scale(0.7);
-	@include transition(all 0.2s);
+	@include transition(all 0.15s);
 }
 
-.info-contents h3 {
-	margin-top: 0px;
-}
-
-.info-activated {
-	visibility: visible;
-	opacity: 0.85;
-	@include transition(all 0.2s);
-}
-
-.info-con-activated {
+.info-container.info-con-activated {
 	transform: scale(1);
 	visibility: visible;
 	@include transition(all 0.15s);
 }
 
-.info-contents p {
-	margin-top: 32px;
-	line-height: 1.4;
-	font-size: 1.2rem;
-	font-weight: 200;
-}
-
-.info-container p span {
-	font-weight: 400;
+.info-text {
+	width: 70%;
+	max-width: 750px;
+	color: white;
+	display: inline-block;
 }
 
 #info-break {
