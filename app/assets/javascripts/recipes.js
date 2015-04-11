@@ -144,9 +144,9 @@ $(document).ready(function(){
 		}
 	});
 
-	$('.active .fav').click(function(event){
-		$('.recipe-flip').removeClass('recipe-flip');
-	});
+	// $('.active .fav').click(function(event){
+	// 	$('.recipe-flip').removeClass('recipe-flip');
+	// });
 	
 	// super awesome swiping action
 	$('.swipe').on('click', function() {

@@ -29,8 +29,7 @@
 		<ul class="ingredients-list">
 			<% @recipe.ingredient_lines.each do |ingredient| %>
 				<li>
-					<%= ingredient[0, 65].capitalize %><% if ingredient.length > 65 %>...
-					<% end %>
+					<%= ingredient.capitalize %>
 				</li>
 			<% end %>
 		</ul>

@@ -46,8 +46,7 @@
 					<ul class="ingredients-list">
 						<% favourite.recipe.ingredient_lines.each do |i| %>
 							<li>
-								<%= i[0, 65].capitalize %><% if i.length > 65 %>...
-								<% end %>
+								<%= i.capitalize %>
 							</li>
 						<% end %>
 					</ul>
