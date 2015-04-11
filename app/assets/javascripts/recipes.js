@@ -98,31 +98,39 @@ $(document).ready(function(){
 	        // url: "/recipes", //sumbits it to the given url of the form
 	        data: valuesToSubmit,
 	        dataType: "SCRIPT", // you want a difference between normal and ajax-calls, and json is standard
-	    }).fail(function(){
-	    	console.log('fail');
-	    }).success(function(){
-	    	recipeCount = $('.search-results > div').length;
-	    	console.log('success, recipe count: ' + recipeCount);
-	    	var currentIndex = 0;
-	    	/* add the active class to the first item to hide all the others */
-	    	$('.search-results > div:eq(' + currentIndex + ')').addClass('active');
-	    	imageCallback();
-	    	flipCallback();
-	    	// adds textfill to first result
-	    	$('.title').textfill({ maxFontPixels: 200 });
+	        beforeSend:function(){
+	        	$(".loading").show();
+	        	$(".search-results, .swipe").hide();
+	        },
+	    	fail:function(){
+	    		console.log('fail');
+	    	},
+	    	success:function(){
+	    		$(".loading").hide();
+		    	$(".search-results, .swipe").show();
+		    	recipeCount = $('.search-results > div').length;
+		    	console.log('success, recipe count: ' + recipeCount);
+		    	var currentIndex = 0;
+		    	/* add the active class to the first item to hide all the others */
+		    	$('.search-results > div:eq(' + currentIndex + ')').addClass('active');
+		    	imageCallback();
+		    	flipCallback();
+		    	// adds textfill to first result
+		    	$('.title').textfill({ maxFontPixels: 200 });
 
-		    var $firstRecipe 	= $('.active'),
-			    	recipeId 			= $firstRecipe.data("id"),
-				  	id 						= {id: recipeId};
+			    var $firstRecipe 	= $('.active'),
+				    	recipeId 			= $firstRecipe.data("id"),
+					  	id 						= {id: recipeId};
 
-	    	$.ajax({
-					type: "GET",
-			    url: '/show_recipe', //submits it to the given url of the form
-			    data: id,
-			    dataType: "SCRIPT" // you want a difference between normal and ajax-calls, and json is standard
-				}).success(function(){
-					$('.recipe-name', $firstRecipe).textfill({ maxFontPixels: 200 });
+		    	$.ajax({
+						type: "GET",
+				    url: '/show_recipe', //submits it to the given url of the form
+				    data: id,
+				    dataType: "SCRIPT" // you want a difference between normal and ajax-calls, and json is standard
+					}).success(function(){
+						$('.recipe-name', $firstRecipe).textfill({ maxFontPixels: 200 });
 				});
+			}
 	    });
 	}
 
