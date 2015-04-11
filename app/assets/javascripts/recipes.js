@@ -3,11 +3,14 @@ $(document).ready(function(){
 	var recipeCount = 10;
 
 	var flipCallback = function() {
-		$('.recipe-flip').on('click', function(){
+		$('.recipe-flip').on('click', function(event){
+			var target = $(event.target);
 			var that = this;
-			$('.inner').toggleClass('flipped');
-			var recipeId = $(this).data("id");
-			var id = {id: recipeId};
+			if(!target.is('.fav, .fav *')) {
+				$('.inner').toggleClass('flipped');
+				var recipeId = $(this).data("id");
+				var id = {id: recipeId};
+			}
 		});
 	}
 
