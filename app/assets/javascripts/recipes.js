@@ -62,12 +62,14 @@ $(document).ready(function(){
 	        data: valuesToSubmit,
 	        dataType: "SCRIPT", // you want a difference between normal and ajax-calls, and json is standard
 	        beforeSend:function(){
+	        	$(".loading").show();
 	        	$(".search-results, .swipe").hide();
 	        },
 	    	fail:function(){
 	    		console.log('fail');
 	    	},
 	    	success:function(){
+	    		$(".loading").hide();
 		    	$(".search-results, .swipe").show();
 		    	recipeCount = $('.search-results > div').length;
 		    	console.log('success, recipe count: ' + recipeCount);
