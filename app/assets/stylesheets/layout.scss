@@ -704,59 +704,6 @@ i.info:hover {
 	.swipe {
 		display: none;
 	}
-
-	.recipe-thumb, .thumb-image, .back {
-		width: 396px;
-		height: 264px;
-	}
-
-	.title {
-		width: 350px;
-	}
-
-	#ingredient {
-		width: 60%;
-	}
-
 }
-
-@media screen and (max-width: 400px) {
-
-	.swipe {
-		display: none;
-	}
-
-	.recipe-thumb, .thumb-image, .back {
-		width: 348px;
-		height: 232px;
-	}
-
-	.title {
-		width: 340px;
-	}
-
-}
-
-@media screen and (max-width: 350px) {
-
-	.swipe {
-		display: none;
-	}
-
-	.recipe-thumb, .thumb-image, .back {
-		width: 318px;
-		height: 212px;
-	}
-
-	.title {
-		width: 300px;
-	}
-
-}
-
-
-
-
-
 
 
