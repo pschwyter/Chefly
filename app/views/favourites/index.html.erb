@@ -4,7 +4,7 @@
 	<% @favourites.each_with_index do |favourite, i| %>
 
 		<!-- Recipe modal -->
-		<div class="modal">
+		<div class="modal" data-recipe-id=<%= favourite.recipe_id %>>
 			<label for="modal-<%= i %>">
 				<div class="favourite-recipe favourite-grid-item" style="background-image: url(<%= favourite.recipe.image_url_size(650) %>)">
 					<div class="favourite-mask"></div>
@@ -32,15 +32,10 @@
 						<%= image_tag favourite.recipe.image_url_size(650), class:"favourite-banner-image" %>
 					</div>
 					<label class="modal-close" for="modal-<%= i %>"></label>
-					<% if current_user %>
-					<% if current_user.has_favourited(favourite.recipe_id) %>
-						<%= link_to "", { controller: :favourites, action: 'destroy', favourite: {recipe_id: favourite.recipe_id}}, class: "fav-icon fa fa-heart fa-2x top-heart", :method => :delete, remote: true %>
-						<i class="fav-icon fa fa-heart-o fa-2x"></i>
-					<% else %>
-						<%= link_to "", { controller: 'favourites', action: 'create', favourite: {recipe_id: favourite.recipe_id}}, class: "fav-icon fa fa-heart-o fa-2x top-heart", method: :post, remote: true %>
-						<i class="fav-icon fa fa-heart fa-2x bottom-heart"></i>
-					<% end %>
-					<% end %>
+
+					<button data-recipe-id=<%= favourite.recipe_id %> class='fav-icon fa fa-heart fa-2x top-heart unfav-button' style="border: 'none"></button>
+					<i class="fav-icon fa fa-heart-o fa-2x bottom-heart"></i>
+
 					<p class="modal-content"></p>
 					<h4>Ingredients</h4>
 					<ul class="ingredients-list">

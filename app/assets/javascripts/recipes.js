@@ -11,6 +11,43 @@ $(document).ready(function(){
 				var recipeId = $(this).data("id");
 				var id = {id: recipeId};
 			}
+
+				$('.unfav-button').on('click', function() {
+				var $recipe_id = $(this).data('recipe-id'),
+						$recipeContainer = $(this).parent()
+					;
+
+				$.ajax({
+					method: 'DELETE',
+					url: '/favourite_recipe',
+					data: { favourite: {recipe_id: $recipe_id} }
+				}).done(function () {
+					$('button', $recipeContainer).removeClass('fa-heart');
+					$('button', $recipeContainer).removeClass('unfav-button');
+					$('i', $recipeContainer).removeClass('fa-heart-o');
+					$('button', $recipeContainer).addClass('fav-button');
+					$('button', $recipeContainer).addClass('fa-heart-o');
+					$('i', $recipeContainer).addClass('fa-heart');
+				});
+			});
+
+			$('.fav-button').on('click', function() {
+				var $recipe_id = $(this).data('recipe-id'),
+						$recipeContainer = $(this).parent()
+					;
+				$.ajax({
+					method: 'POST',
+					url: '/favourite_recipe',
+					data: { favourite: {recipe_id: $recipe_id} }
+				}).done(function () {
+					$('button', $recipeContainer).removeClass('fa-heart-o');
+					$('button', $recipeContainer).removeClass('fav-button');
+					$('button', $recipeContainer).addClass('unfav-button');
+					$('button', $recipeContainer).addClass('fa-heart');
+					$('i', $recipeContainer).addClass('fa-heart-o');
+					$('i', $recipeContainer).removeClass('fa-heart');
+				});
+			});
 		});
 	}
 

@@ -15,10 +15,10 @@
 	</div>
 	<% if current_user %>
 		<% if current_user.has_favourited(@recipe.recipe_id) %>
-			<%= link_to "", { controller: :favourites, action: 'destroy', favourite: {recipe_id: @recipe.recipe_id}}, class: "fav fa fa-heart fa-2x top-heart", :method => :delete, remote: true %>
-			<i class="fav fa fa-heart-o fa-2x"></i>
+				<button data-recipe-id=<%= @recipe.recipe_id %> class='fav fa fa-heart fa-2x top-heart unfav-button' style="border: 'none"></button>
+				<i class="fav fa fa-heart-o fa-2x bottom-heart"></i>
 		<% else %>
-			<%= link_to "", { controller: 'favourites', action: 'create', favourite: {recipe_id: @recipe.recipe_id}}, class: "fav fa fa-heart-o fa-2x top-heart", method: :post, remote: true %>
+			<button data-recipe-id=<%= @recipe.recipe_id %> class='fav fa fa-heart-o fa-2x top-heart fav-button' style="border: 'none"></button>
 			<i class="fav fa fa-heart fa-2x bottom-heart"></i>
 		<% end %>
 	<% end %>

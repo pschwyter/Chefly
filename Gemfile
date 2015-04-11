@@ -10,6 +10,7 @@ gem "pg"
 
 gem 'devise'
 gem 'omniauth-facebook'
+gem 'react-rails', '~> 1.0'
 
 gem "neat"
 gem "httparty"

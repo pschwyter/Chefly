@@ -36,3 +36,12 @@ $visual-grid-opacity: 0.1;
 .content {
 	@include outer-container;
 }
+
+button, input, submit {
+	border: none;
+	background: none;
+}
+
+.hidden {
+	display: none;
+}
