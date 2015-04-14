@@ -12,10 +12,10 @@ $(document).ready(function(){
 				var id = {id: recipeId};
 			}
 
-				$('.unfav-button').on('click', function() {
+			$('.unfav-button').on('click', function() {
 				var $recipe_id = $(this).data('recipe-id'),
-						$recipeContainer = $(this).parent()
-					;
+				$recipeContainer = $(this).parent()
+				;
 
 				$.ajax({
 					method: 'DELETE',
@@ -33,8 +33,8 @@ $(document).ready(function(){
 
 			$('.fav-button').on('click', function() {
 				var $recipe_id = $(this).data('recipe-id'),
-						$recipeContainer = $(this).parent()
-					;
+				$recipeContainer = $(this).parent()
+				;
 				$.ajax({
 					method: 'POST',
 					url: '/favourite_recipe',
@@ -49,12 +49,12 @@ $(document).ready(function(){
 				});
 			});
 		});
-	}
+}
 
-	var callback = function(){
-		var ingredient = $('#ingredient').val();
-		$('#ingredient').val('');
-		$('#ingredient-box').append('<div class="tag-box"><button type="button" class="ingredient-in-box tag" data-ingredient='+ ingredient +'>' + ingredient + '</button></div>');
+var callback = function(){
+	var ingredient = $('#ingredient').val();
+	$('#ingredient').val('');
+	$('#ingredient-box').append('<div class="tag-box"><button type="button" class="ingredient-in-box tag" data-ingredient='+ ingredient +'>' + ingredient + '</button></div>');
 
 		// need to add click-to-remove each time an ingredient is added 
 		$('button.ingredient-in-box').on('click', function(){
@@ -89,9 +89,12 @@ $(document).ready(function(){
 
 		ingredients.each(function(index,value){ingredients_array.push(value)});
 		ingredients_string = ingredients_array.join(',');
+		ingredients_string = ingredients_string.replace(/^[,\s]+|[,\s]+$/g, '').replace(/,[,\s]*,/g, ',');
 	    // var valuesToSubmit = {ingredients: string_ingredients};
 	    var valuesToSubmit = {ingredients: ingredients_string};
+	    console.log("1-----------------");
 	    console.log(valuesToSubmit);
+	    console.log("1-----------------");
 
 	    $.ajax({
 	    	type: "GET",
@@ -102,47 +105,47 @@ $(document).ready(function(){
 	        	$(".loading").show();
 	        	$(".search-results, .swipe").hide();
 	        },
-	    	fail:function(){
-	    		console.log('fail');
-	    	},
-	    	success:function(){
-	    		$(".loading").hide();
-		    	$(".search-results, .swipe").show();
-		    	recipeCount = $('.search-results > div').length;
-		    	console.log('success, recipe count: ' + recipeCount);
-		    	var currentIndex = 0;
-		    	/* add the active class to the first item to hide all the others */
-		    	$('.search-results > div:eq(' + currentIndex + ')').addClass('active');
-		    	imageCallback();
-		    	flipCallback();
+	        fail:function(){
+	        	console.log('fail');
+	        },
+	        success:function(){
+	        	$(".loading").hide();
+	        	$(".search-results, .swipe").show();
+	        	recipeCount = $('.search-results > div').length;
+	        	console.log('success, recipe count: ' + recipeCount);
+	        	var currentIndex = 0;
+	        	/* add the active class to the first item to hide all the others */
+	        	$('.search-results > div:eq(' + currentIndex + ')').addClass('active');
+	        	imageCallback();
+	        	flipCallback();
 		    	// adds textfill to first result
 		    	$('.title').textfill({ maxFontPixels: 200 });
 
-			    var $firstRecipe 	= $('.active'),
-				    	recipeId 			= $firstRecipe.data("id"),
-					  	id 						= {id: recipeId};
+		    	var $firstRecipe 	= $('.active'),
+		    	recipeId 			= $firstRecipe.data("id"),
+		    	id 						= {id: recipeId};
 
 		    	$.ajax({
-						type: "GET",
+		    		type: "GET",
 				    url: '/show_recipe', //submits it to the given url of the form
 				    data: id,
 				    dataType: "SCRIPT" // you want a difference between normal and ajax-calls, and json is standard
-					}).success(function(){
-						$('.recipe-name', $firstRecipe).textfill({ maxFontPixels: 200 });
+				}).success(function(){
+					$('.recipe-name', $firstRecipe).textfill({ maxFontPixels: 200 });
 				});
 			}
-	    });
-	}
+		});
+}
 
-	recipeGet();
+recipeGet();
 
-	$('#ingredient').keypress(function(event){
-		if (event.which == 13) {
-			callback();
-		}       
-	});
+$('#ingredient').keypress(function(event){
+	if (event.which == 13) {
+		callback();
+	}       
+});
 
-	$("#add-ingredient").on('click', callback);
+$("#add-ingredient").on('click', callback);
 
 	//Add hover class to recipe thumb when hovering over buttons
 
@@ -195,13 +198,13 @@ $(document).ready(function(){
 	// $('.active .fav').click(function(event){
 	// 	$('.recipe-flip').removeClass('recipe-flip');
 	// });
-	
+
 	// super awesome swiping action
 	$('.swipe').on('click', function() {
 
 		$('.inner').removeClass('flipped');
 		var $active = $('.search-results > div.active'),
-				$isNext  = $(this).hasClass('right-swipe');
+		$isNext  = $(this).hasClass('right-swipe');
 		
 		currentIndex = ((currentIndex + ($isNext ? 1 : -1)) % recipeCount);
 
@@ -211,32 +214,32 @@ $(document).ready(function(){
     	currentIndex = recipeCount - 1;
     }
 
-     var $next 		= $('.search-results > div:eq(' + currentIndex + ')'),
-     		 recipeId = $next.data("id"),
-				 id 			= {id: recipeId};
+    var $next 		= $('.search-results > div:eq(' + currentIndex + ')'),
+    recipeId = $next.data("id"),
+    id 			= {id: recipeId};
 
-     $active.addClass($isNext ? 'next-out' : 'prev-out');
-     $next.addClass('active').addClass($isNext ? 'next-in' : 'prev-in');
-     var textfillTargetChild = currentIndex + 1;
-     $('.recipe-thumb:nth-child('+textfillTargetChild+') .title').textfill({ maxFontPixels: 200 });
+    $active.addClass($isNext ? 'next-out' : 'prev-out');
+    $next.addClass('active').addClass($isNext ? 'next-in' : 'prev-in');
+    var textfillTargetChild = currentIndex + 1;
+    $('.recipe-thumb:nth-child('+textfillTargetChild+') .title').textfill({ maxFontPixels: 200 });
 
-     $.ajax({
-				type: "GET",
+    $.ajax({
+    	type: "GET",
 		    url: '/show_recipe', //submits it to the given url of the form
 		    data: id,
 		    dataType: "SCRIPT" // you want a difference between normal and ajax-calls, and json is standard
-			}).success(function(){
-				$('.recipe-name', $next).textfill({ maxFontPixels: 200 });
-			});
+		}).success(function(){
+			$('.recipe-name', $next).textfill({ maxFontPixels: 200 });
+		});
 
-     imageCallback();
-     
-     setTimeout(function() { 
-     	$active.removeClass('active next-out prev-out');
-     	$next.removeClass('next-in prev-in');
-     }, 500);
-     return false;
- });
+		imageCallback();
+
+		setTimeout(function() { 
+			$active.removeClass('active next-out prev-out');
+			$next.removeClass('next-in prev-in');
+		}, 500);
+		return false;
+	});
 
 });
 
