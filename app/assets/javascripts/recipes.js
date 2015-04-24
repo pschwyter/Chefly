@@ -92,9 +92,7 @@ var callback = function(){
 		ingredients_string = ingredients_string.replace(/^[,\s]+|[,\s]+$/g, '').replace(/,[,\s]*,/g, ',');
 	    // var valuesToSubmit = {ingredients: string_ingredients};
 	    var valuesToSubmit = {ingredients: ingredients_string};
-	    console.log("1-----------------");
 	    console.log(valuesToSubmit);
-	    console.log("1-----------------");
 
 	    $.ajax({
 	    	type: "GET",
