@@ -23,7 +23,11 @@ function getCookie(cname) {
 function checkCookie() {
     var user=getCookie("username");
     if (user != "") {
-        alert("Welcome again " + user);
+        var template = $('#intro-card').html();
+        Mustache.parse(template);   // optional, speeds up future uses
+        var rendered = Mustache.render(template, {name: "Luke"});
+        $('.search-results').html(rendered);
+        // $('.search-results').prepend("<div>Test</div>");
     } else {
        user = prompt("Please enter your name:","");
        if (user != "" && user != null) {

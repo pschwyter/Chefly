@@ -36,6 +36,7 @@
 	</div>
 	<nav>
 		<h3 id="logo"><%= link_to "Chefly", root_path %></h3>
+		<h6 id="beta">beta</h6>
 		<% if current_user %>
 		<div class="sign-out">
 			<div class="user-image"><%= image_tag current_user.avatar %><%= current_user.name.split(' ')[0] %></div>

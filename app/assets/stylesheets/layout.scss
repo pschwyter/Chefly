@@ -113,6 +113,19 @@ nav h3 a {
 	display: inline-block;
 }
 
+#beta {
+	padding: 1px 5px;
+	background-color: orange;
+	color: white;
+	display: inline-block;
+	margin: 0;
+	margin-left: 5px;
+	border-radius: 4px;
+	position: absolute;
+	bottom: 5px;
+	font-weight: 100;
+}
+
 #sign-in {
 	z-index: 1;
 	background-color: transparent;
@@ -705,6 +718,12 @@ i.info:hover {
 	width: 200px;
 	border-radius: 50%;
 	border: 8px solid $dark-grey;
+}
+
+.intro-card {
+	height: 400px;
+	width: 600px;
+	background-color: green;
 }
 
 // Media queries

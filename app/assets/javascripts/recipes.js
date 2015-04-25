@@ -130,6 +130,8 @@ var callback = function(){
 				    dataType: "SCRIPT" // you want a difference between normal and ajax-calls, and json is standard
 				}).success(function(){
 					$('.recipe-name', $firstRecipe).textfill({ maxFontPixels: 200 });
+					checkCookie();
+					
 				});
 			}
 		});
