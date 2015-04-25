@@ -2,6 +2,47 @@ $(document).ready(function(){
 
 	var recipeCount = 10;
 
+	var favouritingCallback = function() {
+
+		$('.unfav-button').on('click', function() {
+			var $recipe_id = $(this).data('recipe-id')
+					, $recipeContainer = $(this).parent()
+					;
+
+			$('button', $recipeContainer).removeClass('fa-heart');
+			$('button', $recipeContainer).removeClass('unfav-button');
+			$('i', $recipeContainer).removeClass('fa-heart-o');
+			$('button', $recipeContainer).addClass('fav-button');
+			$('button', $recipeContainer).addClass('fa-heart-o');
+			$('i', $recipeContainer).addClass('fa-heart');
+
+			$.ajax({
+				method: 'DELETE',
+				url: '/favourite_recipe',
+				data: { favourite: {recipe_id: $recipe_id} }
+			});
+		});
+
+		$('.fav-button').on('click', function() {
+			var $recipe_id = $(this).data('recipe-id')
+					, $recipeContainer = $(this).parent()
+					;
+
+			$('button', $recipeContainer).removeClass('fa-heart-o');
+			$('button', $recipeContainer).removeClass('fav-button');
+			$('button', $recipeContainer).addClass('unfav-button');
+			$('button', $recipeContainer).addClass('fa-heart');
+			$('i', $recipeContainer).addClass('fa-heart-o');
+			$('i', $recipeContainer).removeClass('fa-heart');
+
+			$.ajax({
+				method: 'POST',
+				url: '/favourite_recipe',
+				data: { favourite: {recipe_id: $recipe_id} }
+			});
+		});
+	}
+
 	var flipCallback = function() {
 		$('.recipe-flip').on('click', function(event){
 			var target = $(event.target);
@@ -12,49 +53,15 @@ $(document).ready(function(){
 				var id = {id: recipeId};
 			}
 
-			$('.unfav-button').on('click', function() {
-				var $recipe_id = $(this).data('recipe-id'),
-				$recipeContainer = $(this).parent()
-				;
-
-				$.ajax({
-					method: 'DELETE',
-					url: '/favourite_recipe',
-					data: { favourite: {recipe_id: $recipe_id} }
-				}).done(function () {
-					$('button', $recipeContainer).removeClass('fa-heart');
-					$('button', $recipeContainer).removeClass('unfav-button');
-					$('i', $recipeContainer).removeClass('fa-heart-o');
-					$('button', $recipeContainer).addClass('fav-button');
-					$('button', $recipeContainer).addClass('fa-heart-o');
-					$('i', $recipeContainer).addClass('fa-heart');
-				});
-			});
-
-			$('.fav-button').on('click', function() {
-				var $recipe_id = $(this).data('recipe-id'),
-				$recipeContainer = $(this).parent()
-				;
-				$.ajax({
-					method: 'POST',
-					url: '/favourite_recipe',
-					data: { favourite: {recipe_id: $recipe_id} }
-				}).done(function () {
-					$('button', $recipeContainer).removeClass('fa-heart-o');
-					$('button', $recipeContainer).removeClass('fav-button');
-					$('button', $recipeContainer).addClass('unfav-button');
-					$('button', $recipeContainer).addClass('fa-heart');
-					$('i', $recipeContainer).addClass('fa-heart-o');
-					$('i', $recipeContainer).removeClass('fa-heart');
-				});
-			});
+			favouritingCallback();
 		});
-}
+	}
+	
 
-var callback = function(){
-	var ingredient = $('#ingredient').val();
-	$('#ingredient').val('');
-	$('#ingredient-box').append('<div class="tag-box"><button type="button" class="ingredient-in-box tag" data-ingredient='+ ingredient +'>' + ingredient + '</button></div>');
+	var callback = function(){
+		var ingredient = $('#ingredient').val();
+		$('#ingredient').val('');
+		$('#ingredient-box').append('<div class="tag-box"><button type="button" class="ingredient-in-box tag" data-ingredient='+ ingredient +'>' + ingredient + '</button></div>');
 
 		// need to add click-to-remove each time an ingredient is added 
 		$('button.ingredient-in-box').on('click', function(){
@@ -90,50 +97,51 @@ var callback = function(){
 		ingredients.each(function(index,value){ingredients_array.push(value)});
 		ingredients_string = ingredients_array.join(',');
 		ingredients_string = ingredients_string.replace(/^[,\s]+|[,\s]+$/g, '').replace(/,[,\s]*,/g, ',');
-	    // var valuesToSubmit = {ingredients: string_ingredients};
-	    var valuesToSubmit = {ingredients: ingredients_string};
-	    console.log(valuesToSubmit);
+    // var valuesToSubmit = {ingredients: string_ingredients};
+    var valuesToSubmit = {ingredients: ingredients_string};
+    console.log(valuesToSubmit);
 
-	    $.ajax({
-	    	type: "GET",
-	        // url: "/recipes", //sumbits it to the given url of the form
-	        data: valuesToSubmit,
-	        dataType: "SCRIPT", // you want a difference between normal and ajax-calls, and json is standard
-	        beforeSend:function(){
-	        	$(".loading").show();
-	        	$(".search-results, .swipe").hide();
-	        },
-	        fail:function(){
-	        	console.log('fail');
-	        },
-	        success:function(){
-	        	$(".loading").hide();
-	        	$(".search-results, .swipe").show();
-	        	recipeCount = $('.search-results > div').length;
-	        	console.log('success, recipe count: ' + recipeCount);
-	        	var currentIndex = 0;
-	        	/* add the active class to the first item to hide all the others */
-	        	$('.search-results > div:eq(' + currentIndex + ')').addClass('active');
-	        	imageCallback();
-	        	flipCallback();
-		    	// adds textfill to first result
-		    	$('.title').textfill({ maxFontPixels: 200 });
+    $.ajax({
+    	type: "GET",
+      url: "/recipes", //sumbits it to the given url of the form
+      data: valuesToSubmit,
+      dataType: "SCRIPT", // you want a difference between normal and ajax-calls, and json is standard
+      beforeSend:function(){
+      	$(".loading").show();
+      	$(".search-results, .swipe").hide();
+      },
+      fail:function(){
+      	console.log('fail');
+      },
+      success:function(){
+      	$(".loading").hide();
+      	$(".search-results, .swipe").show();
+      	recipeCount = $('.search-results > div').length;
+      	console.log('success, recipe count: ' + recipeCount);
+      	var currentIndex = 0;
+      	/* add the active class to the first item to hide all the others */
+      	$('.search-results > div:eq(' + currentIndex + ')').addClass('active');
+      	imageCallback();
+      	flipCallback();
+      	favouritingCallback();
+	    	// adds textfill to first result
+	    	$('.title').textfill({ maxFontPixels: 200 });
 
-		    	var $firstRecipe 	= $('.active'),
-		    	recipeId 			= $firstRecipe.data("id"),
-		    	id 						= {id: recipeId};
+	    	var $firstRecipe 	= $('.active'),
+	    	recipeId 			= $firstRecipe.data("id"),
+	    	id 						= {id: recipeId};
 
-		    	$.ajax({
-		    		type: "GET",
-				    url: '/show_recipe', //submits it to the given url of the form
-				    data: id,
-				    dataType: "SCRIPT" // you want a difference between normal and ajax-calls, and json is standard
+	    	$.ajax({
+	    		type: "GET",
+			    url: '/show_recipe', //submits it to the given url of the form
+			    data: id,
+			    dataType: "SCRIPT" // you want a difference between normal and ajax-calls, and json is standard
 				}).success(function(){
 					$('.recipe-name', $firstRecipe).textfill({ maxFontPixels: 200 });
 				});
 			}
 		});
-}
+	}
 
 recipeGet();
 
@@ -190,6 +198,11 @@ $("#add-ingredient").on('click', callback);
 				$('.right-swipe').click();
 				return;
 			}
+
+			if (event.which == 40) {
+				event.preventDefault();
+				$('.active button.fav').click();
+			}
 		}
 	});
 
@@ -240,13 +253,3 @@ $("#add-ingredient").on('click', callback);
 	});
 
 });
-
-
-
-
-
-
-
-
-
-
