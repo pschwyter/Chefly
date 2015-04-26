@@ -80,10 +80,20 @@ $(document).ready(function(){
 		if (imgLeft < 1) { imgLeft = recipeCount; }
 
 		var imageUrlRight = $(".search-results .recipe-thumb:nth-child(" + imgRight + ") .inner img").attr('src');
-		$('.right-swipe').css('background-image', 'url(' + imageUrlRight + ')');
-
 		var imageUrlLeft = $(".search-results .recipe-thumb:nth-child(" + imgLeft + ") .inner img").attr('src');
-		$('.left-swipe').css('background-image', 'url(' + imageUrlLeft + ')');
+		
+		if (typeof imageUrlRight != "undefined") {
+			$('.right-swipe').css('background-image', 'url(' + imageUrlRight + ')');
+		} else {
+			console.log("yolo");
+			$('.right-swipe').css('background-image', 'url("assets/info-icon.png")');
+		}
+
+		if (typeof imageUrlLeft != "undefined") {
+			$('.left-swipe').css('background-image', 'url(' + imageUrlLeft + ')');
+		} else {
+			$('.left-swipe').css('background-image', 'url("assets/info-icon.png")');
+		}
 	}
 
 	var recipeGet = function() {
