@@ -124,6 +124,7 @@ $(document).ready(function(){
       	$(".loading").hide();
       	$(".search-results, .swipe").show();
       	checkCookie();
+
       	recipeCount = $('.search-results > div').length;
       	console.log('success, recipe count: ' + recipeCount);
       	var currentIndex = 0;
@@ -214,10 +215,6 @@ $("#add-ingredient").on('click', callback);
 		}
 	});
 
-	// $('.active .fav').click(function(event){
-	// 	$('.recipe-flip').removeClass('recipe-flip');
-	// });
-
 	// super awesome swiping action
 	$('.swipe').on('click', function() {
 
@@ -260,4 +257,11 @@ $("#add-ingredient").on('click', callback);
 		return false;
 	});
 
+	setTimeout(function(){
+		$('#get-started span').on('click', function(){
+			console.log('yolo');
+			$('.right-swipe').click();
+		});
+	}, 1000);
 });
+

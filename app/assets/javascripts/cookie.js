@@ -1,5 +1,3 @@
-checkCookie();
-
 function setCookie(cname,cvalue,exdays) {
     var d = new Date();
     d.setTime(d.getTime() + (exdays*24*60*60*1000));
@@ -22,16 +20,15 @@ function getCookie(cname) {
 
 function checkCookie() {
     var user=getCookie("username");
-    if (user != "") {
+    if (user == "") {
         var template = $('#intro-card').html();
         Mustache.parse(template);   // optional, speeds up future uses
-        var rendered = Mustache.render(template, {name: "Luke"});
+        var rendered = Mustache.render(template);
         $('.search-results').prepend(rendered);
-        // $('.search-results').prepend("<div>Test</div>");
+
+        user = "olduser";
+        setCookie("username", user, 365);
     } else {
-       user = prompt("Please enter your name:","");
-       if (user != "" && user != null) {
-           setCookie("username", user, 365);
-       }
+
     }
 }
