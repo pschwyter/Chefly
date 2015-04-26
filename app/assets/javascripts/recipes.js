@@ -1,7 +1,5 @@
 $(document).ready(function(){
 
-	var recipeCount = 10;
-
 	var favouritingCallback = function() {
 
 		$('.unfav-button').on('click', function() {
@@ -24,9 +22,7 @@ $(document).ready(function(){
 		});
 
 		$('.fav-button').on('click', function() {
-			var $recipe_id = $(this).data('recipe-id')
-					, $recipeContainer = $(this).parent()
-					;
+			var $recipe_id = $(this).data('recipe-id'), $recipeContainer = $(this).parent();
 
 			$('button', $recipeContainer).removeClass('fa-heart-o');
 			$('button', $recipeContainer).removeClass('fav-button');

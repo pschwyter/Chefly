@@ -304,7 +304,7 @@ i.fa.fa-facebook {
 	-webkit-transform: rotatey(-180deg);
 }
 
-.inner {
+.inner, .inner-intro {
 	height: 100%;
 	width: 100%;
 	border-radius: 5px;
@@ -348,7 +348,7 @@ i.fa.fa-facebook {
 }
 
 .recipe-thumb.hover {
-	.inner {
+	.inner, .inner-intro {
 		transition: .3s;
 		-webkit-transition: .3s;
 		transform: rotateY(3deg);
@@ -357,7 +357,7 @@ i.fa.fa-facebook {
 }
 
 .recipe-thumb.hover2 {
-	.inner {
+	.inner, .inner-intro {
 		transition: .3s; 
 		-webkit-transition: .3s;
 		transform: rotateY(-3deg);
@@ -721,8 +721,6 @@ i.info:hover {
 }
 
 .intro-card {
-	height: 400px;
-	width: 600px;
 	background-color: green;
 }
 
