@@ -109,6 +109,7 @@ var callback = function(){
 	        success:function(){
 	        	$(".loading").hide();
 	        	$(".search-results, .swipe").show();
+	        	checkCookie();
 	        	recipeCount = $('.search-results > div').length;
 	        	console.log('success, recipe count: ' + recipeCount);
 	        	var currentIndex = 0;
@@ -130,8 +131,6 @@ var callback = function(){
 				    dataType: "SCRIPT" // you want a difference between normal and ajax-calls, and json is standard
 				}).success(function(){
 					$('.recipe-name', $firstRecipe).textfill({ maxFontPixels: 200 });
-					checkCookie();
-					
 				});
 			}
 		});
