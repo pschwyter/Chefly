@@ -312,6 +312,8 @@ i.fa.fa-facebook {
 	-webkit-transition: 0.5s;
 	transform-style: preserve-3d;
 	-webkit-transform-style: preserve-3d;
+	transform: rotateY(0deg);
+	-webkit-transform: rotateY(0deg);
 }
 
 .face {
@@ -349,8 +351,8 @@ i.fa.fa-facebook {
 
 .recipe-thumb.hover {
 	.inner, .inner-intro {
-		transition: .3s;
-		-webkit-transition: .3s;
+		transition: .5s;
+		-webkit-transition: .5s;
 		transform: rotateY(3deg);
 		-webkit-transform: rotateY(3deg);
 	}
@@ -358,8 +360,8 @@ i.fa.fa-facebook {
 
 .recipe-thumb.hover2 {
 	.inner, .inner-intro {
-		transition: .3s; 
-		-webkit-transition: .3s;
+		transition: .5s; 
+		-webkit-transition: .5s;
 		transform: rotateY(-3deg);
 		-webkit-transform: rotateY(-3deg);
 	}
