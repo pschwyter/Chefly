@@ -230,9 +230,9 @@ $("#add-ingredient").on('click', callback);
     	currentIndex = recipeCount - 1;
     }
 
-    var $next 		= $('.search-results > div:eq(' + currentIndex + ')'),
-    recipeId = $next.data("id"),
-    id 			= {id: recipeId};
+    var $next = $('.search-results > div:eq(' + currentIndex + ')'),
+    recipeId 	= $next.data("id"),
+    id 				= {id: recipeId};
 
     $active.addClass($isNext ? 'next-out' : 'prev-out');
     $next.addClass('active').addClass($isNext ? 'next-in' : 'prev-in');
@@ -256,12 +256,5 @@ $("#add-ingredient").on('click', callback);
 		}, 500);
 		return false;
 	});
-
-	setTimeout(function(){
-		$('#get-started span').on('click', function(){
-			console.log('yolo');
-			$('.right-swipe').click();
-		});
-	}, 1000);
 });
 
