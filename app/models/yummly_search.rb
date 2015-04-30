@@ -22,7 +22,7 @@ class YummlySearch
 	end
 
 	def self.all(options = {})
-		response = get("/v1/api/recipes?_app_id=#{@app_id}&_app_key=#{@api_key}", {query: options})
+		response = get("/v1/api/recipes?_app_id=#{@app_id}&_app_key=#{@api_key}&maxResult=25", {query: options})
 
 		response["matches"].map do |r|
 			YummlySearch.new(r)
@@ -33,7 +33,7 @@ class YummlySearch
 
 		included_ingredients_string = parse_ingredients(ingredients)
 
-		response = get("/v1/api/recipes?_app_id=#{@app_id}&_app_key=#{@api_key}&#{included_ingredients_string}&requirePictures=true")
+		response = get("/v1/api/recipes?_app_id=#{@app_id}&_app_key=#{@api_key}&#{included_ingredients_string}&requirePictures=true&maxResult=25")
 
 		response["matches"].map do |yummly_recipe|
 			new_recipe = Recipe.find_or_create_by(recipe_id: yummly_recipe['id']) do |r|
