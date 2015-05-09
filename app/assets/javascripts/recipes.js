@@ -2,40 +2,39 @@ $(document).ready(function(){
 
 	var favouritingCallback = function() {
 
-		$('.unfav-button').on('click', function() {
-			var $recipe_id = $(this).data('recipe-id')
-					, $recipeContainer = $(this).parent()
-					;
+		$('.fav').on('click', function(e) {
+			e.preventDefault();
+			e.stopPropagation();
+			var $self = $(this)
+				, $recipe_id = $(this).data('recipe-id')
+				, $recipeContainer = $(this).parent()
+				;
+			if ($self.hasClass('fav-button')) {
+				$('button', $recipeContainer).removeClass('fa-heart-o');
+				$('button', $recipeContainer).removeClass('fav-button');
+				$('button', $recipeContainer).addClass('unfav-button');
+				$('button', $recipeContainer).addClass('fa-heart');
+				$('i', $recipeContainer).addClass('fa-heart-o');
+				$('i', $recipeContainer).removeClass('fa-heart');
+				$.ajax({
+					method: 'POST',
+					url: '/favourite_recipe',
+					data: { favourite: {recipe_id: $recipe_id} }
+				});
+			} else if ($self.hasClass('unfav-button')) {
+				$('button', $recipeContainer).removeClass('fa-heart');
+				$('button', $recipeContainer).removeClass('unfav-button');
+				$('button', $recipeContainer).addClass('fav-button');
+				$('button', $recipeContainer).addClass('fa-heart-o');
+				$('i', $recipeContainer).addClass('fa-heart');
+				$('i', $recipeContainer).removeClass('fa-heart-o');
 
-			$('button', $recipeContainer).removeClass('fa-heart');
-			$('button', $recipeContainer).removeClass('unfav-button');
-			$('i', $recipeContainer).removeClass('fa-heart-o');
-			$('button', $recipeContainer).addClass('fav-button');
-			$('button', $recipeContainer).addClass('fa-heart-o');
-			$('i', $recipeContainer).addClass('fa-heart');
-
-			$.ajax({
-				method: 'DELETE',
-				url: '/favourite_recipe',
-				data: { favourite: {recipe_id: $recipe_id} }
-			});
-		});
-
-		$('.fav-button').on('click', function() {
-			var $recipe_id = $(this).data('recipe-id'), $recipeContainer = $(this).parent();
-
-			$('button', $recipeContainer).removeClass('fa-heart-o');
-			$('button', $recipeContainer).removeClass('fav-button');
-			$('button', $recipeContainer).addClass('unfav-button');
-			$('button', $recipeContainer).addClass('fa-heart');
-			$('i', $recipeContainer).addClass('fa-heart-o');
-			$('i', $recipeContainer).removeClass('fa-heart');
-
-			$.ajax({
-				method: 'POST',
-				url: '/favourite_recipe',
-				data: { favourite: {recipe_id: $recipe_id} }
-			});
+				$.ajax({
+					method: 'DELETE',
+					url: '/favourite_recipe',
+					data: { favourite: {recipe_id: $recipe_id} }
+				});	
+			}
 		});
 	}
 
