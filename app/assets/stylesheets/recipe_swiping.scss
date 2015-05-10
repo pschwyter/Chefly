@@ -8,9 +8,7 @@
 
   img {
     height: 15px;
-    margin-left: -8px;
-    z-index: -1;
-    position: relative;
+    margin-left: -3px;
   }
 }
 
@@ -38,21 +36,21 @@
 
 // Media Queries
 
-@media screen and (max-height: 751px) {
-  .search-results > div {
-    top: 0;
-    margin-top: 176px;
-  }
-}
+// @media screen and (max-height: 751px) {
+//   .search-results > div {
+//     top: 0;
+//     margin-top: 176px;
+//   }
+// }
 
-@media screen and (max-height: 751px) and (max-width: 1024px) {
+// @media screen and (max-height: 751px) and (max-width: 1024px) {
 
-  .search-results > div {
-    top: initial;
-    bottom: 10px;
-  }
+//   .search-results > div {
+//     top: initial;
+//     bottom: 10px;
+//   }
 
-}
+// }
 
 // Recipe Card Animations
 
