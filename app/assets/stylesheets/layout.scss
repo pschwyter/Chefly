@@ -682,8 +682,9 @@ i.info:hover {
 }
 
 .info-text {
-	width: 30%;
-	max-width: 300px;
+	width: 35%;
+	min-width: 315px;
+	max-width: 350px;
 	color: white;
 	display: inline-block;
 }
@@ -697,7 +698,7 @@ i.info:hover {
 }
 
 .info-body {
-	text-align: justify;
+	text-align: left;
 	line-height: 1.5;
 }
 
