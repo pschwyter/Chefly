@@ -37,7 +37,7 @@ class YummlySearch
 
 		response["matches"].map do |yummly_recipe|
 			new_recipe = Recipe.find_or_create_by(recipe_id: yummly_recipe['id']) do |r|
-				# binding.pry
+
 				r.recipe_id = yummly_recipe['id']
 				r.save
 				

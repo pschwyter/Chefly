@@ -35,8 +35,6 @@
 		</ul>
 	</div>
 	<div class="button-container">
-		<form action=<%= @recipe.source_recipe_url %> target="_blank">
-	    	<input class="recipe-button" type="submit" value="View Full Recipe">
-		</form>
+		<%= link_to "View full recipe at @ #{@recipe.source_display_name}", @recipe.source_recipe_url, class: "recipe-button", target: "_blank" %>
 	</div>
 </div>
