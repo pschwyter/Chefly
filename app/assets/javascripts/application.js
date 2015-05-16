@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui
+//= slick.js
 //= require react
 //= require react_ujs
 //= require components

@@ -32,6 +32,8 @@ $visual-grid-opacity: 0.1;
 @import "recipe_back";
 @import "favourites";
 @import "recipe_modal";
+@import "slick.css";
+@import "slick-theme.css";
 
 .content {
 	@include outer-container;
