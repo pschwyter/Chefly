@@ -33,7 +33,12 @@ $visual-grid-opacity: 0.1;
 @import "favourites";
 @import "recipe_modal";
 @import "slick.css";
-@import "slick-theme.css";
+@import "slick-theme";
+@import "carousel";
+
+body {
+	overflow: hidden;
+}
 
 .content {
 	@include outer-container;
